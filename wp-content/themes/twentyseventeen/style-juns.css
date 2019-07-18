@@ -895,6 +895,7 @@ padding-top: 12%;
 .cf h4{
 	padding: 0px;
 	color: #004584;
+  margin: 5px;
 }
 
 .cf input[type="text"], .cf input[type="tel"], .cf input[type="email"]{
@@ -916,6 +917,154 @@ padding-top: 12%;
     text-align: center;
 }
 
+.bimgdetevent {
+    -webkit-box-shadow: -25px -25px 0px -3px rgba(0,70,132,1);
+    -moz-box-shadow: -25px -25px 0px -3px rgba(0,70,132,1);
+    box-shadow: -25px -25px 0px -3px rgba(0,70,132,1);
+  }
+
+.conteventdeta{
+    width: 61%;
+    margin-top: -135px;     
+    float: right;   
+    -webkit-box-shadow: 0px 2px 8px 1px rgba(0,0,0,0.36);
+    -moz-box-shadow: 0px 2px 8px 1px rgba(0,0,0,0.36);
+    box-shadow: 0px 2px 8px 1px rgba(0,0,0,0.36);
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    position: relative;
+}
+
+.fechadet {
+    font-size: 12px;    
+    color: #5C6167;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight:bold;
+}
+
+.cend {
+  margin: 0px auto;
+}
+
+.containerdett2 {
+    display: inline-block;
+    width: 100%;
+}
+.descdetevento {
+  margin-top: 15px;
+}
+.spandatosevento{
+    font-size: 12px;
+    padding-top: 3px;
+    color: #5C6167;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+.separadorgris {
+    background: #c8c8c8;
+    height: 2px;
+    opacity: 0.2;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.topdiez {
+  margin-top: 10px;
+}
+
+.spandatosevento i{
+  margin-right: 5px;
+  color: #004584;
+}
+
+.marcoabajo {
+    height: 62%;
+    position: absolute;    
+    width: 39%;    
+    border-right: 9px solid #50acff;
+    border-left: 9px solid #50acff;
+    border-bottom: 9px solid #50acff;
+    margin-left: 15%;
+}
+
+.marcoabajo2 {
+    height: 62%;
+    position: absolute;
+    width: 55%;
+    border-right: 9px solid #50acff;
+    border-left: 9px solid #50acff;
+    border-bottom: 9px solid #50acff;
+    margin-left: 70%;
+
+}
+
+.marcoabajo3 {
+    height: 40%;
+    position: absolute;
+    width: 39%;
+    border-right: 9px solid #50acff;
+    border-left: 9px solid #50acff;
+    border-bottom: 9px solid #50acff;
+    margin-left: 15%;
+
+}
+
+.titrojo{
+    color: #C9012B;
+    font-weight: bold;
+}
+
+.inpcan
+{
+    padding: 0px !important;
+    margin: 0px auto !important;
+    width: 50% !important;
+}
+.cf input[type=checkbox]{
+    margin-top: 35%;
+    -ms-transform: scale(2);
+    -moz-transform: scale(2);
+    -webkit-transform: scale(2);
+    -o-transform: scale(2);
+    transform: scale(2);
+}
+  
+.checkrecoger span, .rowe span{
+  color : #004584;
+  font-weight: bold;
+}  
+.rowe span{
+  display: inline-block;
+  margin-top: 20px;
+  font-size: 15px;
+}
+
+.t1 {
+  font-size: 17px !important;
+}
+
+.tarjeta {
+  width: 70% !important;
+  margin-top: 10px;
+}
+.rowe p{
+  margin-bottom: 0px;
+}
+
+.textcvv  {
+    color: #A5A5A5 !important;
+    font-size: 11px !important;
+    width: 70%;
+    margin-top: 14px !important;
+}
+
+.rowe{
+  margin-bottom: 10px;
+}
+
+.cformev select {
+  width: 100%;
+}
 
 /*
 .listred li:before{

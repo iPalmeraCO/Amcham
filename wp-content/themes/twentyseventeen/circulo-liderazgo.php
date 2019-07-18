@@ -84,7 +84,6 @@ get_header(); ?>
 					      			<div class="btnvermas"><a class="btn-vermas" data-toggle="modal" href="#modal-<?php echo get_the_ID(); ?>"><span class="texto-btn">Ver más</span><span class="separador">|</span><span class="estilo-mas">+</span></a></div>
 					      		</div>
 					      	</div>
-					      	</div>
 					      </div>
 					      <?php $boxrow = 'cerrado'; ?>
 					    <?php } ?>     				

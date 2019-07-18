@@ -286,6 +286,76 @@
 .marginusatop {
     margin-top: 132px;
 }
+.margintit{
+    margin: 56px 0px;
+}
+.margintit .linea-roja, .linperfiles .linea-roja{
+    display: inline-block;
+}
+
+/*perfiles de estado*/
+.borderazulclaro{
+    border: 9px solid #50acff;
+    width: 58%;
+    position: relative;
+    height: 100%;
+    padding-bottom: 49px;
+    margin-top: 58px;
+}
+.interesnegocios{
+    width: 169%;
+    background: #F9F9F9;
+    padding: 13px;
+    margin-left: 42px;
+    margin-top: -70px;
+    padding-right: 80px;
+
+}
+.linperfiles{
+    text-align: right;
+    margin-right: -75px;
+    margin-top: 30px;
+}
+.elimbr br {
+    display: none;
+}
+.listdoscolum{
+    column-count: 2;
+    /*list-style: none;     */
+}
+.listdoscolum li{
+    /*line-height: 26px;*/
+    margin-right: 20px; 
+}
+/*.listdoscolum li:before {
+    content: "•";
+    color: #a01d3d;
+    font-size: 29px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 15px;
+}*/
+.contentperfil{
+    padding-top: 17px;
+}
+.contentperfil img{
+    margin: 0 auto;
+}
+.contentlist{
+    width: 100%;
+    padding-left: 101px;
+    text-align: left;
+    padding-top: 22px;
+    color: #A5A5A5;
+    font-size: 15px;
+}
+.contentperfil > p{
+    text-align: center;
+    width: 100%;
+}
+.margindesper{
+    margin-bottom: 20px;
+}
 @media (min-width: 576px){
 	.modal-dialog {
 	    max-width: 1036px!important;

@@ -52,7 +52,6 @@ get_header(); ?>
 					      		</div>
 					      	</div>
 					      	</div>
-					      </div>
 					      <?php $boxrow = 'cerrado'; ?>
 					    <?php } ?>     				
         			<?php $contador++;
@@ -84,7 +83,7 @@ get_header(); ?>
 			            if ($paged != 1){        
 			              $n = $paged - 1;      
 			              
-			                echo '<li><a class="prevconta" href="'.get_site_url()."/circulo-de-liderazgo/page/".$n.'"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>';
+			                echo '<li><a class="prevconta" href="'.get_site_url()."/usa-outlook/page/".$n.'"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>';
 			                          
 			            } else {
 			              // echo '<li><a class="prev page-numbers" href="#"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>';              
@@ -98,14 +97,14 @@ get_header(); ?>
 			                $class = "";
 			              }
 			              
-			                 echo "<li class='".$class." element'><a href='".get_site_url()."/circulo-de-liderazgo/page/".$cont."'>".$cont."</a></li>";
+			                 echo "<li class='".$class." element'><a href='".get_site_url()."/usa-outlook/page/".$cont."'>".$cont."</a></li>";
 			             
 			              $cont ++;
 			            }
 			            if ($paged != $total_pages){
 			              $n = $paged + 1;
 			              
-			                echo '<li><a class="nextconta" href="'.get_site_url()."/circulo-de-liderazgo/page/".$n.'"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>';
+			                echo '<li><a class="nextconta" href="'.get_site_url()."/usa-outlook/page/".$n.'"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>';
 			              
 			              
 			            } else {
