@@ -12,8 +12,8 @@ get_header(); ?>
 		</div> 
 	</div>
 	<div class="container linea-roja linerojacirculo"></div>
-	<div class="container containerpages">
-		<div class="center">
+	<div class="container">
+		<div class="center mtop7">
 			<h3>Patrocinadores</h3>	
 		</div>
 		<div>
@@ -66,7 +66,7 @@ get_header(); ?>
         				<?php if(($contador % 2)!= 0) { ?>
 					      <div class="row">
 					      	<?php $boxrow = 'abierto'; ?>
-					      	<div class="col-md-6 margincircutop">
+					      	<div class="col-md-6 margincircutop" id="c<?= $post->ID; ?>">
 					      		<div class="imagencircu"><?php if (has_post_thumbnail() ) :  the_post_thumbnail('large'); endif; ?></div>
 					      		<div class="contentcircu">
 					      			<h3><?php the_title(); ?></h3>
@@ -76,7 +76,7 @@ get_header(); ?>
 					      	</div>
 					    <?php }
 					    if(($contador % 2)== 0) { ?>
-					    	<div class="col-md-6 margincircu margincircutop">
+					    	<div class="col-md-6 margincircu margincircutop" id="c<?= $post->ID; ?>">
 					      		<div class="imagencircu"><?php if (has_post_thumbnail() ) :  the_post_thumbnail('large'); endif; ?></div>
 					      		<div class="contentcircu">
 					      			<h3><?php the_title(); ?></h3>

@@ -63,7 +63,7 @@ get_header(); ?>
 			  				<div class="separadorgris topdiez"></div>
 			  				<div class="row">			  					
 			  					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 alright datosevento">
-			  						<div class="alright topdiez"><a class="btn-vermas" href="#"><span class="texto-btn">Siguiente</span><span class="separador">|</span><span class="estilo-mas">+</span></a></div>
+			  						<div class="alright topdiez"><a class="btn-vermas" href="#"><span class="texto-btn">Siguiente</span><span class="separador">|</span><span class="estilo-mas">></span></a></div>
 			  					</div>
 			  				</div>
 			      			

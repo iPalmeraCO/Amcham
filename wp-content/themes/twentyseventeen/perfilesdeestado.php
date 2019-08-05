@@ -20,7 +20,7 @@ get_header(); ?>
 			<?php 
 				$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 				$args  = array(
-			       'cat' => 6,
+			       'cat' => 7,
 			       'post_type' => 'post',
 			       'posts_per_page' =>5,
 			       'orderby'=>'date', 
@@ -38,23 +38,43 @@ get_header(); ?>
 					      	<?php $boxrow = 'abierto'; ?>
 					      	<div class="col-md-6 margincircutop paddingoutl">
 					      		<div class="imagencircu imgusa"><?php if (has_post_thumbnail() ) :  the_post_thumbnail('large'); endif; ?></div>
-					      		<div class="contentcircu">
+					      		<?php 
+					      			if ($contador ==3 ) { ?>
+					      				<div class="marcoizquierdopostuno"></div>
+					      			<?php }
+					      		?>
+					      		<div class="contentcircu" style="text-align: center;">
 					      			<h3><?php the_title(); ?></h3>
 					      			<p><?php the_excerpt(); ?></p>
 					      			<div class="btnvermas">
-					      				<a class="btn-vermas"  href="<?php echo get_permalink(); ?>"><span class="texto-btn">Descargar</span><span class="separador">|</span><span class="estilo-mas">+</span></a>
+					      				<a class="btn-vermas"  target="_blank" href="<?php echo get_post_meta($post->ID, 'link_descarga', true); ?>"><span class="texto-btn">Descargar</span><span class="separador">|</span><span class="estilo-mas">+</span></a>
 					      			</div>
 					      		</div>
+					      		<?php 
+					      			if ($contador == 1 ) { ?>
+					      				<div class="marcoizquierdoposttres"></div>
+					      			<?php }
+					      		?>
 					      	</div>
 					    <?php }
 					    if(($contador % 2)== 0) { ?>
 					    	<div class="col-md-6 marginusatop paddingoutl">
+					    		<?php 
+					      			if ($contador == 4 ) { ?>
+					      				<div>
+					      			<?php }
+					      		?>
 					      		<div class="imagencircu imgusa imgusa2"><?php if (has_post_thumbnail() ) :  the_post_thumbnail('large'); endif; ?></div>
-					      		<div class="contentcircu">
+					      		<div class="contentcircu" style="text-align: center;">
 					      			<h3><?php the_title(); ?></h3>
 					      			<p><?php the_excerpt(); ?></p>
-					      			<div class="btnvermas"><a class="btn-vermas"  href="<?php echo get_permalink(); ?>"><span class="texto-btn">Descargar</span><span class="separador">|</span><span class="estilo-mas">+</span></a></div>
+					      			<div class="btnvermas"><a class="btn-vermas"  target="_blank" href="<?php echo get_post_meta($post->ID, 'link_descarga', true); ?>"><span class="texto-btn">Descargar</span><span class="separador">|</span><span class="estilo-mas">+</span></a></div>
 					      		</div>
+					      		<?php 
+					      			if ($contador == 4 ) { ?>
+					      				</div>
+					      			<?php }
+					      		?>
 					      	</div>
 					      	</div>
 					      <?php $boxrow = 'cerrado'; ?>

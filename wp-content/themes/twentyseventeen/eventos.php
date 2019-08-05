@@ -11,14 +11,28 @@ get_header(); ?>
 </div>
 <div class="container">
 	<?php 
-		$total = 4;
+
+	 $args  = array(
+       
+       'orderby' => 'date',
+       'post_type' => 'product',
+       'posts_per_page' => -1
+   );
+   $r     = new WP_Query($args);
+   
+   //print_r($r);
+
+		$total = $r;
 		$contador = 1;
-		while ( $contador <= $total) {
+		while ($r->have_posts()) :
+        $r->the_post();     
+        global $product;                   
+       
 			 if(($contador % 2)!= 0) { ?>
 				<div class="row">
 					<div class="col-md-6 margineventop paddingevents">
 			      		<div class="imagenevent"><img src="<?php echo get_site_url(); ?>/wp-content/uploads/2019/07/blog-img-4.jpg">
-			      			<div class="fechaevento">2019-00-00</div>
+			      			<div class="fechaevento"><?php echo $product->get_attribute( 'fecha2' ); ?></div>
 			      		</div>
 			      		<?php 
 			      			if ($contador !=1 ) { ?>
@@ -26,16 +40,16 @@ get_header(); ?>
 			      			<?php }
 			      		?>
 			      		<div class="contentcircu contentevent">
-			      			<h3>XIV Convención regional de seguridad</h3>
-			      			<p>consectetur adipiscing elit. Dolore est recusandae voluptas autem, vitae nulla soluta</p>
+			      			<h3><?php echo the_title(); ?></h3>
+			      			<p><?php the_excerpt(); ?></p>
 			      			<div class="contentfecevent">
-			      				<span class="fechadeevento">Jueves 7, 14 y 21 de febrero de 2019</span>
-			      				<span class="horadeevento">01:30 p.m. a 05:30 p.m.</span>
+			      				<span class="fechadeevento"><?php echo $product->get_attribute( 'fecha' ); ?></span>
+			      				<span class="horadeevento"><?php echo $product->get_attribute( 'hora' ); ?></span>
 			      			</div>
-			      			<div class="btnvermas"><a class="btn-vermas" href="#"><span class="texto-btn">Ver más</span><span class="separador">|</span><span class="estilo-mas">+</span></a></div>
+			      			<div class="btnvermas btnvermaseventos"><a class="btn-vermas" href="<?php echo get_permalink(); ?>"><span class="texto-btn">Ver más</span><span class="separador">|</span><span class="estilo-mas">+</span></a></div>
 			      		</div>
 			      		<?php 
-			      			if (($contador+2) <= $total ) { ?>
+			      			if ($contador == 1 ) { ?>
 			      				<div class="marcoizquierdouno"></div>
 			      			<?php }
 			      		?>
@@ -44,7 +58,7 @@ get_header(); ?>
 			if(($contador % 2) == 0) { ?>
 					<div class="col-md-6 marginevent margineventop paddingevents">
 			      		<div class="imagenevent imageneventdos"><img src="<?php echo get_site_url(); ?>/wp-content/uploads/2019/07/blog-img-4.jpg">
-			      			<div class="fechaevento">2019-00-00</div>
+			      			<div class="fechaevento"><?php echo $product->get_attribute( 'fecha2' ); ?></div>
 			      		</div>
 			      		<?php 
 			      			if ($contador !=2 ) { ?>
@@ -52,16 +66,16 @@ get_header(); ?>
 			      			<?php }
 			      		?>
 			      		<div class="contentcircu contentevent">
-			      			<h3>XIV Convención regional de seguridad</h3>
-			      			<p>consectetur adipiscing elit. Dolore est recusandae voluptas autem, vitae nulla soluta</p>
+			      			<h3><?php echo the_title(); ?></h3>
+			      			<p><?php the_excerpt(); ?></p>
 			      			<div class="contentfecevent">
-			      				<span class="fechadeevento">Jueves 7, 14 y 21 de febrero de 2019</span>
-			      				<span class="horadeevento">01:30 p.m. a 05:30 p.m.</span>
+			      				<span class="fechadeevento"><?php echo $product->get_attribute( 'fecha' ); ?></span>
+			      				<span class="horadeevento"><?php echo $product->get_attribute( 'hora' ); ?></span>
 			      			</div>
-			      			<div class="btnvermas"><a class="btn-vermas" href="#"><span class="texto-btn">Ver más</span><span class="separador">|</span><span class="estilo-mas">+</span></a></div>
+			      			<div class="btnvermas btnvermaseventos"><a class="btn-vermas" href="<?php echo get_permalink(); ?>"><span class="texto-btn">Ver más</span><span class="separador">|</span><span class="estilo-mas">+</span></a></div>
 			      		</div>
 			      		<?php 
-			      			if (($contador+2) <= $total ) { ?>
+			      			if ($contador == 2) { ?>
 			      				<div class="marcoderechoouno"></div>
 			      			<?php }
 			      		?>
@@ -70,13 +84,13 @@ get_header(); ?>
 			<?php
 			}
 		$contador++;
-		}
+		endwhile;
 	?>
-	<div class="boxpag">
+	<!--<div class="boxpag">
 		<ul class="container contaipaginat">
 			<li class="bulletactive element"><a href="#">1</a></li>
 			<li class=" element"><a href="#">2</a></li>
 		</ul>
-	</div>
+	</div>-->
 </div>
 <?php get_footer();

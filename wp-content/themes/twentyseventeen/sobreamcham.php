@@ -16,7 +16,7 @@ get_header(); ?>
 		 
 	</div>
 	
-			<div class="container containerpages">
+			<div class="container containerpagessobreamcham">
 				<?php the_content(); ?>
 			</div>
 		

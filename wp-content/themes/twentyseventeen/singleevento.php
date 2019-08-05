@@ -18,10 +18,10 @@ get_header(); ?>
 			  <div class="marcoabajo"></div>
 			  <div class="conteventdeta">
 			  				<div class="row">
-				  				<div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
+				  				<div class="col-lg-7 col-md-7 col-sm-6 col-xs-12">
 				  					<h3>XIV Convención regional de seguridad</h3>		
 				  				</div>
-				  				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 alright">
+				  				<div class="col-lg-5 col-md-5 col-sm-6 col-xs-12 alright">
 				  					<span class="fechadet"> Miercoles 13 de Febrero 2019 </span>
 				  				</div>
 			  				</div>
@@ -40,10 +40,10 @@ get_header(); ?>
 				  				</div>
 				  				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 alright datosevento">
 				  					<div class="col-md-12">
-				  						<span class="spandatosevento"> Q.375 Afiliados </span>
+				  						<span class="spandatosevento2"> Q.375 Afiliados </span>
 				  					</div>
 				  					<div class="col-md-12">
-				  						<span class="spandatosevento"> Q.500 No Afiliados </span>
+				  						<span class="spandatosevento2"> Q.500 No Afiliados </span>
 				  					</div>
 				  					
 				  				</div>
@@ -54,7 +54,7 @@ get_header(); ?>
 			  						<div class="alleft topdiez"><a class="btn-vermas" href="#"><span class="texto-btn">Cuentas con membresía</span><span class="separador">|</span><span class="estilo-mas">+</span></a></div>
 			  					</div>
 			  					<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 alright datosevento">
-			  						<div class="alright topdiez"><a class="btn-vermas" href="#"><span class="texto-btn">Siguiente</span><span class="separador">|</span><span class="estilo-mas">+</span></a></div>
+			  						<div class="alright topdiez"><a class="btn-vermas" href="<?php echo get_site_url();?>/eventos-detalle-2"><span class="texto-btn">Siguiente</span><span class="separador">|</span><span class="estilo-mas">></span></a></div>
 			  					</div>
 			  				</div>
 			      			
@@ -81,7 +81,7 @@ get_header(); ?>
 			            <span class="fechadeevento">Jueves 7, 14 y 21 de febrero de 2019</span>
 			            <span class="horadeevento">01:30 p.m. a 05:30 p.m.</span>
 			        </div>
-			        <div class="btnvermas"><a class="btn-vermas" href="#"><span class="texto-btn">Ver más</span><span class="separador">|</span><span class="estilo-mas">+</span></a></div>
+			        <div class="btnvermas btnvermaseventos"><a class="btn-vermas" href="<?php echo get_site_url();?>/eventos-detalle-1"><span class="texto-btn">Ver más</span><span class="separador">|</span><span class="estilo-mas">+</span></a></div>
 			    </div>
 			    
 			</div>
@@ -97,7 +97,7 @@ get_header(); ?>
 			            <span class="fechadeevento">Jueves 7, 14 y 21 de febrero de 2019</span>
 			            <span class="horadeevento">01:30 p.m. a 05:30 p.m.</span>
 			        </div>
-			        <div class="btnvermas"><a class="btn-vermas" href="#"><span class="texto-btn">Ver más</span><span class="separador">|</span><span class="estilo-mas">+</span></a></div>
+			        <div class="btnvermas btnvermaseventos"><a class="btn-vermas" href="<?php echo get_site_url();?>/eventos-detalle-1"><span class="texto-btn">Ver más</span><span class="separador">|</span><span class="estilo-mas">+</span></a></div>
 			    </div>
 			    
 			</div>

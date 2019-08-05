@@ -16,7 +16,9 @@ get_header(); ?>
 	
 			<div class="container margincinco">
 				<h1 class="titulo-bold-dos">Junta</h1>
-				<h1 class="titulo-bold-dos">Directiva</h1>
+				<div class="linea-roja lineajunta"></div>
+				<h1 class="titulo-bold-dos tit2junta">Directiva</h1>
+
 
 
 				<div class="containerjunta">
@@ -33,7 +35,7 @@ get_header(); ?>
 					);
 					$columna = 1;
 					$query = new WP_Query( $args );
-
+					$contador = 1;
 
 					while ($query->have_posts()) :  $query->the_post();
 						
@@ -44,6 +46,16 @@ get_header(); ?>
 						<?php } ?>
 							
 						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 singlejunta">
+
+							<?php switch ($contador) {
+								case '3': ?>
+									<div class="contderjun"></div>
+								<?php	break;
+								
+								default:
+									# code...
+									break;
+							}?>
 							<div class="csjunta">
 								<?php $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full'); ?>
 								<img src="<?php echo $featured_img_url; ?>" class="imgjunta">
@@ -61,7 +73,8 @@ get_header(); ?>
 						} ?>
 
 					<?php 
-						$columna = $columna + 1;
+						$columna  = $columna + 1;
+						$contador = $contador+1;
 						endwhile;
 
 						if ($columna != 1){ ?>
@@ -71,7 +84,8 @@ get_header(); ?>
 				 	<div class="containerstaff">
 				 		<div class="titsstaff">
 					 		<h1 class="titulo-bold-dos">Amcham</h1>
-							<h1 class="titulo-bold-dos">Staff</h1>
+					 		<div class="linea-roja lineastaff"></div>
+							<h1 class="titulo-bold-dos tit2staff">Staff</h1>
 						</div>
 				 		
 				 		<?php 

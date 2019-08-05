@@ -710,6 +710,10 @@
 	margin-top: 13%;
 }
 
+.containerpages2 {
+      margin-top: 4%;
+  }
+
 .alcenter{
 	text-align: center;
 }
@@ -747,6 +751,10 @@
 	.containerpages {
     	margin-top: 16%;
 	}
+
+  .containerpages2 {
+      margin-top: 12%;
+  }
 }
 
 @media (max-width: 1330px) {
@@ -757,6 +765,10 @@
 	.containerpages {
     	margin-top: 19%;
 	}
+
+    .containerpages2 {
+      margin-top: 15%;
+  }
 }
 
 .culturaservicio{
@@ -770,14 +782,15 @@
     position: absolute;
     top: 0%;
     left: -20%;
-    font-size: 90px;    
+    font-size: 83px;
+    letter-spacing: -4px;
     font-family: 'Source Sans Pro', sans-serif;
     font-weight: 900;
     color: #004584;
 }
     
 .divculturas{ 
-padding-top: 12%;
+    padding-top: 12%;
 }
 
 .txtalleft{
@@ -793,6 +806,7 @@ padding-top: 12%;
     margin: 11% 19%;
     background: #FFF;
     padding-bottom: 20%;
+    position: relative;
 }
 
 .margincinco {
@@ -801,8 +815,9 @@ padding-top: 12%;
 .datossinglejunta {
     background: #004584;
     position: absolute;
-    left: 31%;
-    bottom: 4%;
+    left: 20%;
+    bottom: -14%;
+    width: 222px;
     padding: 10px 20px;
     border-radius: 10px;
 }
@@ -836,9 +851,9 @@ padding-top: 12%;
 }
 
 .borderibus {
-    -webkit-box-shadow: -16px 16px 0px -3px rgba(0,70,132,1);
-    -moz-box-shadow: -16px 16px 0px -3px rgba(0,70,132,1);
-    box-shadow: -16px 16px 0px -3px rgba(0,70,132,1);
+    -webkit-box-shadow: -23px 25px 0px -3px rgba(0,70,132,1);
+    -moz-box-shadow: -23px 25px 0px -3px rgba(0,70,132,1);
+    box-shadow: -23px 25px 0px -3px rgba(0,70,132,1);
 }
 
 .listred {
@@ -852,15 +867,27 @@ padding-top: 12%;
 
 }
 
+.listred li:before, .listdoscolum li:before{
+      margin-bottom: 4px;
+    display: inline-block;
+    content: '';
+    background: #C9012B;
+    height: 5px;
+    width: 5px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
 .containerbannerbusiness{
 	position: absolute;
-    width: 41%;
-    margin: 0px auto;
-    margin-right: 10%;
-    top: 75%;
-    left: 45%;
-    color: #A5A5A5;
-    font-size: 16px;
+  width: 36%;
+  margin: 0px auto;
+  margin-right: 10%;
+  top: 75%;
+  left: 48%;
+  color: #A5A5A5;
+  font-size: 20px;
+  z-index: 99;
 }
 
 .paddingbusiness{
@@ -932,12 +959,12 @@ padding-top: 12%;
     box-shadow: 0px 2px 8px 1px rgba(0,0,0,0.36);
     background: #fff;
     border-radius: 10px;
-    padding: 20px;
+    padding: 30px 40px;
     position: relative;
 }
 
 .fechadet {
-    font-size: 12px;    
+    font-size: 14px;    
     color: #5C6167;
     font-family: 'Source Sans Pro', sans-serif;
     font-weight:bold;
@@ -953,19 +980,28 @@ padding-top: 12%;
 }
 .descdetevento {
   margin-top: 15px;
+  margin-bottom: 10px;
 }
 .spandatosevento{
-    font-size: 12px;
+    font-size: 14px;
     padding-top: 3px;
     color: #5C6167;
     font-family: 'Source Sans Pro', sans-serif;
+    font-weight: bold;
+}
+.spandatosevento2{
+    font-size: 16px;
+    padding-top: 3px;
+    color: #5C6167;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: bold;
 }
 .separadorgris {
     background: #c8c8c8;
     height: 2px;
     opacity: 0.2;
     width: 100%;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .topdiez {
@@ -1036,15 +1072,16 @@ padding-top: 12%;
 .rowe span{
   display: inline-block;
   margin-top: 20px;
-  font-size: 15px;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 .t1 {
-  font-size: 17px !important;
+  font-size: 18px !important;
 }
 
 .tarjeta {
-  width: 70% !important;
+  width: 100% !important;
   margin-top: 10px;
 }
 .rowe p{
@@ -1053,9 +1090,9 @@ padding-top: 12%;
 
 .textcvv  {
     color: #A5A5A5 !important;
-    font-size: 11px !important;
-    width: 70%;
-    margin-top: 14px !important;
+    font-size: 16px !important;
+    width: 86%;
+    margin-top: 0px !important
 }
 
 .rowe{
@@ -1065,11 +1102,350 @@ padding-top: 12%;
 .cformev select {
   width: 100%;
 }
+.containerbannercomites{
+    position: absolute;
+    width: 35%;
+    margin: 0px auto;
+    margin-right: 10%;
+    top: 70%;
+    left: 45%;
+    color: #A5A5A5;
+    z-index: 99;
+}
 
 /*
 .listred li:before{
     color : #C25375 !important;
     content: "\2022";
 }*/
+.has-sidebar.woocommerce-page:not(.error404) #primary {
+  width: 100% !important;
+}
+
+.woocommerce-breadcrumb {
+  margin-top: 20px;
+}
+
+.contimgcenter:before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+.concomites{
+  display: flex !important;
+}
+.contimgcenter img{
+    margin: 0 auto;
+    /*display: block;*/
+}
+.contimgcenter {
+  text-align: center;
+}
+.paddingcomites {
+  padding: 25px 25px 30px 30px;
+}
+
+.h4comites {
+    font-size: 18px !important;
+}
+.ulcomite li {
+  margin: 0px;
+}
+
+.lineacom1{
+  position: absolute;
+  left: -15%;
+}
+    
+.imgcomcuadro {
+  position: absolute;
+  left: 0px;
+}
+
+.imgcomcuadroderecha {
+  position: absolute;
+  right: 0px;
+}
+
+.containcomcuadroizq {
+  margin-top: 60px;
+}
+
+.containerbeforecuad{
+  margin-top: 50px;
+}
+
+.lineacom3 {
+ position: absolute;
+ right: -15%;
+}
+
+.lineajunta{
+ position: absolute;
+ left: 10%;
+}
+.tit2junta{
+	margin-left: 10%;
+}
+.sliderdirectorio .imgdetalle img {
+	width: 170px;
+	height: 176px;
+	border: 6px solid #6c93b7;
+}
 
 
+.sliderempresa a {
+  display: contents !important;
+}
+.sliderempresa .imgdetalle {
+    display: table-cell;
+    vertical-align: middle;
+    position: relative;
+}
+.sliderempresa .imgdetalle img {
+      width: initial!important;
+    height: initial!important;
+        -o-object-fit: cover;
+    object-fit: cover;
+    -o-object-position: top center;
+    object-position: top center;
+    max-width: 100%;
+    max-height: 100%
+}
+
+/*
+.sliderempresa:before {
+  content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+    */
+
+.sliderempresa{
+   display: table !important;
+   min-height: 176px;
+   text-align: center;
+}
+
+.butdir .slick-prev,.butemp .slick-prev {
+	left: auto !important;
+}
+
+.butdir .slick-next {
+	right: 18% !important;
+}
+
+.butemp .slick-next {
+  right: 0% !important;
+}
+
+.lineastaff{
+ position: absolute;
+ left: 42%;
+}
+.tit2staff{
+  margin-left: 28%;
+}
+
+.dblock div {
+  display: inline-block;
+}
+
+.containcredo {
+  margin-top: 10px;
+  padding-right: 12px;
+  padding-right: 58px;
+}
+
+.btnvermaseventos .btn-vermas {
+  font-weight: initial !important;
+  font-size: 20px;
+}
+
+.datosevento {
+    padding-left: 0px !important;
+}
+
+.containercuadroblue {
+    height: 308px;
+    position: absolute;
+    width: 58%;
+    border-top: 9px solid #004684;
+    border-left: 9px solid #004684;
+    border-bottom: 9px solid #004684;
+    margin-left: 55%;
+}
+
+.nomarglef {
+  margin-left: 0px !important;
+}
+
+.balianza{
+  font-size: 18px;
+}
+
+.leftblue {
+  left: 49%;
+  width: 548px;
+  font-size: 18px;
+} 
+
+.text-largo {
+  font-size: 4vw !important;
+}
+
+.consultoria2 {
+  font-size: 7vw !important;
+}
+
+.containertitslargo{
+  width: 100%;
+}
+
+.alleft{
+  text-align: left !important;
+}
+
+@media (min-width: 1601px)
+{
+  .containerpagessobreamcham {
+      margin-top: 15%;
+  }
+}
+@media (max-width: 1600px)
+{
+  .containerpagessobreamcham {
+    margin-top: 20%;
+  }
+}
+@media (max-width: 1390px)
+{
+  .containerpagessobreamcham {
+    margin-top: 30%;
+  }
+}
+
+@media (max-width: 1230px)
+{
+  .containerpagessobreamcham {
+    margin-top: 35%;
+  }
+}
+
+.tituloestatutos {
+  font-size: 83px!important;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 900;
+  color: #004584;
+  padding-bottom: 0px;
+  letter-spacing: -3px; 
+  margin-bottom: 5px;
+  margin-left: 20px;
+}
+
+.culturaservicio li {
+  margin-left: 0px;
+}
+
+
+
+.alderecha{
+  right: 0px;
+  position: absolute;
+}
+
+.divculturas h3{
+  margin-top: 30px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+
+@media (max-width: 1200px)
+{
+  .imgcomcuadroderecha, .imgcomcuadro {
+    display: none;
+  }
+}
+
+.visas-margen-linea {
+    position: absolute;
+    right: 0px;
+    bottom: 41%;
+}
+
+@media (min-width: 1580px)
+{
+  .mtopbusiness{
+      margin-top: 15%;
+   }
+}
+
+@media (min-width: 1420px) and (max-width: 1579px)
+{
+  .mtopbusiness{
+      margin-top: 22%;
+   }
+}
+
+@media (min-width: 1360px) and (max-width: 1419px)
+{
+  .mtopbusiness{
+      margin-top: 26%;
+   }
+}
+
+
+@media (min-width: 1280px) and (max-width: 1359px)
+{
+  .mtopbusiness{
+      margin-top: 29%;
+   }
+}
+
+.tlar {
+  margin-left: 32%;
+}
+
+.w100 {
+  width: 100% !important;
+}
+
+.top5{
+  margin-top: 5%;
+}
+
+.contderjun{
+    height: 272px;
+    position: absolute;
+    width: 58%;
+    border-top: 9px solid #004684;
+    border-right: 9px solid #004684;
+    border-bottom: 9px solid #004684;
+    border-left: 9px solid #004684;
+    margin-left: 55%;
+    z-index: 0;
+}
+
+.imgtarjetas {
+  margin-top: 15px;
+}
+
+.margleeven {
+  margin-left: 20px;
+}
+
+.nopadleft{
+  padding-left: 0px !important;
+}
+
+.topveinte {
+  margin-top: 20px;
+  display: inline-block;
+}
+
+.rowefirst span{
+  margin-top: 5px;
+}

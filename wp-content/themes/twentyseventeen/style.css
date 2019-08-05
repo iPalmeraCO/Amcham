@@ -944,11 +944,11 @@ input[type="datetime-local"],
 input[type="color"],
 textarea {
 	color: #666;
-	background: #fff;
+	background: #F9F9F9;
 	background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
 	border: 1px solid #bbb;
-	-webkit-border-radius: 3px;
-	border-radius: 3px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
 	display: block;
 	padding: 0.7em;
 	width: 100%;
@@ -1815,7 +1815,7 @@ body:not(.has-header-image):not(.has-header-video) .custom-header-media {
 }
 
 .twentyseventeen-front-page article:not(.has-post-thumbnail):not(:first-child) {
-	border-top: 1px solid #ddd;
+	border-top: 0px solid #ddd;
 }
 
 .panel-content {
@@ -3805,6 +3805,7 @@ p > object:only-child {
 
 	.site-content {
 		padding: 5.5em 0 0;
+		margin-top: -88px;
 	}
 
 	.single-post .entry-title,
@@ -4102,7 +4103,7 @@ p > object:only-child {
 	}
 
 	.navigation-top nav {
-		margin-left: 0;
+		margin-left: -14px;
 	}
 
 	/* Sticky posts */
@@ -4334,6 +4335,257 @@ p > object:only-child {
 
 /* Estilos nuevos */
 
+@import url('https://fonts.googleapis.com/css?family=Anton|Source+Sans+Pro:300,400,600,700,900&display=swap');
+
+/* menu */
+
+
+body{
+	font-family: 'Source Sans Pro', sans-serif;
+}
+
+header#header{
+    position: sticky;
+	top: 0;
+    z-index: 500;
+}
+
+
+.site-header {
+	margin-bottom: 140px;
+}
+
+.navigation-top {
+	/* position: sticky;
+	z-index: 50; */
+    top: 0;
+	bottom: initial;
+	/* background: #efefef; */
+	-webkit-box-shadow: 0px 1px 4px -1px rgba(0,0,0,0.16);
+	-moz-box-shadow: 0px 1px 4px -1px rgba(0,0,0,0.16);
+	box-shadow: 0px 1px 4px -1px rgba(0,0,0,0.16);
+}
+
+.header {
+	padding: 0.5rem 0;
+    padding-top: 1.2rem;
+}
+
+.items {
+	/* padding: 0.4rem; */
+    display: flex;
+	align-items: center;
+    background: #004687;
+}
+
+ul{
+	margin: 0;
+	list-style: none;
+}
+
+a.login {
+    color: #fff;
+	background: #dc002e;
+	font-weight: bold;
+    display: flex;
+    /* height: 100%; */
+    padding: 0.4rem 2rem;
+}
+
+a.login:hover {
+	background: #004687;
+	text-decoration: none;
+}
+
+.cont_menu_redes_srch, ul#top-menu, .cont_contact_redes {
+    justify-content: space-between;
+    display: flex;
+}
+
+ul#top-menu {
+    margin-top: 0.7rem;
+}
+
+ul#top-menu li {
+	margin: 0 1.3rem;
+	position: relative;
+	font-size: 0.875rem;
+}
+
+ul#top-menu li::before{
+	content: '';
+    position: absolute;
+    top: 12px;
+    left: -30px;
+}
+
+ul#top-menu li a {
+	/* background: slateblue; */
+    display: flex;
+    align-items: center;
+    height: 2.5625rem;
+}
+
+ul#top-menu li a:hover {
+	text-decoration: none;
+	color: #dc002e;
+}
+
+svg.icon.icon-angle-down {
+    display: none;
+}
+
+ul#top-menu li.menu-item-has-children a::after {
+	content: '';
+	margin-left: 0.4375rem;
+	/* position: absolute; */
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 5px 3px 0 3px;
+	border-color: #dc002e transparent transparent transparent;
+}
+
+ul.sub-menu {
+	position: absolute;
+	padding: 0.7rem 1rem;
+    margin: 0;
+    top: 2.4rem;
+    width: 14rem;
+	background: #efefef;
+	display: none;
+}
+
+ul#top-menu li:hover ul.sub-menu {
+	display: block;
+}
+
+ul.sub-menu::before {
+	content: '';
+	position: absolute;
+	top: -6px;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 0 7.5px 7px 7.5px;
+	border-color: transparent transparent #efefef transparent;
+}
+
+ul#top-menu li ul.sub-menu li{
+	margin: 0;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #000;
+}
+
+ul#top-menu li ul.sub-menu li a{
+	height: auto;
+}
+
+ul#top-menu li ul.sub-menu li a::after{
+	content: '';
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 0 0px 0px 0px;
+	border-color: transparent transparent #007bff transparent
+}
+
+ul#top-menu li ul.sub-menu li:last-child{
+    border-bottom: none;
+}
+
+span.selector-idioma {
+	margin-left: auto;
+	display: flex;
+	padding: 0.4rem 2rem;
+}
+
+span.selector-idioma a {
+	color: #fff;
+}
+
+span.selector-idioma a:hover {
+	opacity: 0.5;
+	text-decoration: none;
+}
+
+span.selector-idioma span {
+	color: #fff;
+	margin: 0 0.2rem;
+}
+
+ul#top-contacto li {
+    /* padding: 0.5rem 1.7rem; */
+	height: 2.25rem;
+	width: 7rem;
+	background: #004687;
+	display: grid;
+	justify-content: center;
+	align-items: center;
+}
+
+ul#top-contacto li:hover {
+    background: #dc002e;
+}
+
+ul#top-contacto li a {
+    color: #fff;
+    font-size: 0.875rem;
+    font-weight: bold;
+	letter-spacing: 0.07rem;
+	text-decoration: none;
+}
+
+.buscador button.search-submit {
+    display: none;
+}
+
+.buscador input.search-field {
+	height: 2rem;
+	border-radius: 0.7rem;
+	border: 1px solid #004687;
+}
+
+.probando{
+	display: none;
+}
+
+#ActivaMenu{
+	display: none;
+}
+
+label#AbreMenu{
+	display: none;
+}
+
+.h_cont_redes {
+    display: flex;
+    align-items: center;
+}
+
+.h_cont_redes a {
+    margin-left: 0.4375rem;
+}
+
+.h_cont_redes a:hover {
+    opacity: 0.5;
+}
+
+.h_cont_redes a:first-child {
+    margin-left: 1rem;
+}
+
+.contact_resp, .resp_search {
+    display: none;
+}
+/* FIN ESTILOS HEADER */
+
+textarea{
+	background: #F9F9F9;
+}
+
+
+
 .fondos-blancos{
 	background: #fff;
 	border-radius: 10px;
@@ -4359,6 +4611,24 @@ h3{
 
 }
 
+.tit-grande{
+	font-size: 35px;
+}
+
+h4{
+	color: #004584;
+	font-size: 20px;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 900;
+	padding: 0;
+	margin: 0;
+
+}
+
+.cf h4{
+	font-size: 16px;
+}
+
 .titulo-light{
 	color: #51ABFF;
 	font-size: 109px;
@@ -4379,6 +4649,34 @@ p{
 	font-family: 'Source Sans Pro', sans-serif;
 }
 
+
+li{
+	color: #A5A5A5;
+	font-size: 18px;
+	font-family: 'Source Sans Pro', sans-serif;
+	margin-left: 15px;
+}
+
+ul.listas-con-puntos li{
+	list-style: none;
+}
+
+ul.listas-con-puntos li:before {
+    margin-bottom: 4px;
+    display: inline-block;
+    content: '';
+    background: #C9012B;
+    height: 5px;
+    width: 5px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.texto-azul{
+	color: #004584;
+}
+
+
 .boton{
 	color: #fff;
 	font-size: 18px;
@@ -4390,6 +4688,36 @@ p{
 }
 
 /* home */
+.banner-home-principal{
+	margin-top:15px;
+}
+
+.home-banner{
+	margin: 205px 0;
+	display: grid;
+    justify-content: center;
+}
+
+.home-bannertit1{
+	margin-left: -211px;
+    font-size: 79px;
+}
+
+.home-bannertit2{
+	margin-left: 166px;
+}
+
+.home-banner-texto{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	margin-top: -100px;
+}
+
+.home-banner-texto h3{
+	font-size: 60px;
+}
+
+
 .home-sobreAmcham{
 	padding: 67px 100px 21px;
     margin-bottom: 100px;
@@ -4469,7 +4797,7 @@ p{
 }
 
 .home-cifras-izq-Text h4, .home-cifras-der-Text h4{
-	font-size: 54px;
+	font-size: 60px;
 	color:#9DD0FF;
 	font-weight: 800;
 	font-family: 'Source Sans Pro', sans-serif;
@@ -4488,6 +4816,7 @@ p{
 	display: grid;
 	grid-template-columns: 1.5fr 1fr;
 	column-gap: 20px;
+	position: relative;
 }
 
 .home-eventos-linea{
@@ -4501,6 +4830,22 @@ p{
 
 .home-eventos-secundarios{
 	margin-top: -230px;
+}
+
+.home-evento-fecha-hora{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+.evento-fechas{
+	font-size: 13px;
+	color: #5A6268;
+	font-weight: bold;
+}
+
+.evento-hora{
+	font-size: 13px;
+	text-align: right;
 }
 
 .eventos-fecha{
@@ -4543,9 +4888,32 @@ p{
     z-index: -1;
 }
 
+.homeEventos-cuadro-1, .homeEventos-cuadro-2{
+	width:265px;
+	position: absolute;
+}
+
+.homeEventos-cuadro-1{
+	top: 421px;
+    left: -57px;
+    z-index: -1;
+}
+
+.homeEventos-cuadro-2{
+	right: -106px;
+    top: 252px;
+    z-index: -1;
+}
+
 
 .alineacion-derecha{
 	text-align: right;
+}
+
+.alineacion-derecha-2 {
+    right: 0;
+    position: relative;
+    margin: 50px 0
 }
 
 .home-servicios-linea{
@@ -4588,6 +4956,12 @@ p{
 
 .home-patrocinadores{
 	position: relative;
+}
+
+.home-patrocinadores-fondo{
+	position: absolute;
+	top:-148px;
+	z-index:-1;
 }
 
 .home-patrocinadores-imgs{
@@ -4648,4 +5022,1496 @@ p{
 	margin: 40px auto;
 }
 
+.home-membresia{
+	position: relative;
+}
+
+.home-membresia-org{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	column-gap: 50px;
+}
+
+.posicion-linea-membresia{
+	position: relative;
+    top: 253px;
+    left: 68px;
+}
+
+.home-membresia-cuadros{
+	height: 488px;
+	text-align: center;
+	background: #fff;
+	border-radius: 10px;
+	padding: 20px;
+	-webkit-box-shadow: 0px 15px 24px -9px rgba(0,0,0,0.16);
+	-moz-box-shadow: 0px 15px 24px -9px rgba(0,0,0,0.16);
+	box-shadow: 0px 15px 24px -9px rgba(0,0,0,0.16);
+}
+
+.home-membresia-cuadros h3{
+	margin: 10px 0;
+}
+
+.membresia-ico{
+	margin: 20px 0;
+}
+
+.membresia-fondo-img{
+	position: absolute;
+	top: 93px;
+	z-index: -1;
+}
+
+.membresia-fondo-img img{
+	width: 1250px;
+}
+
+.membresia-posicion-1{
+	margin-top: 50px;
+}
+
+.membresia-posicion-2{
+	margin-top: 100px;
+}
+
+.directorio-tit{
+	color: #fff;
+	margin: 130px 0;
+}
+
 /* Fin home */
+
+/* sobreamcham */
+.sobreAm-margen-sup{
+	margin-top: 20px;
+}
+
+.containerqueofrecemos {
+	margin-top: 50px;
+}
+
+.imgqueofrecemos {
+	top: -22px;
+}
+
+.padding1 {
+    padding: 30px;
+}
+
+.tit-anton-peque{
+	font-size: 83px!important;
+    font-family: 'Anton', sans-serif;
+    font-weight: 900;
+    color: #004584;
+    padding-bottom: 0px;
+    letter-spacing: 0px;
+    margin-bottom: 5px;
+    margin-left: 20px;
+}
+
+.sobreAm-margen-sup-linea{
+	margin-top: 70px;
+}
+
+.culturaserv {
+	top: 12%;
+}
+
+
+
+/* fin sobre amcham */
+
+/* Plataforma de empleo */
+.banner-j{
+	height: 500px;
+}
+
+.plataforma-empleo{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	column-gap: 30px;
+	margin-bottom: 50px;
+	margin-top: -55px;
+}
+
+.plataforma-cont-texto-entrada{
+	position: relative;
+	margin-top: 85px;
+}
+
+.plataforma-cuadro-texto{
+	position: absolute;
+	top: 98px;
+    left: -63px;
+}
+
+.texto-entrada{
+	color: #004584;
+	font-size: 35px;
+	font-weight: 800;
+	margin-top: 139px;
+}
+
+.plataforma-logo-textos{
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	column-gap: 10px;
+	margin-bottom: 50px;
+	padding: 20px;
+}
+
+.plataforma-logo{
+	justify-content: center;
+    align-content: center;
+    display: grid;
+}
+
+.plataforma-boton-lista{
+	margin: 10px 0;
+}
+
+.plataforma-empleo-2{
+	display: grid;
+	grid-template-columns: 1.2fr 1fr;
+	column-gap: 30px;
+	margin-bottom: 50px;
+}
+
+
+.plataforma-empleo-2 article img{
+	margin-top: -60px;
+}
+
+.plataforma-empleo-3{
+	display: grid;
+	grid-template-columns: 1.5fr 3fr;
+	column-gap: 15px;
+	margin-bottom: 90px;
+}
+
+.plataforma-empleo-4{
+	display: grid;
+	grid-template-columns: 3fr 1.5fr;
+	column-gap: 15px;
+	margin-bottom: 90px;
+}
+
+.plataforma-empleo-3 h3, .plataforma-empleo-4 h3{
+	font-size: 80px;
+	font-weight: bold;
+	line-height: 0.9;
+	text-align: right;
+	margin-top: 29px;
+}
+
+.plataforma-empleo-4 h3{
+	text-align: left;
+	margin-top: 141px;
+}
+
+.plataforma-empleo-3-text-cuadro{
+	position: relative;
+    display: grid;
+    top: 92px;
+}
+
+.plataforma-empleo-3-text-cuadro img{
+	position: absolute;
+    top: -35px;
+    right: -157px;
+    z-index: -1;
+}
+
+.plataforma-empleo-4-text-cuadro img {
+    position: absolute;
+    bottom: 665px;
+    right: 199px;
+    z-index: -1;
+}
+
+
+.plataformas-lineaRoja{
+	margin: 31px 0 43px 294px;
+}
+
+.plataforma-cuadroVideo-1, .plataforma-cuadroVideo-2, .plataforma-cuadroVideo-3{
+ width: 300px;
+ height: 219px;
+ background: #004584;
+ position: absolute;
+}
+
+
+.plataforma-cuadroVideo-1{
+	top: 206px;
+	background: #004584;
+    right: -21px;
+    z-index: -1;
+   }
+
+.plataforma-cuadroVideo-2{
+	background: #51ABFF;
+	top: 728px;
+    left: -30px;
+    z-index: -1;
+}
+
+.plataforma-cuadroVideo-3{
+	background: #51ABFF;
+	right: -27px;
+    bottom: 96px;
+    z-index: -1;
+}
+
+.video-youtube{
+	width: 100%;
+	height: 400px;
+}
+/* FIN Plataforma de empleo */
+
+/* bluebook */
+
+.borderibus {
+    -webkit-box-shadow: -23px 25px 0px -3px rgba(81,151,255,1);
+    -moz-box-shadow: -23px 25px 0px -3px rgba(81,151,255,1);
+    box-shadow: -23px 25px 0px -3px rgba(81,151,255,1);
+}
+
+/* consultoria */
+
+.ancho-caja-consultoria{
+	left: 43%;
+	width: 40%;
+}
+
+.consultoria-img-mujer{
+	margin-top: -25px;
+}
+
+/* Empleadores*/
+
+.empleadores-pasos{
+	margin-bottom: 50px;
+}
+
+.empleadores{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	column-gap: 30px;
+	margin-bottom: 50px;
+}
+
+.empleadores-logo-textos{
+	padding: 20px;
+	margin-top: 86px;
+}
+
+.empleadores-texto{
+	margin-top: 0px !important;
+}
+
+.empleadores-logo{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	column-gap: 30px;
+}
+
+.empleadores-logo div{
+	display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
+.empleadores-pasos-1{
+	display: grid;
+	grid-template-columns: 1fr 1.5fr;
+	margin-bottom: 20px;
+}
+
+.empleadores-num-cuadro{
+	position: relative;
+}
+
+.pasos-numero-grande{
+	color: #004584;
+	font-size: 259px;
+	font-weight: bold;
+}
+
+.empleadores-pasos-cuadro{
+	position: absolute;
+    top: 56px;
+	right: -18px;
+	z-index: -1;
+}
+
+.empleadores-pasos-text{
+	padding: 20px;
+	display: grid;
+    align-content: center;
+}
+
+.altura-cuadroBlanco-1{
+	height: 166px;
+	margin-top: 121px;
+	margin-left: -41px;
+	padding: 0 46px;
+}
+
+.empleadores-pasos-2{
+	display: grid;
+	grid-template-columns: 1.5fr 1fr;
+	margin-bottom: 40px;
+}
+
+.empleadores-pasos-cuadro-2{
+	position: absolute;
+    top: 56px;
+	right: 130px;
+	z-index: -1;
+}
+
+.altura-cuadroBlanco-2{
+	height: 166px;
+    margin-top: 121px;
+	margin-right: -42px;
+	padding: 0 46px;
+}
+
+.pasos-mujer-img{
+	position: absolute;
+    top: -37px;
+    right: -24px;
+}
+
+.posicion-num{
+	position: absolute;
+    right: 208px
+}
+
+.altura-cuadroBlanco-3{
+	height: 516px;
+    margin-top: -36px;
+	margin-right: -42px;
+	padding: 0 46px;
+}
+
+.altura-cuadroBlanco-4{
+	height: 205px;
+    margin-top: 108px;
+	margin-right: -42px;
+	padding: 0 46px;
+}
+
+.altura-cuadroBlanco-5{
+	height: 286px;
+    margin-top: 65px;
+	margin-right: -42px;
+	padding: 0 46px;
+}
+
+.empleadores-video{
+	margin-top: 50px;
+}
+
+.empleadores-video a{
+	text-align: right;
+}
+
+.empleadores-margen-boton{
+	margin: 0 0 0 104px;
+}
+
+/* requisitos */
+
+.requsitos-seccion-1{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	margin-bottom: 50px;
+}
+
+.requistos{
+	padding: 20px;
+	margin-top: -67px;
+}
+
+.requsitos-seccion-2{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	column-gap: 20px;
+	margin-bottom: 50px;
+}
+
+.requisitos-seccion-2-img{
+	margin-top: -215px;
+}
+
+/* FIN requisitos */
+
+/* anunciese */
+
+.anunciese-seccion-2-img{
+	margin-top: -302px;
+}
+
+.anunciese-lineaRoja{
+	right: -899px;
+    position: relative;
+	margin: 43px 0 0 0;
+}
+
+/* FIN anunciese */
+
+
+/* Promuevase */
+
+.promuevase{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	column-gap: 25px;
+	margin-top: 60px;
+}
+
+.promuevase-articulo-1{
+	position: relative;
+	margin-bottom: 150px;
+}
+
+.promuevase-articulo-2{
+	position: relative;
+	margin-top:80px;
+	margin-bottom: 150px;
+}
+
+.promuevase-cont-img{
+	background: #FFF;
+	width: 320px;
+	height: 320px;
+	margin-left: 20px;
+	padding:30px;
+	display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
+.promuevase-cont-img img{
+	width: 198px;
+}
+
+.promuevase-cuadro-azul{
+	background: #004584;
+	width: 320px;
+	height: 320px;
+	position: absolute;
+	top: 20px;
+    z-index: -1;
+}
+
+.promuevase-textos{
+	width: 420px;
+    padding: 20px 20px 30px 20px;
+    margin-top: -65px;
+	margin-left: 68px;
+	position: absolute;
+}
+
+/* BLOG */
+.cont_blog_all{
+	margin-top: 125px;
+}
+
+.cont_blog_allb{
+	margin-top: 222px;
+}
+
+.imagenblog {
+    background: #efefef;
+    width: 100%;
+    max-width: 335px;
+    height: 230px;
+    overflow: hidden;
+}
+
+.imagenblog.imgusa.imgusa2 img {
+    width: 456px;
+    height: auto;
+    max-width: fit-content;
+}
+
+.fecha-blog p{
+	font-family: 'Roboto';
+    position: absolute;
+    background: red;
+    font-size: 0.5625rem;
+    font-weight: 900;
+    letter-spacing: 0.075rem;
+    color: #fff;
+    padding: 0.3125rem 0.875rem 0.3125rem 0.6875rem;
+}
+
+.cont_txt_blog {
+	float: initial;
+    margin-top: -34px;
+    margin-left: 38px;
+    width: 84%;
+    height: 290px;
+}
+
+.btn_blog{
+	float: initial;
+    margin: 0 auto;
+    display: block;
+}
+
+.cont_txt_exerp {
+    width: 100%;
+    height: 51%;
+}
+/* FIN BLOG */
+
+.btn-largo{
+	margin: 20px 0 10px 0;
+}
+
+
+/* FOOTER */
+.ftr_footer{
+	background: #fff;
+	padding-top: 18px;
+}
+
+.ftr_cont_all{
+	display: flex;
+}
+
+.ftr_cont_info p{
+	margin: 0;
+	margin-bottom: 10px;
+}
+
+.ftr_line{
+	height: 156px;
+	margin: 0 24px;
+    width: 1px;
+	background: #007bff;
+	margin-top: 32px;
+}
+
+.ftr_cont_info, .ftr_cont_redes{
+    margin-top: 32px;
+}
+
+.ftr_cont_redes h3, .ftr_cont_info h3 {
+	font-size: 1.25rem;
+	margin-bottom: 10px;
+}
+
+.ftr_cont_logo, .ftr_logo a{
+    margin-left: auto;
+}
+
+.ftr_logo{
+	margin-bottom: 1rem;
+	display: flex;
+}
+
+.ftr_logo a{
+	padding: 0;
+}
+
+.ftr_cont_logo p {
+    text-align: right;
+	width: 315px;
+	font-size: 1rem;
+}
+
+.ftr_logo a img {
+    width: 6.5625rem;
+    max-height: initial;
+}
+
+
+.ftr_cont_menu {
+	padding: 0 11.375rem;
+    border-top: 1px solid #C9012B;
+    margin-top: 15px;
+}
+
+.cont_nav_footer_menu{
+	margin: 15px 0;
+}
+
+.navigation-top a {
+    color: #5A6268;
+    font-weight: 600;
+    -webkit-transition: color 0.2s;
+    transition: color 0.2s;
+}
+
+#footer-menu{
+	justify-content: space-between;
+    display: flex;
+}
+
+ul#footer-menu li {
+    margin: 0 1.3rem;
+    position: relative;
+}
+
+ul#footer-menu li a {
+    display: flex;
+    align-items: center;
+	height: 2.5625rem;
+	color: #222;
+    font-weight: 600;
+    -webkit-transition: color 0.2s;
+    transition: color 0.2s;
+}
+
+ul#footer-menu li a:hover {
+	color: #C9012B;
+    text-decoration: none;
+}
+
+.ftr_cont_copy p{
+	margin: 0;
+	color: #fff;
+	text-align: center;
+}
+
+.ftr_cont_copy {
+	background: #004584;
+    padding: 15px 0;
+}
+/* FIN FOOTER */
+
+
+
+/* --------------------------------------------------------------------------------- */
+/* MEDIAS QUERIS 768px */
+/* --------------------------------------------------------------------------------- */
+@media screen and (max-width: 48em){
+
+	.header {
+		padding: 0.5rem 0.9375rem;
+	}
+
+	label#AbreMenu{
+		display: flex;
+		cursor: pointer;
+		align-items: center;
+	}
+
+	ul#top-menu{
+		display: block;
+	}
+
+	.cont_menu_resposive {
+		position: absolute;
+		background: #fff;
+		z-index: 5000;
+		top: 0;
+		left: 0;
+		height: 100vh;
+		width: 100vw;
+		padding: 2rem;
+	}
+	
+	#ActivaMenu:checked ~ .cont_menu_resposive{
+		-webkit-transform: translateX(0);
+		transform: translateX(0);
+	}
+	
+	.cont_menu_resposive{
+		-webkit-transform: translateX(-1920px);
+    	transform: translateX(-1920px);
+    	transition: -webkit-transform 0.3s cubic-bezier(0.56, 0.1, 0.34, 0.91);
+    	transition: transform 0.3s cubic-bezier(0.56, 0.1, 0.34, 0.91), -webkit-transform 0.6s cubic-bezier(0.56, 0.1, 0.34, 0.91);
+	}
+
+	ul.sub-menu {
+		position: relative;
+		top: initial;
+		width: auto;
+		background: transparent;
+	}
+
+	ul.sub-menu::before {
+		border-width: 0px 0px 0px;
+	}
+
+	ul#top-menu li a {
+		justify-content: center;
+	}
+
+	ul#top-menu li {
+		border-bottom: 1px solid #000;
+	}
+
+	ul#top-menu li:last-child {
+		border-bottom: none;
+	}
+
+	.contact_resp, .resp_search {
+		display: flex;
+    	align-items: center;
+    	flex-direction: column;
+	}
+
+	.cont_all_search_contac{
+		display: none;
+	}
+
+	span.selector-idioma {
+		margin-left: initial;
+	}
+
+	a.login {
+		margin-left: auto;
+	}
+
+	.logo{
+		height: auto;
+		width: 3.75rem;
+	}
+
+
+/* generales */
+
+.containertits h1 {
+    padding: 0px;
+	margin-top: 65px;
+}
+
+h2 {
+	font-size: 85px;
+}
+
+.titulo-blanco {
+    margin-top: 82px;
+
+}
+
+.titulo-light {
+	font-size: 70px;
+}
+
+.titulo-bold-dos {
+	font-size: 70px;
+}
+
+.text-largo{
+	font-size: 47px !important;
+}
+/* home */
+
+.home-bannertit1{
+	margin-left: -13px;
+}
+
+.home-bannertit2{
+	margin-left: 138px;
+}
+
+.home-banner-texto{
+	grid-template-columns: 1fr;
+}
+
+.home-banner-texto h3{
+	font-size: 40px;
+}
+
+
+
+.home-sobreAmcham section{
+	grid-template-columns: 1fr;
+}
+
+.home-sobreAmcham section p{
+	width: 100%;
+    margin-left: 0px;
+}
+
+.home-sobreAmcham section .linea-roja{
+	display: none;
+}
+
+.home-sobreAmcham section p:first-child::before{
+	display:none;
+}
+
+.home-eventos {
+    grid-template-columns: 1fr;
+}
+
+.home-eventos article {
+    margin-bottom: 209px;
+}
+
+.home-eventos-secundarios {
+	margin-bottom: -53px !important;
+}
+
+.cajas-evetos-descrip {
+    margin-bottom: 73px;
+}
+
+.homeEventos-cuadro-1, .homeEventos-cuadro-2{
+	display:none;
+}
+
+.home-patrocinadores-fondo{
+	display: none;
+}
+
+.home-servicios-linea {
+    margin: 45px 0 40px 226px;
+}
+
+.patrocinadores-derecha {
+    right: 0;
+}
+
+.home-patrocinadores-imgs {
+	grid-template-columns: 1fr 1fr;
+	row-gap: 33px;
+}
+
+.mujer-patrocinadores-img {
+	display: none;
+}
+
+.div-linea{
+	display:none;
+}
+
+.home-membresia-org {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.home-membresia-cuadros {
+	height: 500px;
+}
+
+/* sobre amcham */
+
+.containerbannercomites {
+	width: 80%;
+    top: 90%;
+	left: 9%
+}
+
+.nuestros-comites-img {
+	display: none;
+}
+
+.alignright {
+    margin-top: 50px;
+}
+
+/* comites */
+
+.imgcomcuadro, .imgcomcuadroderecha{
+	display: none;
+}
+
+/* circulo de leiderazgo */
+
+.containerbanner{
+	width: 88%;
+    left: 5%
+}
+
+.queofrecemos {
+    width: 100%;
+    margin-top: 589px;
+}
+
+.imgqueofrecemos{
+	display: none;
+}
+
+.containerpages {
+    margin-top: 24%;
+}
+
+.tit-light-margin {
+    margin-right: -134px;
+}
+
+/* proteccion de datos */
+
+.padpoliuno{
+	font-size: 60px !important;
+}
+
+.padpolidos{
+	font-size: 60px !important;
+}
+
+/* visas */
+
+.coco{
+	position: relative;
+}
+
+.visas-margen-linea{
+	position: absolute;
+    right: 0;
+    top: 54px;
+}
+
+.visas-texto-af-img{
+	margin-top: -150px;
+}
+
+.btn-largo{
+	margin: 20px 0 10px 0;
+}
+
+/* bussines service */
+.containerbannerbusiness{
+	width: 80%;
+	left: 9%;
+}
+
+.mtop7 {
+    margin-top: 17%;
+}
+
+.business-cont{
+	display: grid;
+	grid-template-columns: 1fr;
+}
+
+.business-img{
+	margin: 0 0 0 179px;
+}
+
+.motopress-margin-top-100 {
+    margin-top: 59px !important;
+    width: 200%;
+}
+
+/* Plataformas de empleo */
+
+.plataforma-empleo {
+	grid-template-columns: 1fr;
+	margin-top: 0px;
+	}
+
+.plataforma-cont-texto-entrada{
+		margin-top: 0px;
+	}	
+
+.plataforma-cuadro-texto img{
+	display: none;
+}
+
+.plataforma-empleo-2{
+	grid-template-columns: 1fr;
+	row-gap: 30px;
+}
+
+.plataforma-empleo-3 h3, .plataforma-empleo-4 h3{
+	font-size: 64px;
+	margin-top: 15px;
+}
+
+
+.plataformas-lineaRoja{
+	display:none;
+}
+
+.plataforma-cuadroVideo-1, .plataforma-cuadroVideo-2, .plataforma-cuadroVideo-3{
+ display: none;
+}
+
+/* empleadores */
+
+.empleadores {
+    display: grid;
+	grid-template-columns: 1fr;
+}
+
+.empleadores-texto{
+	margin-top: -63px !important;
+    margin-bottom: -89px;
+}
+
+.altura-cuadroBlanco-3 {
+    height: 635px;
+}
+
+.altura-cuadroBlanco-4 {
+	height: 270px;
+}
+
+.altura-cuadroBlanco-5 {
+	height: 312px;
+}
+
+.pasos-mujer-img{
+	display: none;
+}
+
+.num-tres{
+	right: 41px !important;
+}
+
+/* consultoria */
+
+.consultoria-seccion-2{
+	margin-top: 136px;
+}
+
+/* blog */
+
+.cont_blog_all {
+    margin-top: 14px;
+}
+
+.cont_blog_allb {
+    margin-top: 103px;
+}
+
+.perfil-estado-1{
+	display: grid;
+	grid-template-columns: 1fr;
+	width: 200% !important;
+}
+
+.margintit {
+    width: 50%;
+}
+
+/* eventos 1*/
+
+.conteventdeta {
+    width: 85%;
+    margin-top: -31px;
+	float: left;
+}
+
+/* anunciese */
+
+.requsitos-seccion-1 {
+    grid-template-columns: 1fr;
+}
+
+.requistos {
+    margin-top: -13px;
+}
+
+.requsitos-seccion-2 {
+	grid-template-columns: 1fr;
+}
+
+.anunciese-seccion-2-img {
+	margin-top: -18px;
+	display: grid;
+	justify-content: center;
+	margin-bottom: 50px;
+}
+
+.anunciese-lineaRoja{
+	display: none;
+}
+
+/* promuevase con nostros */
+
+.promuevase {
+    grid-template-columns: 1fr;
+	justify-items: center;
+}
+
+.promuevase-textos {
+    margin-left: 32px;
+}
+
+.promuevase-articulo-1 {
+    margin-top: 85px;
+}
+
+/* requistos */
+.requisitos-seccion-2-img {
+	margin-top: 6px;
+	display: grid;
+	justify-content: center;
+	margin-bottom: 50px;
+}
+
+}
+
+
+/* --------------------------------------------------------------------------------- */
+/* FIN MEDIAS QUERIS 768px */
+/* --------------------------------------------------------------------------------- */
+
+
+/* --------------------------------------------------------------------------------- */
+/* MEDIAS QUERIS 767px */
+/* --------------------------------------------------------------------------------- */
+@media screen and (max-width: 47.938em){
+
+	.site-header {
+		margin-bottom: -35px;
+	}
+
+	h1{
+		margin: 10px 0;
+    	padding: 21px 0;
+	}
+
+	h2{
+		font-size: 45px;
+	}
+
+	.cuadro-azul-oscuro {
+		top: -216px;
+		left: -11px;
+	}
+
+	.containertits h1{
+		margin-top: 40px;
+	}
+
+	.titulo-light {
+		font-size: 40px;
+	}
+	
+	.titulo-bold-dos {
+		font-size: 40px;
+	}
+
+	.containertits h1 {
+		margin-left: -98px;
+	}
+	
+.text-largo{
+	font-size: 24px !important;
+}
+
+.banner-home-principal {
+    margin-top: 35px;
+}
+
+.home-bannertit1 {
+	margin-left: 15px;
+	font-size: 30px;
+}
+
+
+.home-bannertit2 {
+	margin-left: 15px;
+	font-size: 27px !important;
+}
+
+
+	.home-sobreAmcham{
+		padding: 52px 23px 10px;
+		margin-bottom: 60px;
+	}
+
+	.home-sobreAmcham .titulo-light{
+		font-size: 50px
+	}
+
+	.margen-titulo-uno {
+		margin-left: 121px;
+	}
+
+	.home-sobreAmcham .titulo-bold-dos{
+		font-size: 50px;
+		margin-top: -53px;
+		margin-bottom: -46px;
+	}
+
+	.home-cifras {
+		grid-template-columns: 1fr;
+	}
+
+	.home-eventos-linea {
+		margin: 24px 0 26px 44px;
+	}
+
+	.home-servicios-linea {
+		margin: 24px 0 26px 70px;
+	}
+
+	.home-servicios article {
+		display: grid;
+		grid-template-columns: 1fr;
+	}
+
+	.cuadro-rojo-servicios {
+		display: none;
+	}
+
+	.home-patrocinadores-imgs {
+		grid-template-columns: 1fr;
+		justify-items: center;
+	}
+
+	.home-membresia-org {
+		grid-template-columns: 1fr;
+		margin-bottom: 50px;
+	}
+
+	.home-membresia-cuadros {
+		height: 100%;
+	}
+
+	/* sobreamcham */
+	.containerpages2 {
+		margin-top: 80%;
+	}
+
+	.contimgcenter{
+		display: grid;
+		justify-content: center;
+	}
+
+/* junta directiva */
+.lineastaff {
+    left: 18%;
+}
+
+	/* circulo de leiderazgo */
+	.tit-light-margin {
+		margin-right: -73px;
+	}
+
+
+	/* responsive  */
+	/* row{
+		margin-top: 486px
+	} */
+
+
+	/* proteccion de datos */
+
+.padpoliuno{
+	font-size: 27px !important;
+	letter-spacing: 0px;
+}
+
+.padpolidos{
+	font-size: 27px !important;
+    letter-spacing: 0px;
+    margin-left: -80px;
+}
+
+/* bussines service */
+.containerbannerbusiness{
+	width: 80%;
+	left: 9%;
+}
+
+.mtop7 {
+    margin-top: 72%;
+}
+
+
+
+.business-img{
+	margin: 72px auto 9px;
+    width: 250px !important;
+}
+
+.motopress-margin-top-100 {
+    margin-top: 93px !important;
+    width: 100%;
+}
+
+.plataforma-empleo {
+	margin-top: 87px;
+	}
+
+	.texto-entrada {
+		margin-top: -35px;
+		font-size: 21px;
+	}
+
+.plataforma-logo-textos {
+		grid-template-columns: 1fr;	
+		row-gap: 30px;
+	}
+
+.plataforma-empleo-3 {
+		grid-template-columns: 1fr;
+	}
+
+.plataforma-empleo-3-text-cuadro {
+	top: 0;
+	margin-bottom: 23px;
+}
+
+.plataforma-empleo-3 h3, .plataforma-empleo-4 h3 {
+    font-size: 45px;
+    margin-top: 10px;
+}
+
+.plataforma-empleo-3-text-cuadro img{
+	display:none;
+}
+
+.plataforma-empleo-4 {
+	grid-template-columns: 1fr;
+}
+
+.plataforma-empleo-4 h3 {
+	margin-top: -482px;
+}
+
+.plataforma-empleo-4-text-cuadro img{
+	display:none;
+}
+
+/* empleadores */
+
+.empleadores-texto {
+	margin-top: 52px !important;
+}
+
+.pasos-numero-grande {
+	font-size: 85px;
+}
+
+.altura-cuadroBlanco-1 {
+    height: 221px;
+    margin-top: 121px;
+    margin-left: -153px;
+}
+
+.altura-cuadroBlanco-2 {
+    height: 176px;
+    margin-top: 121px;
+    margin-right: -155px;
+}
+
+
+.altura-cuadroBlanco-3 {
+	height: 800px;
+    margin-top: 115px;
+    margin-right: 0;
+    margin-left: -154px;
+}
+
+
+.altura-cuadroBlanco-4 {
+    height: 205px;
+    margin-top: 108px;
+	margin-right: -148px;
+	height: 334px;
+}
+
+.altura-cuadroBlanco-5 {
+	height: 369px;
+	margin-top: 128px;
+    margin-right: 9px;
+	margin-left: -152px;
+}
+
+
+.margintit {
+    width: 100%;
+}
+
+/* consultoria */
+
+.consultoria-seccion-2{
+	margin-top: 490px;
+}
+
+/* blog */
+
+.cont_blog_all {
+    margin-top: 88px;
+}
+
+.cont_blog_allb {
+    margin-top: 88px;
+}
+
+/* perfil de estado */
+
+.perfil-estado-1{
+	width: 100% !important;
+}
+
+/* directorio */
+
+.imagencircu {
+    background: #fff;
+    width: 80%;
+    text-align: center;
+	min-height: 330px;
+	padding-top: 0;
+    -webkit-box-shadow: -16px 16px 0px -3px rgba(0,70,132,1);
+    -moz-box-shadow: -16px 16px 0px -3px rgba(0,70,132,1);
+    box-shadow: -16px 16px 0px -3px rgba(0,70,132,1);
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
+/* eventos */
+.marcoizquierdouno,.marcoderechoouno,.marcoderechodos{
+	display: none;
+}
+
+.conteventdeta {
+    width: 100%;
+}
+
+.marcoabajo2{
+	display: none;
+}
+
+/* promuevase con nostros */
+
+.promuevase-cont-img {
+    width: 300px;
+	height: 300px
+}
+
+.promuevase-cuadro-azul {
+    width: 300px;
+	height: 300px;
+}
+
+.promuevase-textos {
+	width: 309px;
+}
+
+
+.ftr_cont_all {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.ftr_cont_logo, .ftr_logo a {
+	margin: auto auto;
+}
+
+.ftr_cont_logo p {
+    text-align: left;
+}
+
+.ftr_line {
+    display:none;
+}
+
+.cont_nav_footer_menu {
+    display: none;
+}
+
+
+
+}
+
+/* --------------------------------------------------------------------------------- */
+/* FIN MEDIAS QUERIS 767px */
+/* --------------------------------------------------------------------------------- */

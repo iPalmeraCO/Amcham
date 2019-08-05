@@ -18,7 +18,7 @@
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="profile" href="http://gmpg.org/xfn/11">
-<link href="https://fonts.googleapis.com/css?family=Raleway:400,600,700,800|Source+Serif+Pro:400,600,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Anton|Source+Sans+Pro:300,400,600,700,900&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/style-juns.css">
 <link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/style-yeison.css">
@@ -104,27 +104,94 @@
 
 		<?php if ( has_nav_menu( 'top' ) ) : ?>
 			<div class="navigation-top">
-				<div class="container header">
-					<div class="items logos" >
-						<a href="<?php echo site_url();  ?>">	
-						
-													
-							<a href="http://159.203.108.98/LandingPageAmcham/#directorios-digitales"><img src="<?php echo site_url();?>/wp-content/uploads/2018/12/GUATEMALA-1.svg" alt=""></a>
-							<a href="http://159.203.108.98/LandingPageAmcham/#directorios-digitales"><img src="<?php echo site_url();?>/wp-content/uploads/2018/12/SALVADOR.svg" alt=""></a>
-							<a href="http://159.203.108.98/LandingPageAmcham/#directorios-digitales"><img src="<?php echo site_url();?>/wp-content/uploads/2018/12/HONDURAS-1.svg" alt=""></a>
-							
 
-						
+				<!-- IDIOMAS -->
+				<div class="items">
+					<span class="selector-idioma">	
+						<a href="" class="active">ES</a>
+						<span>/</span>
+						<a href="">EN</a>
+					</span>	
+					<a href="#" class="login">Login</a>
+				</div>	 
+				<!-- FIN IDIOMAS -->
+
+				<div class="container header">
+
+					<!-- <div class="items logos" >
+						<a href="<?php //echo site_url();  ?>">	
+							<a href="http://159.203.108.98/LandingPageAmcham/#directorios-digitales">dir-digitales</a>
+							<a href="http://159.203.108.98/LandingPageAmcham/#directorios-digitales">salvador</a>
+							<a href="http://159.203.108.98/LandingPageAmcham/#directorios-digitales">honduras</a>
 						</a>
-					</div>
-					<div class="items">
+					</div> -->
+
+					<!-- FIN BARRA SUPERIOR  -->
+        			<div class="cont_menu_redes_srch">
+
+							<div class="logo">
+								<?php the_custom_logo(); ?>
+        					</div>
 							
-							<?php get_template_part( 'template-parts/navigation/navigation', 'top' ); ?>
-							<div class="selector-idioma">	
-								<a href="	" class="active"><img src="<?php echo site_url();?>/wp-content/uploads/2018/12/espanol.png	" alt=""></a>
-								<a href="	"><img src="<?php echo site_url();?>/wp-content/uploads/2018/12/english-1.png		" alt=""></a>
-							</div>	
-					</div>	 
+							<input name="ActivaMenu" id="ActivaMenu" type="checkbox" />
+							<label class="botones azul" id="AbreMenu" for="ActivaMenu"><div class="menu_text">MENU</div></label>
+							
+							<div class="cont_menu_resposive">
+							<label id="AbreMenu" for="ActivaMenu"><div class="menu_text">X</div></label>
+
+							<div class="buscador resp_search"><?php get_search_form(); ?></div>
+
+						   	<?php wp_nav_menu( array(
+							   	'theme_location' => 'top',
+							   	'menu_id'        => 'top-menu',
+							   	'container' => 'nav',
+								'container_class' => 'cont_nav_top_menu',
+							   ) );
+							?>
+
+							<div class="contact_resp">
+							<?php wp_nav_menu( array(
+								'theme_location' => 'contacto',
+								'menu_id'        => 'top-contacto',
+								'container' => 'nav',
+								'container_class' => 'cont_nav_top_cont',
+								) ); 
+							
+							?>
+
+							<div class="h_cont_redes resp_red">
+								<a href="https://www.facebook.com/amchamguate/"><img src="http://localhost/general/wp-content/uploads/2019/07/face.png" alt=""></a>
+								<a href="https://twitter.com/AmchamGT"><img src="http://localhost/general/wp-content/uploads/2019/07/twitter.png" alt=""></a>
+								<a href="https://www.youtube.com/user/AmChamguate"><img src="http://localhost/general/wp-content/uploads/2019/07/youtube.png" alt=""></a>
+								<a href="https://gt.linkedin.com/company/amcham-guatemala"><img src="http://localhost/general/wp-content/uploads/2019/07/linked.png" alt=""></a>
+								<a href="#"><img src="http://localhost/general/wp-content/uploads/2019/07/instagram.png" alt=""></a>
+							</div>
+							</div>
+							</div>
+
+						   <div class="cont_all_search_contac">
+							   <div class="cont_contact_redes">
+									<?php wp_nav_menu( array(
+									'theme_location' => 'contacto',
+									'menu_id'        => 'top-contacto',
+									'container' => 'nav',
+									'container_class' => 'cont_nav_top_cont',
+									) ); ?>
+								<!-- REDES -->
+								<div class="h_cont_redes">
+									<a href="#"><img src="http://142.93.201.64/Amcham/wp-content/uploads/2019/07/face.png" alt=""></a>
+									<a href="#"><img src="http://142.93.201.64/Amcham/wp-content/uploads/2019/07/twitter.png" alt=""></a>
+									<a href="#"><img src="http://142.93.201.64/Amcham/wp-content/uploads/2019/07/youtube.png" alt=""></a>
+									<a href="#"><img src="http://142.93.201.64/Amcham/wp-content/uploads/2019/07/linked.png" alt=""></a>
+									<a href="#"><img src="http://142.93.201.64/Amcham/wp-content/uploads/2019/07/instagram.png" alt=""></a>
+								</div>
+							   </div>
+							   <!-- FIN REDES -->
+							  <div class="buscador"><?php get_search_form(); ?></div>
+						   </div>
+
+					</div>
+         			<!-- BARRA NAVEGACION -->
 					
 				</div><!-- .wrap -->
 			</div><!-- .navigation-top -->

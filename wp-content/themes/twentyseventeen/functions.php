@@ -63,6 +63,8 @@ function twentyseventeen_setup() {
 		array(
 			'top'    => __( 'Top Menu', 'twentyseventeen' ),
 			'social' => __( 'Social Links Menu', 'twentyseventeen' ),
+			'contacto' => __( 'contacto', 'twentyseventeen' ),
+			'footer' => __( 'footer', 'twentyseventeen' ),
 		)
 	);
 
@@ -393,6 +395,18 @@ function twentyseventeen_excerpt_more( $link ) {
 }
 add_filter( 'excerpt_more', 'twentyseventeen_excerpt_more' );
 
+/** ----------------------------------------------------------------------------------------------------
+ * the_excerpt()
+ *
+ * @param int $length Excerpt length.
+ * @return int (Maybe) modified excerpt length.
+ */
+function wpdocs_custom_excerpt_length( $length ) {
+    return 15;
+}
+add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
+// ----------------------------------------------------------------------------------------------------------
+
 /**
  * Handles JavaScript detection.
  *
@@ -672,3 +686,29 @@ function estatutos() {
     return ob_get_clean(); 
 }
 add_shortcode('estatutos', 'estatutos');
+
+function revistas_home() {
+	ob_start();
+    get_template_part('revistashome');
+    return ob_get_clean(); 
+}
+add_shortcode('revistashome', 'revistas_home');
+
+
+function directorios_home() {
+	ob_start();
+    get_template_part('directorioshome');
+    return ob_get_clean(); 
+}
+add_shortcode('directorioshome', 'directorios_home');
+
+function carouselempresas_destacadas() {
+	ob_start();
+    get_template_part('carouselempresasdestacadas');
+    return ob_get_clean(); 
+}
+add_shortcode('carouselempresasdestacadas', 'carouselempresas_destacadas');
+
+add_filter('acf/settings/remove_wp_meta_box', '__return_false');
+
+
