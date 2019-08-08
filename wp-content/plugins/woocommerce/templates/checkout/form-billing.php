@@ -25,7 +25,11 @@ defined( 'ABSPATH' ) || exit;
 
 	<?php else : ?>
 
-		<h3><?php esc_html_e( 'Billing details', 'woocommerce' ); ?></h3>
+		<!--<h3><?php esc_html_e( 'Detalles de facturación', 'woocommerce' ); ?></h3>-->
+		<div class="ctit alcenter margineventop">
+				<h3>Detalles de facturación</h3>
+				<div class="linea-roja centd"></div>
+			</div>
 
 	<?php endif; ?>
 

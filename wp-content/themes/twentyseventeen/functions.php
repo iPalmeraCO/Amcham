@@ -711,4 +711,54 @@ add_shortcode('carouselempresasdestacadas', 'carouselempresas_destacadas');
 
 add_filter('acf/settings/remove_wp_meta_box', '__return_false');
 
+function woocommerce_remove_breadcrumb(){
+remove_action( 
+    'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
+}
+add_action(
+    'woocommerce_before_main_content', 'woocommerce_remove_breadcrumb'
+);
 
+function woocommerce_custom_breadcrumb(){
+    woocommerce_breadcrumb();
+}
+
+add_action( 'woo_custom_breadcrumb', 'woocommerce_custom_breadcrumb' );
+
+
+//Redireccionar despues de añadir al carrito
+add_filter('woocommerce_add_to_cart_redirect', 'redirect_to_checkout');
+function redirect_to_checkout($redirect_url) {
+  if (isset($_REQUEST['is_buy_now']) && $_REQUEST['is_buy_now']) {  	
+     global $woocommerce;
+     $redirect_url = wc_get_checkout_url();
+  }
+  return $redirect_url;
+}
+
+//Custom precio cuando esta logueado
+function custom_price_socio( $price, $product ) {
+   	$user = wp_get_current_user();
+	if ( in_array( 'customer', (array) $user->roles ) ) {
+		$id = $product->get_id();    
+    	$preciosocio = get_field('preciomembresia',$id);
+      	return $preciosocio;
+	}
+   return $price;
+}
+ 
+add_filter( 'woocommerce_product_get_price', 'custom_price_socio', 10, 2 );
+
+
+// Removes Order Notes Title - Additional Information & Notes Field
+add_filter( 'woocommerce_enable_order_notes_field', '__return_false', 9999 );
+
+
+
+// Remove Order Notes Field
+add_filter( 'woocommerce_checkout_fields' , 'remove_order_notes' );
+
+function remove_order_notes( $fields ) {
+     unset($fields['order']['order_comments']);
+     return $fields;
+}

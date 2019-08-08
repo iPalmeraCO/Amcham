@@ -1449,3 +1449,50 @@
 .rowefirst span{
   margin-top: 5px;
 }
+#primary{
+  background: #f9f9f9; 
+}
+
+.spandatosevento input {
+  margin: 0px auto !important;
+}
+/* Woocomerce */
+body.page-two-column.woocommerce-account:not(.archive) #primary .entry-header, body.page-two-column.woocommerce-cart:not(.archive) #primary .entry-header, body.page-two-column.woocommerce-checkout:not(.archive) #primary .entry-header{
+  display: none;
+}
+body.page-two-column.woocommerce-account:not(.archive) #primary .entry-content, body.page-two-column.woocommerce-cart:not(.archive) #primary .entry-content, body.page-two-column.woocommerce-checkout:not(.archive) #primary .entry-content {
+  width: 100% !important;
+}
+.woocommerce-billing-fields__field-wrapper .form-row{
+  width: 33% !important;
+  padding-right: 15px;
+  padding-left: 15px;
+  display: inline-block;
+}
+
+.woocommerce form .form-row-first, .woocommerce-page form .form-row-first, .woocommerce form .form-row-last, .woocommerce-page form .form-row-last{
+  float: none !important;
+}
+
+.woocommerce-billing-fields__field-wrapper {
+  margin-top: 30px;
+}
+
+.woocommerce-billing-fields .form-row label {
+  padding: 0px;
+  color: #004584;
+  margin: 5px;
+}
+
+.woocommerce-checkout-payment .place-order, .wc_payment_method .payment_box
+{
+  display: inline-block !important;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+/* */

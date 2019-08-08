@@ -58,17 +58,17 @@ class WC_Twenty_Seventeen {
 	 * Open the Twenty Seventeen wrapper.
 	 */
 	public static function output_content_wrapper() {
-		echo '<div class="wrap">';
+		//echo '<div class="container">';
 		echo '<div id="primary" class="content-area twentyseventeen">';
-		echo '<main id="main" class="site-main" role="main">';
+		//echo '<main id="main" class="site-main" role="main">';
 	}
 
 	/**
 	 * Close the Twenty Seventeen wrapper.
 	 */
 	public static function output_content_wrapper_end() {
-		echo '</main>';
-		echo '</div>';
+		//echo '</main>';
+		//echo '</div>';
 		get_sidebar();
 		echo '</div>';
 	}

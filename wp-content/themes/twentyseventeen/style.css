@@ -4687,6 +4687,11 @@ ul.listas-con-puntos li:before {
 
 }
 
+
+input[type="text"], input[type="email"], input[type="url"], input[type="password"], input[type="search"], input[type="number"], input[type="tel"], input[type="range"], input[type="date"], input[type="month"], input[type="week"], input[type="time"], input[type="datetime"], input[type="datetime-local"], input[type="color"]{
+	height:40px;
+}
+
 /* home */
 .banner-home-principal{
 	margin-top:15px;
@@ -5091,6 +5096,11 @@ ul.listas-con-puntos li:before {
 	margin-top: 50px;
 }
 
+.concomites{
+	display:flex;
+	flex-direction: column;
+}
+
 .imgqueofrecemos {
 	top: -22px;
 }
@@ -5118,9 +5128,34 @@ ul.listas-con-puntos li:before {
 	top: 12%;
 }
 
-
-
 /* fin sobre amcham */
+
+/* nuestros comites */
+.img-nuestros-comi-1{
+	margin-top:-65px !important;
+}
+
+.lineacom1 {
+    position: absolute;
+    left: -3%;
+}
+
+/* fin nuestros comite */
+
+/* circulo liderazgo */
+
+.tit-patrocinadores{
+	font-size: 50px;
+}
+/* fin circulo liderazgo */
+
+/* business service */
+
+.card-block{
+	margin: 20px;
+}
+
+/* fin business services */
 
 /* Plataforma de empleo */
 .banner-j{
@@ -5579,6 +5614,7 @@ ul.listas-con-puntos li:before {
 .ftr_footer{
 	background: #fff;
 	padding-top: 18px;
+	/* border-top: 1px solid #C9012B; */
 }
 
 .ftr_cont_all{
@@ -5627,7 +5663,7 @@ ul.listas-con-puntos li:before {
 }
 
 .ftr_logo a img {
-    width: 6.5625rem;
+    width: 9.5625rem;
     max-height: initial;
 }
 
@@ -6236,6 +6272,10 @@ h2 {
 		margin: 24px 0 26px 44px;
 	}
 
+	.home-servi-margen-sup{
+		margin-top: -77px;
+	}
+
 	.home-servicios-linea {
 		margin: 24px 0 26px 70px;
 	}
@@ -6245,8 +6285,18 @@ h2 {
 		grid-template-columns: 1fr;
 	}
 
+	.cajas-flex-inverse{
+		display: flex !important;
+		flex-direction: column-reverse;
+	}
+
+
 	.cuadro-rojo-servicios {
 		display: none;
+	}
+
+	.home-patroci-margen-sup{
+		margin-top: -170px;
 	}
 
 	.home-patrocinadores-imgs {
@@ -6263,6 +6313,11 @@ h2 {
 		height: 100%;
 	}
 
+
+	.home-revi-margen-sup{
+		margin-top: -106px;
+	}
+
 	/* sobreamcham */
 	.containerpages2 {
 		margin-top: 80%;
@@ -6273,15 +6328,46 @@ h2 {
 		justify-content: center;
 	}
 
+	.containcomcuadroizq {
+		margin-top: -28px;
+		text-align: left;
+	}
+
+	.queofrecemos {
+		margin-top: 462px;
+	}
+
+	.tit-anton-peque{
+		font-size: 35px !important;
+	}
+
+	.culturaserv {
+		top: -1%;
+		left: -1px;
+	}
+
 /* junta directiva */
 .lineastaff {
     left: 18%;
+}
+
+.contderjun{
+	display: none;
 }
 
 	/* circulo de leiderazgo */
 	.tit-light-margin {
 		margin-right: -73px;
 	}
+
+	
+.patrocinadores-general{
+	margin-top: 819px;
+}
+
+.tit-patrocinadores{
+	font-size: 40px;
+}
 
 
 	/* responsive  */
@@ -6508,7 +6594,14 @@ h2 {
     display: none;
 }
 
+/* FOOTER */
+.ftr_footer{
+	border-top: 1px solid #C9012B;
+}
 
+.ftr_cont_info, .ftr_cont_redes {
+    text-align: center;
+}
 
 }
 

@@ -46,6 +46,14 @@ if ( post_password_required() ) {
 		$("#add-to-cart").click();
 	}
 </script>
+<div class="banner">
+		<img width="1280" height="418" src="http://142.93.201.64/Amcham/wp-content/uploads/2019/07/grupo-personas-2.jpg" class="attachment-full size-full wp-post-image" alt="" sizes="100vw">		<div class="containertits">
+		 	<h1 class="tit1 titulo-light tit-light-margindos">Nuestros</h1>
+		 	<h1 class="titulo-bold-dos">Eventos</h1>
+		</div>	
+	</div>x
+<div class="container">
+
 <div id="product-<?php the_ID(); ?>" <?php wc_product_class( '', $product ); ?>>
 
 	<?php
@@ -63,6 +71,7 @@ if ( post_password_required() ) {
 		 			<img class="bimgdetevent" src="<?php echo get_site_url(); ?>/wp-content/uploads/2019/07/evento-detalle.png">		
 		 	</div>
 		  	<div class="marcoabajo"></div>
+		  	<?php //do_action('woo_custom_breadcrumb');  ?>
 			<div class="conteventdeta">
 					  				<div class="row">
 						  				<div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
@@ -147,6 +156,7 @@ if ( post_password_required() ) {
 							  					</div>
 							  					<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 alright datosevento">
 							  						<button id="add-to-cart" type="submit" name="add-to-cart" value="<?php echo $product->get_id(); ?>" class="single_add_to_cart_button button alt">Add to cart</button>
+							  						<input type="hidden" name="is_buy_now" id="is_buy_now" value="1" />
 							  						<div class="alright topdiez"><a class="btn-vermas" onclick="add_to_cart()"><span class="texto-btn">Siguiente</span><span class="separador">|</span><span class="estilo-mas">+</span></a></div>
 							  					</div>
 						  					</div>
@@ -156,6 +166,74 @@ if ( post_password_required() ) {
 					  			
 				</div>
 			</div>
+
+			<div class="containerdett2 mtop7">
+			<div class="ctit alcenter">
+				<h3>Le puede Interesar</h3>
+				<div class="linea-roja centd"></div>
+			</div>
+
+			<?php 
+
+				$args  = array(
+			       
+			       'orderby' => 'date',
+			       'post__not_in' => array(get_the_ID()),
+			       'orderby'   => 'rand',
+			       'post_type' => 'product',
+			       'posts_per_page' => 2
+			   );
+			   	$r = new WP_Query($args);
+			   
+			   //print_r($r);
+
+					$total = $r;
+					$contador = 1;
+					while ($r->have_posts()) :
+			        $r->the_post();     
+			        global $product;   
+			 ?>
+			 <?php if ($contador == 1) {?>
+			<div class="col-md-6 margineventop paddingevents">
+			    <div class="imagenevent"><img src="<?php echo get_the_post_thumbnail_url(); ?>">
+			        <div class="fechaevento"><?php echo $product->get_attribute( 'fecha2' ); ?></div>
+			    </div>
+			    <div class="marcoabajo2"></div>
+			    <div class="contentcircu contentevent">
+			        <h3><?php echo the_title(); ?></h3>
+			      	<p><?php the_excerpt(); ?></p>
+			        <div class="contentfecevent">
+			            <span class="fechadeevento"><?php echo $product->get_attribute( 'fecha' ); ?></span>
+			      		<span class="horadeevento"><?php echo $product->get_attribute( 'hora' ); ?></span>
+			        </div>
+			        <div class="btnvermas btnvermaseventos"><a class="btn-vermas" href="<?php echo get_permalink(); ?>"><span class="texto-btn">Ver más</span><span class="separador">|</span><span class="estilo-mas">+</span></a></div>
+			    </div>
+			    
+			</div>
+			<?php } else { ?>
+
+			<div class="col-md-6 marginevent margineventop paddingevents">
+			    <div class="imagenevent imageneventdos"><img src="<?php echo get_the_post_thumbnail_url(); ?>">
+			        <div class="fechaevento"><?php echo $product->get_attribute( 'fecha2' ); ?></div>
+			    </div>
+			    <div class="contentcircu contentevent">
+			       	<h3><?php echo the_title(); ?></h3>
+			      	<p><?php the_excerpt(); ?></p>
+			        <div class="contentfecevent">
+			            <span class="fechadeevento"><?php echo $product->get_attribute( 'fecha' ); ?></span>
+			      		<span class="horadeevento"><?php echo $product->get_attribute( 'hora' ); ?></span>
+			        </div>
+			        <div class="btnvermas btnvermaseventos"><a class="btn-vermas" href="<?php echo get_permalink(); ?>"><span class="texto-btn">Ver más</span><span class="separador">|</span><span class="estilo-mas">+</span></a></div>
+			    </div>
+			    
+			</div>
+				<?php 
+				}
+				$contador++;
+				endwhile;
+				?>
+		</div>
+
 		</div>
 					    
 	<div class="steps step1">
@@ -192,4 +270,5 @@ if ( post_password_required() ) {
 	?>
 </div>
 
+</div>
 <?php do_action( 'woocommerce_after_single_product' ); ?>

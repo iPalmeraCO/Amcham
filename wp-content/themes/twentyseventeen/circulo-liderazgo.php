@@ -12,9 +12,9 @@ get_header(); ?>
 		</div> 
 	</div>
 	<div class="container linea-roja linerojacirculo"></div>
-	<div class="container">
+	<div class="container patrocinadores-general">
 		<div class="center mtop7">
-			<h3>Patrocinadores</h3>	
+			<h3 class="tit-patrocinadores">Patrocinadores</h3>	
 		</div>
 		<div>
 			<?php 

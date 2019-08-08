@@ -112,7 +112,13 @@
 						<span>/</span>
 						<a href="">EN</a>
 					</span>	
-					<a href="#" class="login">Login</a>
+					<?php global $current_user; wp_get_current_user(); ?>
+					<?php if (!is_user_logged_in()):?>
+						<a href="#" class="login">Login</a>
+						<?php else:?>
+						<a href="#" class="login">Bienvenido <?= $current_user->display_name; ?></a>
+					<?php endif; ?>
+
 				</div>	 
 				<!-- FIN IDIOMAS -->
 

@@ -2,7 +2,7 @@
 
 get_header(); ?>
 
-<div id="primary" class="content-area">
+<!-- <div id="primary" class="content-area">
 	<div class="banner">
 		<?php echo get_the_post_thumbnail( get_the_ID() , 'full' );	?>
 		<div class="containertits">
@@ -12,7 +12,7 @@ get_header(); ?>
 		 
 
 		 
-	</div>
+	</div> -->
 	
 			<div class="container margincinco">
 				<h1 class="titulo-bold-dos">Junta</h1>

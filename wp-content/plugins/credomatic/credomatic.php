@@ -125,9 +125,66 @@ function init_credomatic_gateway_class(){
             if ( $description = $this->get_description() ) {
                 echo wpautop( wptexturize( $description ) );
             }
-
+            $plugin_dir_url = plugin_dir_url( __FILE__ );
             ?>
-            <div id="credomatic_input">
+
+            <script type="text/javascript" src="<?php echo $plugin_dir_url; ?>js/credomatic.js"></script>
+            <div id="credomatic_input" class="cformev">
+                <div class="rowe">
+                    <input type="checkbox" name="asd"><span class="t1">Paga con tu tarjeta de crédito vía Credomatic.</span>    
+                </div>
+                <div class="margleeven">
+                    <div class="rowefirst rowe">
+                        <span>Número de tarjeta de crédito *</span>
+                        <div class="row">
+                            <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">                                         
+                                <input type="text" name="tarjeta" class="tarjeta" id="tarjeta">  
+                                <img class="imgtarjetas" src="<?php echo site_url() ?>/wp-content/uploads/2019/08/tarjetas.png">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rowe">
+                        <span>Fecha de expiración*</span>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <select id="mes" name="mes">
+                                <option value="" selected="selected" disabled>Mes</option>
+                                <option value="01">Enero</option>
+                                <option value="02">Febrero</option>
+                                <option value="03">Marzo</option>
+                                <option value="04">Abril</option>
+                                <option value="05">Mayo</option>
+                                <option value="06">Junio</option>
+                                <option value="07">Julio</option>
+                                <option value="08">Agosto</option>
+                                <option value="09">Septiembre</option>
+                                <option value="10">Octubre</option>
+                                <option value="11">Noviembre</option>
+                                <option value="12">Diciembre</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <select id="ano" name="ano">
+                                <option value="" selected="selected" disabled>Año</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="rowe">
+                        <span>Código de seguridad de la tarjeta *</span>                                            
+                    </div>
+                    <div class="rowe">
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 nopadleft">
+                            <input type="number" name="cvv" class="cvv" maxlength="4">
+                        </div>
+                        <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12 nopadleft">
+                            <span class="textcvv">3 o 4 dígitos usualmente encontrados debajo del campo de la firma</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--<div id="credomatic_input">
                 <p class="form-row form-row-wide">
                     <label for="mobile" class=""><?php _e('Mobile Number', $this->domain); ?></label>
                     <input type="text" class="" name="mobile" id="mobile" placeholder="" value="">
@@ -136,7 +193,7 @@ function init_credomatic_gateway_class(){
                     <label for="transaction" class=""><?php _e('Transaction ID', $this->domain); ?></label>
                     <input type="text" class="" name="transaction" id="transaction" placeholder="" value="">
                 </p>
-            </div>
+            </div>-->
             <?php
         }
 
@@ -182,12 +239,18 @@ function process_credomatic_payment(){
     if($_POST['payment_method'] != 'credomatic')
         return;
 
-    if( !isset($_POST['mobile']) || empty($_POST['mobile']) )
+    $tarjeta = $_POST['tarjeta'];
+    $mes = $_POST['mes'];
+    $ano = $_POST['ano'];
+    $cvv = $_POST['cvv'];
+    
+
+    /*if( !isset($_POST['mobile']) || empty($_POST['mobile']) )
         wc_add_notice( __( 'Please add your mobile number', $this->domain ), 'error' );
 
 
     if( !isset($_POST['transaction']) || empty($_POST['transaction']) )
-        wc_add_notice( __( 'Please add your transaction ID', $this->domain ), 'error' );
+        wc_add_notice( __( 'Please add your transaction ID', $this->domain ), 'error' );*/
 
 }
 

@@ -1,4 +1,5 @@
 <?php
+define('WP_DEBUG', true);
 /**
  * The base configuration for WordPress
  *
