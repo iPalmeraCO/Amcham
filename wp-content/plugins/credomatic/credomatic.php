@@ -85,7 +85,7 @@ function init_credomatic_gateway_class(){
                     'title'       => __( 'Description', $this->domain ),
                     'type'        => 'textarea',
                     'description' => __( 'Payment method description that the credomaticer will see on your checkout.', $this->domain ),
-                    'default'     => __('Payment Information', $this->domain),
+                    'default'     => __('Paga con tu tarjeta de crédito vía Credomatic.', $this->domain),
                     'desc_tip'    => true,
                 ),
                 'instructions' => array(
@@ -129,10 +129,7 @@ function init_credomatic_gateway_class(){
             ?>
 
             <script type="text/javascript" src="<?php echo $plugin_dir_url; ?>js/credomatic.js"></script>
-            <div id="credomatic_input" class="cformev">
-                <div class="rowe">
-                    <input type="checkbox" name="asd"><span class="t1">Paga con tu tarjeta de crédito vía Credomatic.</span>    
-                </div>
+            <div id="credomatic_input" class="cformev">                
                 <div class="margleeven">
                     <div class="rowefirst rowe">
                         <span>Número de tarjeta de crédito *</span>

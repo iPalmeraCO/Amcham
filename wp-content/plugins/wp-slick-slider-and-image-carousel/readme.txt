@@ -2,7 +2,7 @@
 Contributors: wponlinesupport, anoopranawat, pratik-jain
 Tags: wponlinesupport, slick, image slider, slick slider, slick image slider, slider, image slider, header image slider, responsive image slider, responsive content slider, carousel, image carousel, carousel slider, content slider, coin slider, touch slider, text slider, responsive slider, responsive slideshow, Responsive Touch Slider, wp slider, wp image slider, wp header image slider, photo slider, responsive photo slider  
 Requires at least: 4.0
-Tested up to: 5.2.1
+Tested up to: 5.2.2
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -17,7 +17,8 @@ It uses A custom post type and taxonomy to create a slider, with almost unlimite
 
 We have added 5 designs for slider and 1 design for carousel. You can find all designs on our demo website. Just copy the shortcode of design that you like and use.
 
-Check [DEMO](https://www.wponlinesupport.com/wp-plugin/wp-slick-slider-and-image-carousel/) | [PRO DEMO and Features](https://www.wponlinesupport.com/wp-plugin/wp-slick-slider-and-image-carousel/) for additional information.
+Check [FREE DEMO](https://demo.wponlinesupport.com/slick-slider-demo/) 
+Check [PRO DEMO and Features](https://demo.wponlinesupport.com/prodemo/pro-wp-slick-slider-and-carousel-demo/) for additional information.
 
 **Also work with Gutenberg shortcode block.**
 
@@ -124,6 +125,11 @@ Check [DEMO](https://www.wponlinesupport.com/wp-plugin/wp-slick-slider-and-image
 7. Also work with Gutenberg shortcode block.
 
 == Changelog ==
+
+= 1.8 (08, August 2019) =
+* [*] Update demo links
+* [*] Fixed some small-small issues.
+* [*] Updated text under featred image ie Add slider image.
 
 = 1.7.1 (31, May 2019) =
 * [+] Added new shortcode parameter ie image_fit="true". image_fit parameter is used to specify how an image should be resized to fit its container. By default value is "true". Options are "true OR false". NOTE : NOTE :  image_fit="true" work better if sliderheight is given. if image_fit="false", no need to use sliderheight parameter.  

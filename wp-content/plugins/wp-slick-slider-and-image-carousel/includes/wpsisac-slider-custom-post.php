@@ -13,6 +13,9 @@ function wpsisac_slider_init() {
     'search_items'         => __('Search Slick Slider', 'wp-slick-slider-and-image-carousel'),
     'not_found'            =>  __('No Slick Slider Items found', 'wp-slick-slider-and-image-carousel'),
     'not_found_in_trash'   => __('No Slick Slider Items found in Trash', 'wp-slick-slider-and-image-carousel'), 
+	'featured_image' 		=> __('Set slider image', 'wp-slick-slider-and-image-carousel'),
+	'set_featured_image'	=> __( 'Set slider image' , 'wp-slick-slider-and-image-carousel' ),
+	'remove_featured_image' => __( 'Remove slider image', 'wp-slick-slider-and-image-carousel' ),
     '_builtin'             =>  false, 
     'parent_item_colon'    => '',  
 	'menu_name'            => _x( 'Slick Slider', 'admin menu', 'wp-slick-slider-and-image-carousel' )
@@ -116,8 +119,8 @@ add_action( 'add_meta_boxes', 'wpsisac_add_meta_box' );
 function wpsisac_box_callback( $post ) {
 	wp_nonce_field( 'wpsisac_save_meta_box_data', 'wpsisac_meta_box_nonce' );
 	$value = get_post_meta( $post->ID, 'wpsisac_slide_link', true );
-	echo '<input type="url" id="wpsisac_slide_link" name="wpsisac_slide_link" value="' . esc_attr( $value ) . '" size="25" /><br />';
-	echo 'eg. http://www.google.com';
+	echo '<input type="url" style="width:100%;" id="wpsisac_slide_link" name="wpsisac_slide_link" value="' . esc_attr( $value ) . '" size="25" /><br />';
+	echo '<em>Display link on image eg. http://www.google.com</em>';
 }
 function wpsisac_save_meta_box_data( $post_id ) {
 	if ( ! isset( $_POST['wpsisac_meta_box_nonce'] ) ) {
