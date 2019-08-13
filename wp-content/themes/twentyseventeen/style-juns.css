@@ -1035,7 +1035,7 @@
 }
 
 .marcoabajo3 {
-    height: 40%;
+    height: 20%;
     position: absolute;
     width: 39%;
     border-right: 9px solid #50acff;
@@ -1501,5 +1501,10 @@ input[type=number]::-webkit-outer-spin-button {
 
 .payment_method_credomatic p:first-child{
   display: none;
+}
+
+.cart-subtotal th, .order-total th, tfoot .order-total .woocommerce-Price-amount{
+  color: #004584;
+
 }
 /* */

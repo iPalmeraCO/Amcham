@@ -112,13 +112,7 @@
 						<span>/</span>
 						<a href="">EN</a>
 					</span>	
-					<?php global $current_user; wp_get_current_user(); ?>
-					<?php if (!is_user_logged_in()):?>
-						<a href="#" class="login">Login</a>
-						<?php else:?>
-						<a href="#" class="login">Bienvenido <?= $current_user->display_name; ?></a>
-					<?php endif; ?>
-
+					<a href="#" class="login">Login</a>
 				</div>	 
 				<!-- FIN IDIOMAS -->
 
@@ -147,6 +141,34 @@
 
 							<div class="buscador resp_search"><?php get_search_form(); ?></div>
 
+
+						<div class="cont_all_search_contac">
+							<div class="buscador"><?php get_search_form(); ?></div>
+							<div class="cont_contact_redes">
+								<?php wp_nav_menu( array(
+								'theme_location' => 'contacto',
+								'menu_id'        => 'top-contacto',
+								'container' => 'nav',
+								'container_class' => 'cont_nav_top_cont',
+								) ); ?>
+								<!-- REDES -->
+								<div class="h_cont_redes">
+								<a href="#"><img src="http://142.93.201.64/Amcham/wp-content/uploads/2019/07/face.png" alt=""></a>
+								<a href="#"><img src="http://142.93.201.64/Amcham/wp-content/uploads/2019/07/twitter.png" alt=""></a>
+								<a href="#"><img src="http://142.93.201.64/Amcham/wp-content/uploads/2019/07/youtube.png" alt=""></a>
+								<a href="#"><img src="http://142.93.201.64/Amcham/wp-content/uploads/2019/07/linked.png" alt=""></a>
+								<a href="#"><img src="http://142.93.201.64/Amcham/wp-content/uploads/2019/07/instagram.png" alt=""></a>
+								</div>
+							</div>
+							<!-- FIN REDES -->
+								<div class="direccion-header">
+									<p>Dirección: carrera 58 No. 34-34 colonia 2 Teléfono: (123)123 1234</p>
+								</div>
+
+						</div>
+
+
+
 						   	<?php wp_nav_menu( array(
 							   	'theme_location' => 'top',
 							   	'menu_id'        => 'top-menu',
@@ -172,29 +194,10 @@
 								<a href="https://gt.linkedin.com/company/amcham-guatemala"><img src="http://localhost/general/wp-content/uploads/2019/07/linked.png" alt=""></a>
 								<a href="#"><img src="http://localhost/general/wp-content/uploads/2019/07/instagram.png" alt=""></a>
 							</div>
-							</div>
-							</div>
-
-						   <div class="cont_all_search_contac">
-							   <div class="cont_contact_redes">
-									<?php wp_nav_menu( array(
-									'theme_location' => 'contacto',
-									'menu_id'        => 'top-contacto',
-									'container' => 'nav',
-									'container_class' => 'cont_nav_top_cont',
-									) ); ?>
-								<!-- REDES -->
-								<div class="h_cont_redes">
-									<a href="#"><img src="http://142.93.201.64/Amcham/wp-content/uploads/2019/07/face.png" alt=""></a>
-									<a href="#"><img src="http://142.93.201.64/Amcham/wp-content/uploads/2019/07/twitter.png" alt=""></a>
-									<a href="#"><img src="http://142.93.201.64/Amcham/wp-content/uploads/2019/07/youtube.png" alt=""></a>
-									<a href="#"><img src="http://142.93.201.64/Amcham/wp-content/uploads/2019/07/linked.png" alt=""></a>
-									<a href="#"><img src="http://142.93.201.64/Amcham/wp-content/uploads/2019/07/instagram.png" alt=""></a>
-								</div>
-							   </div>
-							   <!-- FIN REDES -->
-							  <div class="buscador"><?php get_search_form(); ?></div>
-						   </div>
+						</div>
+					</div>
+					
+					
 
 					</div>
          			<!-- BARRA NAVEGACION -->

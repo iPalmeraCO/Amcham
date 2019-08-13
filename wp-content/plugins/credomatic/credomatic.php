@@ -1,4 +1,9 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+include_once("classcredomatic.php");
+
 /*
 Plugin Name: Credomatic
 Description: Credomatic payment method
@@ -236,10 +241,22 @@ function process_credomatic_payment(){
     if($_POST['payment_method'] != 'credomatic')
         return;
 
-    $tarjeta = $_POST['tarjeta'];
-    $mes = $_POST['mes'];
-    $ano = $_POST['ano'];
-    $cvv = $_POST['cvv'];
+    $credomatic = new credomatic();
+    
+    $amount = WC()->cart->total;
+    $card = $_POST['tarjeta'];
+    $mes  = $_POST['mes'];
+    $year = $_POST['ano'];
+    $cvv  = $_POST['cvv'];
+
+    $mesyear = $mes.$year;
+    $a = $credomatic->processtransaction($mesyear, $card,$amount,$cvv);
+ 
+    if ($a == -1){        
+        wc_add_notice( __('Error : ', 'woothemes') . "Ha ocurrido un error con el pago intente nuevamente ".$a->geterrors(), 'error' );
+        return;
+    }
+   
     
 
     /*if( !isset($_POST['mobile']) || empty($_POST['mobile']) )

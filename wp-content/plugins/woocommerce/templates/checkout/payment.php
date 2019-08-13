@@ -21,7 +21,13 @@ if ( ! is_ajax() ) {
 	do_action( 'woocommerce_review_order_before_payment' );
 }
 ?>
-<div id="payment" class="woocommerce-checkout-payment conteventdeta">
+<?php date('l jS \of F Y h:i:s A'); ?>
+<div id="payment" class="woocommerce-checkout-payment>
+ <div class="imgdetevento">
+			 	<img class="bimgdetevent" src="<?php echo get_site_url(); ?>/wp-content/uploads/2019/07/evento-detalle.png">			      			
+			  </div>
+			  <div class="marcoabajo3"></div>
+<div class="conteventdeta">
 	<?php if ( WC()->cart->needs_payment() ) : ?>
 		<ul class="wc_payment_methods payment_methods methods">
 			<?php
@@ -54,6 +60,7 @@ if ( ! is_ajax() ) {
 
 		<?php wp_nonce_field( 'woocommerce-process_checkout', 'woocommerce-process-checkout-nonce' ); ?>
 	</div>
+</div>
 </div>
 <?php
 if ( ! is_ajax() ) {

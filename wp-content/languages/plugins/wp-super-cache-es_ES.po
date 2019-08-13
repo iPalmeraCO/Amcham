@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - WP Super Cache - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2019-07-25 12:53:39+0000\n"
+"PO-Revision-Date: 2019-08-09 19:05:57+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1059,7 +1059,7 @@ msgstr "Deja la caja de texto en blanco para eliminarla de la lista de páginas 
 
 #: wp-cache.php:1695
 msgid "For example: to cache <em>%1$sabout/</em>, you would enter %1$sabout/ or /about/. The cached file will be generated the next time an anonymous user visits that page."
-msgstr "Por ejemplo: to cache <em>%1$sabout/</em>, you would enter %1$sabout/ or /about/. The cached file will be generated the next time an anonymous user visits that page."
+msgstr "Por ejemplo: para cachear <em>%1$sabout/</em>, entrarías %1$sabout/ o /about/. El archivo en caché se generará la siguiente vez que un usuario anónimo visite esa página."
 
 #: wp-cache.php:1691
 msgid "Directly cached files are files created directly off %s where your blog lives. This feature is only useful if you are expecting a major Digg or Slashdot level of traffic to one post or page."
