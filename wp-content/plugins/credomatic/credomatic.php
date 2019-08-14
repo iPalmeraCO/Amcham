@@ -26,6 +26,7 @@ function init_credomatic_gateway_class(){
     class WC_Gateway_Credomatic extends WC_Payment_Gateway {
 
         public $domain;
+        public $referencenumber;
 
         /**
          * Constructor for the gateway.
@@ -138,18 +139,20 @@ function init_credomatic_gateway_class(){
                 <div class="margleeven">
                     <div class="rowefirst rowe">
                         <span>Número de tarjeta de crédito *</span>
+                        <span id="tarjetaerror" class="errorsfront"></span> 
                         <div class="row">
                             <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">                                         
-                                <input type="text" name="tarjeta" class="tarjeta" id="tarjeta">  
+                                <input type="number" name="tarjeta" class="tarjeta" id="tarjeta">  
                                 <img class="imgtarjetas" src="<?php echo site_url() ?>/wp-content/uploads/2019/08/tarjetas.png">
                             </div>
-                        </div>
+                        </div>                       
                     </div>
                     <div class="rowe">
                         <span>Fecha de expiración*</span>
+                        <span id="mesanoerror" class="errorsfront"></span> 
                     </div>
                     <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">                            
                             <select id="mes" name="mes">
                                 <option value="" selected="selected" disabled>Mes</option>
                                 <option value="01">Enero</option>
@@ -166,18 +169,19 @@ function init_credomatic_gateway_class(){
                                 <option value="12">Diciembre</option>
                             </select>
                         </div>
-                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">                            
                             <select id="ano" name="ano">
                                 <option value="" selected="selected" disabled>Año</option>
                             </select>
                         </div>
                     </div>
                     <div class="rowe">
-                        <span>Código de seguridad de la tarjeta *</span>                                            
+                        <span>Código de seguridad de la tarjeta *</span>  
+                        <span id="cvverror" class="errorsfront"></span>                                          
                     </div>
                     <div class="rowe">
                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 nopadleft">
-                            <input type="number" name="cvv" class="cvv" maxlength="4">
+                            <input type="number" name="cvv" id="cvv" class="cvv" maxlength="4">
                         </div>
                         <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12 nopadleft">
                             <span class="textcvv">3 o 4 dígitos usualmente encontrados debajo del campo de la firma</span>
@@ -236,13 +240,41 @@ function add_credomatic_gateway_class( $methods ) {
 }
 
 add_action('woocommerce_checkout_process', 'process_credomatic_payment');
-function process_credomatic_payment(){
-
+function process_credomatic_payment(){    
     if($_POST['payment_method'] != 'credomatic')
         return;
 
-    $credomatic = new credomatic();
-    
+    $error = false;
+    if( !isset($_POST['tarjeta']) || empty($_POST['tarjeta']) ) {
+        $error = true;
+        //wc_add_notice( __('Error : ', 'woothemes') . "Número de tarjeta inválido", 'error' );
+        $field = substr_replace( "tarjetaerror", "sisisi", 0);
+    }
+
+
+    if( !isset($_POST['mes']) || empty($_POST['mes']) ) {
+        $error = true;
+        //wc_add_notice( __('Error : ', 'woothemes') . "Mes inválido", 'error' );
+    }
+
+
+    if( !isset($_POST['ano']) || empty($_POST['ano']) ) {
+        $error = true;
+       // wc_add_notice( __('Error : ', 'woothemes') . "Año inválido", 'error' );
+    }
+
+
+    if( !isset($_POST['cvv']) || empty($_POST['cvv']) ) {
+        $error = true;
+        //wc_add_notice( __('Error : ', 'woothemes') . "Cvv inválido", 'error' );
+    }
+
+    if ($error) {
+        return; 
+    }
+
+
+    $credomatic = new credomatic();    
     $amount = WC()->cart->total;
     $card = $_POST['tarjeta'];
     $mes  = $_POST['mes'];
@@ -253,19 +285,15 @@ function process_credomatic_payment(){
     $a = $credomatic->processtransaction($mesyear, $card,$amount,$cvv);
  
     if ($a == -1){        
-        wc_add_notice( __('Error : ', 'woothemes') . "Ha ocurrido un error con el pago intente nuevamente ".$a->geterrors(), 'error' );
+        wc_add_notice( __('Error : ', 'woothemes') . "Ha ocurrido un error con el pago, intente nuevamente", 'error' );        
+        $logger = wc_get_logger();
+        $logger->error( 'Error en pago, Cliente: '.$_POST["billing_first_name"].' '.$_POST["billing_last_name"]. ' Correo:'.$_POST['billing_email'].' Código de respuesta :'.print_r($credomatic->geterrors(),true), array( 'source' => 'credomatic' ) );    
         return;
     }
-   
+
+    $_POST['referencenumber'] = $a;
+
     
-
-    /*if( !isset($_POST['mobile']) || empty($_POST['mobile']) )
-        wc_add_notice( __( 'Please add your mobile number', $this->domain ), 'error' );
-
-
-    if( !isset($_POST['transaction']) || empty($_POST['transaction']) )
-        wc_add_notice( __( 'Please add your transaction ID', $this->domain ), 'error' );*/
-
 }
 
 /**
@@ -277,13 +305,9 @@ function credomatic_payment_update_order_meta( $order_id ) {
     if($_POST['payment_method'] != 'credomatic')
         return;
 
-    // echo "<pre>";
-    // print_r($_POST);
-    // echo "</pre>";
-    // exit();
-
-    update_post_meta( $order_id, 'mobile', $_POST['mobile'] );
-    update_post_meta( $order_id, 'transaction', $_POST['transaction'] );
+    
+    update_post_meta( $order_id, 'referencenumber', $_POST['referencenumber'] );
+    
 }
 
 /**
@@ -301,13 +325,26 @@ function credomatic_payment_update_order_meta( $order_id ) {
  */
 add_action( 'woocommerce_admin_order_data_after_billing_address', 'credomatic_checkout_field_display_admin_order_meta', 10, 1 );
 function credomatic_checkout_field_display_admin_order_meta($order){
-    $method = get_post_meta( $order->id, '_payment_method', true );
+    
+    $method = get_post_meta( $order->get_id(), '_payment_method', true );
     if($method != 'credomatic')
         return;
 
-    $mobile = get_post_meta( $order->id, 'mobile', true );
-    $transaction = get_post_meta( $order->id, 'transaction', true );
+    $referencenumber = get_post_meta( $order->get_id(), 'referencenumber', true );
+    
 
-    echo '<p><strong>'.__( 'Mobile Number' ).':</strong> ' . $mobile . '</p>';
-    echo '<p><strong>'.__( 'Transaction ID').':</strong> ' . $transaction . '</p>';
+    echo '<p><strong>'.__( 'Referencia de pago credomatic' ).':</strong> ' . $referencenumber . '</p>';
+    ;
+}
+
+add_filter( 'woocommerce_form_field', 'bbloomer_checkout_fields_in_label_error', 10, 4 );
+ 
+function bbloomer_checkout_fields_in_label_error( $field, $key, $args, $value ) {   
+   if ( strpos( $field, '</label>' ) !== false && $args['required'] ) {
+      $error = '<span class="error" style="display:none">';
+      $error .= sprintf( __( '%s is a required field.', 'woocommerce' ), $args['label'] );
+      $error .= '</span>';
+      $field = substr_replace( $field, $error, strpos( $field, '</label>' ), 0);
+   }
+   return $field;
 }

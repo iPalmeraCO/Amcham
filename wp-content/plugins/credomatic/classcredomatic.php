@@ -74,9 +74,21 @@ class credomatic {
 		$result = $client->Authorize($AuthorizeRequest);
 
 
-		if ($result->AuthorizeResult->CreditCardTransactionResults->OriginalResponseCode == "00"){
+		if ($result->AuthorizeResult->CreditCardTransactionResults->ResponseCode == "1" && $result->AuthorizeResult->CreditCardTransactionResults->ReasonCode == "1" &&  $result->AuthorizeResult->CreditCardTransactionResults->ReasonCodeDescription == "Transaction is approved."){
 			$referencenumber = $result->AuthorizeResult->CreditCardTransactionResults->ReferenceNumber;
-			return $referencenumber;
+
+			$capture = $this->captureorrefund($amount, $this->orderNumber,1);
+			if ($capture->TransactionModificationResult->ResponseCode == 1 && $capture->TransactionModificationResult->ReasonCode == 1101 && $capture->TransactionModificationResult->ReasonCodeDescription == "Transaction successful"){
+				$refund = $this->captureorrefund($amount, $this->orderNumber,2);
+				if ($refund->TransactionModificationResult->ResponseCode == 1 && $refund->TransactionModificationResult->ReasonCode == 1101 && $refund->TransactionModificationResult->ReasonCodeDescription == "Transaction successful"){
+					return $referencenumber;
+				} else {
+					$this->errors = "Error al desembolsar";
+				}
+			} else {
+					$this->errors = "Error al capturar";
+			}
+			
 		}else {
 			$this->errors = $result->AuthorizeResult->CreditCardTransactionResults->OriginalResponseCode;
 			return -1;
@@ -84,6 +96,41 @@ class credomatic {
 
 		
 	}
+
+	/**
+	Type: 1 Catpure
+		  2 Refund
+	*/
+	function captureorrefund($amount,$orderNumber, $type){
+		$options = array(
+		'location' => $this->wsdlurl,
+		'soap_version'=>SOAP_1_1,
+		'exceptions'=>0,
+		'trace'=>1,
+		'cache_wsdl'=>WSDL_CACHE_NONE
+		);
+	
+		$client = new SoapClient($this->wsdlurl , $options);
+
+		$datos = array(
+			'Request'=>
+				array(
+				'AcquirerId' => $this->acquirerId,
+				'Amount' => $amount,
+				'CurrencyExponent' => 2,
+				'MerchantId' => $this->facId,
+				'ModificationType' => $type,
+				'OrderNumber' => $orderNumber,
+				'Password' =>$this->password)
+		);
+
+		$result = $client->TransactionModification($datos);
+
+		return $result;
+	}
+
+
+
 
 	function geterrors(){
 		return $this->errors;
