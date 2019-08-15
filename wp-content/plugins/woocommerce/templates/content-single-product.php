@@ -37,6 +37,15 @@ if ( post_password_required() ) {
 	}
 </style>
 <script type="text/javascript">
+	$( document ).ready(function() {
+    	$( "#quantity" ).keyup(function() {		
+		   var cantidad = $("#quantity").val();
+		   var precio   = $("#valor").val();
+		   $("#vtotal").html(cantidad*precio);
+		});
+
+	});
+
 	function siguiente(paso){
 		 $(".step1").hide();
 		 $(".step2").show();
@@ -99,10 +108,10 @@ if ( post_password_required() ) {
 							  				</div>
 							  				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 alright datosevento">
 							  					<div class="col-md-12">
-							  						<span class="spandatosevento"> Q.375 Afiliados </span>
+							  						<span class="spandatosevento"> <?php echo get_woocommerce_currency_symbol()." "; ?> <?= the_field('preciomembresia'); ?>  Afiliados </span>
 							  					</div>
 							  					<div class="col-md-12">
-							  						<span class="spandatosevento"> Q.500 No Afiliados </span>
+							  						<span class="spandatosevento"> <?php echo get_woocommerce_currency_symbol()." "; ?> <?= $product->get_regular_price(); ?> No Afiliados </span>
 							  					</div>
 							  					
 							  				</div>
@@ -111,7 +120,9 @@ if ( post_password_required() ) {
 						  					<div class="separadorgris topdiez"></div>
 							  				<div class="row">
 							  					<div class="col-lg-8 col-md-8 col-sm-6 col-xs-12 datosevento">
-							  						<div class="alleft topdiez"><a class="btn-vermas" href="#"><span class="texto-btn">Cuentas con membresía</span><span class="separador">|</span><span class="estilo-mas">+</span></a></div>
+							  						<?php if (!is_customer()) : ?>
+							  							<div class="alleft topdiez"><a class="btn-vermas" href="#"><span class="texto-btn">Cuentas con membresía</span><span class="separador">|</span><span class="estilo-mas">+</span></a></div>
+							  						<?php endif; ?>
 							  					</div>
 							  					<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 alright datosevento">
 							  						<div class="alright topdiez"><a class="btn-vermas" onclick="siguiente(2)"><span class="texto-btn">Siguiente</span><span class="separador">|</span><span class="estilo-mas">+</span></a></div>
@@ -127,7 +138,7 @@ if ( post_password_required() ) {
 								  						<span class="titrojo">Precio</span>	
 								  					</div>
 								  					<div class="col-md-12">
-								  						<span class="spandatosevento"> Q.375 Afiliados </span>
+								  						<span class="spandatosevento"> <?= the_field('preciomembresia');  ?> Afiliados </span>
 								  					</div>							  					
 								  				</div>
 							  					<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 alcenter datosevento">
@@ -135,8 +146,9 @@ if ( post_password_required() ) {
 								  						<span class="titrojo">Cantidad</span>
 								  					</div>
 								  					<div class="col-md-12 ">
-								  						<span class="spandatosevento">							  							
-								  							<input type="number" id="quantity_5d3f4a7d1b038" class="input-text qty text" step="1" min="1" max="" name="quantity" value="1" title="Qty" size="4" inputmode="numeric">
+								  						<span class="spandatosevento">
+								  							<input type="hidden" name="valor" id="valor" value="<?= $product->get_price() ;?>">
+								  							<input type="number" id="quantity" class="input-text qty text" step="1" min="1" max="" name="quantity" value="1" title="Qty" size="4" inputmode="numeric">
 								  						</span>
 								  					</div>					  					
 							  					</div>
@@ -145,14 +157,16 @@ if ( post_password_required() ) {
 						  								<span class="titrojo">Total</span>		
 						  							</div>
 						  							<div class="col-md-12">
-						  								<span class="spandatosevento"> Q.1125.00 </span>
+						  								<span class="spandatosevento"> <?php echo get_woocommerce_currency_symbol()." "; ?> <span id="vtotal"><?= $product->get_price(); ?></span>  </span>
 						  							</div>				  					
 						  						</div>
 					  						</div>
 					  						<div class="separadorgris topdiez"></div>
 								  			<div class="row">
 							  					<div class="col-lg-8 col-md-8 col-sm-6 col-xs-12 datosevento">
-							  						<div class="alleft topdiez"><a class="btn-vermas" href="#"><span class="texto-btn">Cuentas con membresía</span><span class="separador">|</span><span class="estilo-mas">+</span></a></div>
+							  						<?php if (!is_customer()) : ?>
+							  							<div class="alleft topdiez"><a class="btn-vermas" href="#"><span class="texto-btn">Cuentas con membresía</span><span class="separador">|</span><span class="estilo-mas">+</span></a></div>
+							  						<?php endif; ?>
 							  					</div>
 							  					<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 alright datosevento">
 							  						<button id="add-to-cart" type="submit" name="add-to-cart" value="<?php echo $product->get_id(); ?>" class="single_add_to_cart_button button alt">Add to cart</button>

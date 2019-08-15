@@ -58,19 +58,17 @@ class credomatic {
 		'Amount' => $amount,
 		'Currency' => $this->currency,
 		'CurrencyExponent' => 2,
-		'IPAddress' => '',
+		'IPAddress' => $this->getUserIP(),
 		'MerchantId' => $this->facId,
 		'OrderNumber' =>
 		$this->orderNumber,
 		'Signature' => $signature,
 		'SignatureMethod' => 'SHA1',
 		'TransactionCode' => '0');
-		// The request data is named 'Request' for reasons that are not clear!
+		
 		$AuthorizeRequest = array('Request' => array('CardDetails' => $CardDetails,
 		'TransactionDetails' => $TransactionDetails));
-		// For debug, to check the values are OK
-		//var_dump($AuthorizeRequest);
-		// Call the Authorize through the Client
+		
 		$result = $client->Authorize($AuthorizeRequest);
 
 
@@ -90,7 +88,8 @@ class credomatic {
 			}
 			
 		}else {
-			$this->errors = $result->AuthorizeResult->CreditCardTransactionResults->OriginalResponseCode;
+			$error = "ResponseCode:".$result->AuthorizeResult->CreditCardTransactionResults->ResponseCode." ReasonCode: ".$result->AuthorizeResult->CreditCardTransactionResults->ReasonCode. " ReasonCodeDescription ".$result->AuthorizeResult->CreditCardTransactionResults->ReasonCodeDescription;
+			$this->errors = $error;
 			return -1;
 		}
 
@@ -135,6 +134,27 @@ class credomatic {
 	function geterrors(){
 		return $this->errors;
 	}
+
+	function getUserIP() {
+	    $ipaddress = '';
+		    if (isset($_SERVER['HTTP_CLIENT_IP']))
+		        $ipaddress = $_SERVER['HTTP_CLIENT_IP'];
+		    else if(isset($_SERVER['HTTP_X_FORWARDED_FOR']))
+		        $ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
+		    else if(isset($_SERVER['HTTP_X_FORWARDED']))
+		        $ipaddress = $_SERVER['HTTP_X_FORWARDED'];
+		    else if(isset($_SERVER['HTTP_X_CLUSTER_CLIENT_IP']))
+		        $ipaddress = $_SERVER['HTTP_X_CLUSTER_CLIENT_IP'];
+		    else if(isset($_SERVER['HTTP_FORWARDED_FOR']))
+		        $ipaddress = $_SERVER['HTTP_FORWARDED_FOR'];
+		    else if(isset($_SERVER['HTTP_FORWARDED']))
+		        $ipaddress = $_SERVER['HTTP_FORWARDED'];
+		    else if(isset($_SERVER['REMOTE_ADDR']))
+		        $ipaddress = $_SERVER['REMOTE_ADDR'];
+		    else
+		        $ipaddress = 'UNKNOWN';
+	    return $ipaddress;
+		}
 } 
 
 ?>

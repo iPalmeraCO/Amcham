@@ -765,3 +765,11 @@ function remove_order_notes( $fields ) {
 
 //Remover cupon de woocomerce
 remove_action( 'woocommerce_before_checkout_form', 'woocommerce_checkout_coupon_form', 10 ); 
+
+function is_customer(){
+	$user = wp_get_current_user();
+	if ( in_array( 'customer', (array) $user->roles ) ) {
+		return true;
+	}
+	return false;
+}

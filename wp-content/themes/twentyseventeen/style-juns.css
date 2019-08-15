@@ -1507,4 +1507,19 @@ input[type=number]::-webkit-outer-spin-button {
   color: #004584;
 
 }
+
+.woocommerce-checkout p.woocommerce-invalid-required-field span.error, .errorsfront {
+   color: #e2401c !important;
+   display: block !important;
+   font-weight: bold !important;
+   font-size: 10px !important;
+}
+
+.woocommerce-order-details__title, .woocommerce-column__title {
+    padding: 0px;
+    font-size: 17px !important;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    display: inline-block;
+}
 /* */
