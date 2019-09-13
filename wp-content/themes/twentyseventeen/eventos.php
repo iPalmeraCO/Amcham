@@ -4,12 +4,53 @@ get_header(); ?>
 	<div class="banner">
 		<?php echo get_the_post_thumbnail( get_the_ID() , 'full' );	?>
 		<div class="containertits">
-		 	<h1 class="tit1 titulo-light tit-light-margindos"><?php echo get_post_meta($post->ID, 'titulobanner1', true); ?></h1>
+		 	<h1 class="tit1 titulo-light tit-light-margindos tit-nuestros"><?php echo get_post_meta($post->ID, 'titulobanner1', true); ?></h1>
 		 	<h1 class="titulo-bold-dos"><?php echo get_post_meta($post->ID, 'titulobanner2', true); ?></h1>
 		</div>	
 	</div>
 </div>
 <div class="container">
+<?php 
+define ("CATEVENTOID", 29);
+   
+   $category_id = CATEVENTOID;   
+   $months = list_months_bycategory($category_id,"product");	
+
+	
+	$args = array('child_of' => CATEVENTOID, 'taxonomy' => "product_cat");
+	$subcategories = get_categories( $args );   	
+	
+?>
+
+<div class="filtros row top5">
+		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+			<h3>Categoría</h3>					
+			<select name="categoria" id="categoria">
+						<option value="eventos">Todos</option>
+				<?php foreach($subcategories as $sub): ?>
+						<option value="<?= $sub->slug ?>"><?= $sub->name ?> </option>
+				<?php endforeach; ?>
+			</select>
+		</div>
+
+		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+			<h3>Mes</h3>					
+			<select name="mes" id="mes">
+						<option value="-1">Todos</option>
+				<?php foreach($months as $month): ?>
+						<option value="<?= $month ?>"><?= get_month_spanish($month); ?> </option>
+				<?php endforeach; ?>
+			</select>
+		</div>	
+		<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+			<h3>Palabra clave</h3>
+			<input type="text" name="pbuscar" id="pbuscar">
+		</div>	
+		<div class="row center w100 contbuscar">					
+				<a class="btn-vermas" onclick="filter_posts_eventos()" style="margin: 0px auto">BUSCAR</a>	
+		</div>
+	
+<div class="contenteventos"> 
 	<?php 
 
 	 $args  = array(
@@ -86,11 +127,58 @@ get_header(); ?>
 		$contador++;
 		endwhile;
 	?>
+</div>
 	<!--<div class="boxpag">
 		<ul class="container contaipaginat">
 			<li class="bulletactive element"><a href="#">1</a></li>
 			<li class=" element"><a href="#">2</a></li>
 		</ul>
 	</div>-->
+	<script type="text/javascript">
+    jQuery(document).ready(function(){
+       
+       
+        //filter_posts_by_category('all', 1);
+       
+    });
+
+   
+   
+    var filter_posts_eventos = function(){
+    	
+		var mes     = $("#mes").val();
+		var pbuscar = $("#pbuscar").val(); 
+		var cat     = $("#categoria").val(); 
+    	
+        var ajax_url = '<?= site_url(); ?>'+'/wp-admin/admin-ajax.php';
+       	
+        var total_posts = -1; // -1 for show all posts
+       
+        var data = {
+            'action'   : 'filter_posts_eventos',
+            'mes'      : mes,
+            'pbuscar'  : pbuscar,            
+            'cat'      : cat
+            //'paged'       : npag
+        };
+       
+        jQuery.ajax({
+            method:"POST",
+            url: ajax_url,
+            data: data,
+            beforeSend : function(){
+           
+            },
+            success: function(result){
+                jQuery('.contenteventos').html(result);
+            },
+            error: function(xhr,status,error){
+                // console.log(error);
+            }
+        });
+    }
+   
+    </script>
+
 </div>
 <?php get_footer();

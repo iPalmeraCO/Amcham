@@ -1417,6 +1417,10 @@
   margin-top: 5%;
 }
 
+.contbuscar {
+  margin-top: 10px;
+}
+
 .contderjun{
     height: 272px;
     position: absolute;
@@ -1521,5 +1525,21 @@ input[type=number]::-webkit-outer-spin-button {
     margin-top: 15px;
     margin-bottom: 15px;
     display: inline-block;
+}
+
+.datsocios i {
+  color: #C9012B;
+  margin-right: 10px;
+  width: 15px;
+}
+.w100 {
+  width: 100%;
+}
+
+.imgdest{
+    position: absolute;
+    width: 50px;
+    top: 0px;
+    right: 0px;
 }
 /* */

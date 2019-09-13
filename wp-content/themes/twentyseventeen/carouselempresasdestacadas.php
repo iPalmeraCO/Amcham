@@ -96,7 +96,12 @@ if ( ! current_user_can('administrator') ) {
 </script>
 
 <?php
-$params = array('posts_per_page' => -1, 'category_name' => 'directoriosocios');
+$params = array('posts_per_page' => -1, 'category_name' => 'directoriosocios','meta_query' => array(
+                   'order_clause' => array(
+                        'key' => 'destacada',
+                        'value' => '1',
+                        'type' => 'NUMERIC' // unless the field is not a number
+            )));
 $wc_query = new WP_Query($params);
 ?>
 
@@ -111,9 +116,9 @@ $wc_query = new WP_Query($params);
     <div class="sliderempresa">
       <!--<a href="<?php echo get_permalink();?>">-->
       <a href="#d<?= $post->ID; ?>">
-      <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $loop->post->ID ), 'single-post-thumbnail' );?>
+      <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $wc_query->post->ID ), 'single-post-thumbnail' );?>
       <div class="imgdetalle">
-        <img class="" src="<?php  echo $image[0]; ?>" data-id="<?php echo $loop->post->ID; ?>" alt="">
+        <img class="" src="<?php  echo $image[0]; ?>" data-id="<?php echo $wc_query->post->ID; ?>" alt="">
       </div>   
       </a>
    </div>

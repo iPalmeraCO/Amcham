@@ -4338,6 +4338,113 @@ p > object:only-child {
 
 @import url('https://fonts.googleapis.com/css?family=Anton|Source+Sans+Pro:300,400,600,700,900&display=swap');
 
+
+/* loader */
+
+.loader {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.loader.nover {
+    -webkit-animation: fadeOut 1s;
+    -webkit-animation-fill-mode: forwards;
+    animation: fadeOut 1s;
+    animation-fill-mode: forwards;
+}
+
+.loader-1{
+	transform: translateX(-100px);
+	-webkit-animation: salir 2s infinite;
+    -webkit-animation-fill-mode: salir;
+    animation: salir 3s infinite;
+    animation-fill-mode: salir;
+}
+
+@keyframes fadeOut {
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@keyframes salir {
+    0% {
+		transform: translateX(-100px);
+		opacity: 0;
+	}
+
+	25% {
+		opacity: 1;
+	}
+
+	50% {
+		transform: translateX(0px);
+	}
+
+	75% {
+		opacity: 1;
+	}
+	
+	100% {
+		transform: translateX(100px);
+		opacity: 0;
+    }
+}
+
+/* fin loader */
+
+.butemp .slick-next {
+    right: 15% !important;
+}
+
+.tit-patrocinadores {
+	font-size: 50px;
+	margin-top:110px;
+}
+
+.balianza {
+	color: #004687 !important;
+
+}
+
+.contenttot{
+	margin-bottom: 70px;
+}
+
+.texto-azul-claro{
+	color: #007bff;
+}
+
+.contentcircu {
+    margin-top: -27px;
+}
+
+ul.sub-menu > li.menu-item-has-children > a::after {
+    content: '';
+    position: absolute;
+    height: 0;
+    top: 40%;
+    right: 0;
+	border-top: 3px solid transparent !important;
+	border-bottom: 3px solid transparent !important;
+	border-left: 5px solid #dc002e !important;
+}
+ul#top-menu ul.sub-menu ul.sub-menu li {
+    border-left: 40px solid transparent;
+    margin-left: -40px;
+    display: flex;
+    border-bottom: none !important;
+}
 /* menu */
 
 
@@ -4369,11 +4476,11 @@ header#header{
 
 .cont_all_search_contac{
 	display: flex;
-	align-items: flex-start;
+	flex-direction: column;
 }
 
 .buscador{
-	margin: 0 16px;
+	margin: 0;
 }
 
 .cont_contact_redes{
@@ -4382,6 +4489,9 @@ header#header{
 
 .direccion-header{
 	padding-top:5px;
+}
+.direccion-header > p{
+	margin: 0px;
 }
 
 .header {
@@ -4402,7 +4512,7 @@ ul{
 }
 
 a.login {
-    color: #fff;
+    color: #fff !important;
 	background: #dc002e;
 	font-weight: bold;
     display: flex;
@@ -4411,8 +4521,9 @@ a.login {
 }
 
 a.login:hover {
-	background: #004687;
+	background: #51ABFF;
 	text-decoration: none;
+	color: #fff !important;
 }
 
 .cont_menu_redes_srch, ul#top-menu, .cont_contact_redes {
@@ -4442,7 +4553,7 @@ ul#top-menu li a {
     display: flex;
     align-items: center;
 	height: 2.5625rem;
-	font-size: 20px;
+	font-size: 16px;
 }
 
 ul#top-menu li a:hover {
@@ -4508,9 +4619,24 @@ ul#top-menu li ul.sub-menu li a::after{
 	border-width: 0 0px 0px 0px;
 	border-color: transparent transparent #007bff transparent
 }
+ul#top-menu ul.sub-menu ul.sub-menu::before{
+	display: none;
+}
 
 ul#top-menu li ul.sub-menu li:last-child{
     border-bottom: none;
+}
+ul#top-menu ul.sub-menu ul.sub-menu {
+    right: -240px;
+    top: -11px;
+    display: none;
+    /* box-shadow: 3px 1px 10px 0px rgba(0, 0, 0, 0.1), 3px 1px 10px 0 rgba(0, 0, 0, 0.06); */
+    border-top: 1px inset #efefef40;
+    border-right: 1px outset #efefef40;
+    border-bottom: 1px outset #efefef40;
+}
+ul#top-menu li:hover > ul {
+    display: inline !important;
 }
 
 span.selector-idioma {
@@ -4678,17 +4804,22 @@ li{
 
 ul.listas-con-puntos li{
 	list-style: none;
+	position: relative;
 }
 
 ul.listas-con-puntos li:before {
-    margin-bottom: 4px;
+	position: absolute;
     display: inline-block;
     content: '';
-    background: #C9012B;
+    background: #cc2043;
     height: 5px;
     width: 5px;
     border-radius: 50%;
-    margin-right: 15px;
+    top: 11px;
+    left: -13px;
+}
+ul.listas-con-puntos.blanco li:before {
+    background: #fff !important;
 }
 
 .texto-azul{
@@ -4703,6 +4834,13 @@ ul.listas-con-puntos li:before {
 	background: #004584;
 	padding: 8px 16px;
 	border-radius: 10px;
+
+}
+
+.boton:hover{
+	background: #0ea0d7;
+	text-decoration:none;
+	color: #fff;
 
 }
 
@@ -5622,6 +5760,74 @@ input[type="text"], input[type="email"], input[type="url"], input[type="password
 }
 /* FIN BLOG */
 
+
+/* DETALLE BLOG */
+.aling-hor2 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.content-sidbar {
+    width: 30%;
+}
+
+.content-recent {
+    display: flex;
+}
+
+.widgettitle{
+	font-size: 30px;
+}
+
+.mg_top_blg{
+	margin-top: 5.5rem;
+}
+
+h4.widgettitle {
+	padding: 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid red;
+}
+
+header.entry-header h1.title__detalle {
+    font-weight: bold;
+    font-size: 3rem;
+	padding: 0;
+	color:#004584;
+	font-family: 'Anton', sans-serif;
+}
+
+.img-side {
+	width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 15px;
+    background: rgb(175, 175, 175);
+}
+
+.img-side img {
+    height: 100%;
+    width: auto;
+    max-width: initial;
+}
+
+div.flex__aling a {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+ul li div.flex__aling a:hover {
+	text-decoration: none;
+	box-shadow: none;
+	color: red;
+}
+
+.widget ul li, .widget ol li {
+    border-top: none;
+}
+/* FIN DETALLE BLOG */
+
 .btn-largo{
 	margin: 20px 0 10px 0;
 }
@@ -5691,7 +5897,7 @@ input[type="text"], input[type="email"], input[type="url"], input[type="password
 }
 
 .ftr_logo a img {
-    width: 9.5625rem;
+    width: 7rem;
     max-height: initial;
 }
 
@@ -5765,10 +5971,27 @@ ul#footer-menu li a:hover {
 		display: flex;
 		cursor: pointer;
 		align-items: center;
+		padding-top: 3px;
+		margin-bottom: 0;
 	}
-
+	.menu_text {
+		width: 42px;
+		margin-left: -18px;
+	}
+	li#menu-item-1102 {
+	    display: none;
+	}
+	.contact_resp .menu-item-1114 {
+	    margin-left: 0 !important;
+	}
+	nav.cont_nav_top_cont {
+	    margin-top: 20px;
+	}
 	ul#top-menu{
 		display: block;
+	}
+	article.home-cifras-der {
+	    margin-top: 40px;
 	}
 
 	.cont_menu_resposive {
@@ -6443,6 +6666,13 @@ h2 {
 .padpoliuno{
 	font-size: 27px !important;
 	letter-spacing: 0px;
+	margin-left: -30px;
+	padding: 0 0 0 30px;
+}
+
+.linea-politicas{
+	position: absolute;
+    margin-top: 63px;
 }
 
 .padpolidos{
@@ -6618,6 +6848,11 @@ h2 {
 	display: none;
 }
 
+.tit-nuestros{
+	position: relative;
+    left: -100px;
+}
+
 /* promuevase con nostros */
 
 .promuevase-cont-img {
@@ -6675,3 +6910,6 @@ h2 {
 /* --------------------------------------------------------------------------------- */
 /* FIN MEDIAS QUERIS 767px */
 /* --------------------------------------------------------------------------------- */
+
+
+

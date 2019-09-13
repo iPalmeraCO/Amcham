@@ -694,6 +694,13 @@ function revistas_home() {
 }
 add_shortcode('revistashome', 'revistas_home');
 
+function patrocinadores_home() {
+	ob_start();
+    get_template_part('patrocinadoreshome');
+    return ob_get_clean(); 
+}
+add_shortcode('patrocinadoreshome', 'patrocinadores_home');
+
 
 function directorios_home() {
 	ob_start();
@@ -772,4 +779,103 @@ function is_customer(){
 		return true;
 	}
 	return false;
+}
+
+@ini_set( 'upload_max_size' , '64M' );
+@ini_set( 'post_max_size', '64M');
+@ini_set( 'max_execution_time', '300' );
+
+/**
+ * sidebar
+ */
+require get_parent_theme_file_path( '/sidebar-post.php' );
+
+add_action('wp_ajax_filter_posts_by_category', 'ajax_filter_posts_by_category');
+add_action('wp_ajax_nopriv_filter_posts_by_category', 'ajax_filter_posts_by_category');   
+   
+function ajax_filter_posts_by_category(){
+    get_template_part('directorio-sociosfiltro');
+    die();
+}
+
+function list_years_bycategory($category){
+	global $wpdb;
+	return $wpdb->get_col("SELECT DISTINCT(DATE_FORMAT(post_date_gmt, '%Y'))
+                            FROM $wpdb->posts
+                            LEFT JOIN  $wpdb->term_relationships  as t
+                            ON ID = t.object_id
+                            WHERE post_type = 'post' AND post_status = 'publish' AND t.term_taxonomy_id = $category
+                            GROUP BY DATE_FORMAT(post_date_gmt, '%Y-%m')
+                            ORDER BY post_date_gmt ASC");
+
+
+}
+
+function list_months_bycategory($category,$type){
+	global $wpdb;
+	return $wpdb->get_col("SELECT DISTINCT(DATE_FORMAT(post_date_gmt, '%m') ) AS das
+                            FROM $wpdb->posts
+                            LEFT JOIN  $wpdb->term_relationships  as t
+                            ON ID = t.object_id
+                            WHERE post_type = '".$type."' AND post_status = 'publish' AND t.term_taxonomy_id = $category                            
+                            ORDER BY das ASC");
+
+
+}
+
+function get_month_spanish($number){
+	$meses = array("01" => "Enero", "02"=> "Febrero", "03"=> "Marzo", "04"=> "Abril", "05"=> "Mayo", "06"=> "Junio", "07"=> "Julio", "08"=> "Agosto", "09"=> "Septiembre", "10"=> "Octubre", "11"=> "Noviembre", "12"=> "Diciembre");	
+	return $meses[$number];
+}
+
+
+add_action('wp_ajax_filter_posts_by_date', 'ajax_filter_posts_by_date');
+add_action('wp_ajax_nopriv_filter_posts_by_date', 'ajax_filter_posts_by_date');   
+   
+function ajax_filter_posts_by_date(){
+
+	 $date_query = array();
+	 if ($_POST["mes"] != -1 ){
+	 		$date_query['month'] = $_POST["mes"];
+	 }
+	 if ($_POST["ano"] != -1 ){
+	 		$date_query['year'] = $_POST["ano"];
+	 }	
+	 $_POST["date_query"] = $date_query;
+	 
+	switch ($_POST['tipo']) {
+		case 'revista-business-in-action':
+			get_template_part('revista-business-in-action-filtros');
+			break;
+		case 'comunicados-de-prensa':
+			get_template_part('comunicados-de-prensa-filtros');
+			break;
+
+		default:
+			# code...
+			break;
+	}
+    
+    die();
+}
+
+add_action('wp_ajax_filter_posts_eventos', 'ajax_filter_posts_eventos');
+add_action('wp_ajax_nopriv_filter_posts_eventos', 'ajax_filter_posts_eventos');   
+   
+function ajax_filter_posts_eventos(){
+	$date_query = array();
+	if ($_POST["mes"] != -1 ){
+			$date_query['month'] = $_POST["mes"];
+	}
+	$_POST["date_query"] = $date_query;
+	get_template_part('eventos-filtros');
+    die();
+}
+
+add_action('wp_ajax_filter_posts_staff', 'ajax_filter_posts_staff');
+add_action('wp_ajax_nopriv_filter_posts_staff', 'ajax_filter_posts_staff');   
+   
+function ajax_filter_posts_staff(){		
+	get_template_part('staff-filtros');
+    die();
 }

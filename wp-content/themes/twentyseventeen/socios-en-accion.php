@@ -36,7 +36,7 @@ get_header(); ?>
 					      			<p><?php the_excerpt(); ?></p>
 					      			<div class="fecha-usa"><p><?php the_time('d M, Y') ?></p></div>
 					      			<div class="btnvermas btnvermasdos">
-					      				<a class="btn-vermas"  href="<?php echo get_permalink(); ?>"><span class="texto-btn">Leer más</span><span class="separador">|</span><span class="estilo-mas">+</span></a>
+					      				<a class="btn-vermas"  href="<?php echo get_post_meta($post->ID, 'pdf-socios', true); ?>" download><span class="texto-btn">Descargar</span><span class="separador">|</span><span class="estilo-mas">+</span></a>
 					      			</div>
 					      		</div>
 					      	</div>
@@ -48,7 +48,7 @@ get_header(); ?>
 					      			<h3><?php the_title(); ?></h3>
 					      			<p><?php the_excerpt(); ?></p>
 					      			<div class="fecha-usa"><p><?php the_time('d M, Y') ?></p></div>
-					      			<div class="btnvermas btnvermasdos"><a class="btn-vermas"  href="<?php echo get_permalink(); ?>"><span class="texto-btn">Leer más</span><span class="separador">|</span><span class="estilo-mas">+</span></a></div>
+					      			<div class="btnvermas btnvermasdos"><a class="btn-vermas"  href="<?php echo get_post_meta($post->ID, 'pdf-socios', true); ?>" download><span class="texto-btn">Descargar</span><span class="separador">|</span><span class="estilo-mas">+</span></a></div>
 					      		</div>
 					      	</div>
 					      	</div>

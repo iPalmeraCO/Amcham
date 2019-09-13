@@ -53,6 +53,7 @@ get_header(); ?>
 												</div>
 												
 												<div class="contactomodal">
+													<p><span>Contacto | </span><?php echo get_post_meta($post->ID, 'contacto', true); ?></p>
 													<p><span>Teléfono | </span><?php echo get_post_meta($post->ID, 'telefono', true); ?></p>
 													<p><span>Correo | </span><?php echo get_post_meta($post->ID, 'correo', true); ?></p>
 													<p><span>Dirección | </span><?php echo get_post_meta($post->ID, 'direccion', true); ?></p>

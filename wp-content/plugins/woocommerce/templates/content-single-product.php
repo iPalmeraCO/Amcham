@@ -171,7 +171,7 @@ if ( post_password_required() ) {
 							  					<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 alright datosevento">
 							  						<button id="add-to-cart" type="submit" name="add-to-cart" value="<?php echo $product->get_id(); ?>" class="single_add_to_cart_button button alt">Add to cart</button>
 							  						<input type="hidden" name="is_buy_now" id="is_buy_now" value="1" />
-							  						<div class="alright topdiez"><a class="btn-vermas" onclick="add_to_cart()"><span class="texto-btn">Siguiente</span><span class="separador">|</span><span class="estilo-mas">+</span></a></div>
+							  						<div class="alright topdiez"><a class="btn-vermas" onclick="add_to_cart()"><span class="texto-btn">Siguiente</span><span class="separador">|</span><span class="estilo-mas">></span></a></div>
 							  					</div>
 						  					</div>
 					  					</form>

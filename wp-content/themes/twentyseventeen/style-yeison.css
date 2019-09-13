@@ -17,6 +17,7 @@
 }
 .imagencircu{
 	background: #fff;
+    position: relative;
     width: 80%;
     text-align: center;
     min-height: 330px;
@@ -45,17 +46,20 @@
 	text-align: center;
     margin-bottom: 21px;
 }
-.btn-vermas{
-	background: #004886;
+.btn-vermas {
+    background: #004886;
     color: #ecffff !important;
-    padding: 6px 16px;
-    border-radius: 11px;
-    border-bottom: 2px solid #0D2D46;
-    font-weight: 600;
+    border-radius: 5px;
+    border-bottom: 0px solid #0D2D46;
+    font-size: 14px;
+    line-height: 14px;
+    font-weight: 500;
+    padding: 15px 30px;
+    font-family: Roboto;
 }
-.btn-vermas:hover{
-	color: #ecffff!important;
+.btn-vermas:hover {
     text-decoration: none;
+    background: #dc002e;
 }
 .separador{
 	margin: 0px 3px;
@@ -213,7 +217,7 @@
     margin-top: 136px;
 }
 .marcoizquierdouno{
-    height: 36%;
+    height: 40%;
     margin-top: 61px;
     border-top: 9px solid #50acff;
     border-left: 9px solid #50acff;
@@ -230,7 +234,7 @@
     top: -21%;
 }
 .marcoderechoouno{
-    height: 45%;
+    height: 47%;
     /*height: 36%;*/
     margin-top: 61px;
     border-top: 9px solid #004684;

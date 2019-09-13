@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WordPress - 5.2.x - Development package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2019-08-04 20:26:46+0000\n"
+"PO-Revision-Date: 2019-09-12 12:48:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -153,7 +153,7 @@ msgstr "Por favor, ponte en contacto con tu alojamiento para que te ayude a inve
 
 #: wp-includes/class-wp-fatal-error-handler.php:173
 msgid "The site is experiencing technical difficulties. Please check your site admin email inbox for instructions."
-msgstr "El sitio tiene problemas técnicos. Mira si han llegado instrucciones a la bandeja de correo electrónico del administrador del sitio."
+msgstr "El sitio está experimentando dificultades técnicas. Por favor, revisa el buzón de correo electrónico del administrador de tu sitio para ver las instrucciones."
 
 #: wp-includes/class-wp-recovery-mode.php:177
 msgid "Error occurred on a non-protected endpoint."
@@ -162,7 +162,7 @@ msgstr "El error ocurrió en una variable no protegida."
 #. translators: %s: Login screen title.
 #: wp-login.php:69
 msgid "Recovery Mode &#8212; %s"
-msgstr "Modo de recuperación $#8212; %s"
+msgstr "Modo de recuperación &#8212; %s"
 
 #. translators: Login details notification email subject. %s: Site title
 #: wp-includes/pluggable.php:1988
@@ -7276,7 +7276,7 @@ msgstr "El hash de contenido no coincide con el esperado."
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:544
 msgid "Invalid Content-Disposition supplied. Content-Disposition needs to be formatted as `attachment; filename=\"image.png\"` or similar."
-msgstr "Disposición de contenido facilitada no válida. La disposición de contenido necesita ser formateada como «attachment; filename=\"image.png\"» o similar."
+msgstr "La disposición de contenido facilitada no es válida. La disposición de contenido tiene que tener un formato como «attachment; filename=\"image.png\"» o similar."
 
 #: wp-includes/rest-api/endpoints/class-wp-rest-attachments-controller.php:538
 msgid "No Content-Disposition supplied."
@@ -13232,7 +13232,7 @@ msgstr "j F Y"
 
 #: wp-includes/theme-compat/sidebar.php:93
 msgid "You have searched the %1$s blog archives for <strong>&#8216;%2$s&#8217;</strong>. If you are unable to find anything in these search results, you can try one of these links."
-msgstr "Has buscado en el archivo del blog %1$s por <strong>&#8216;%2$s&#8217;</strong>. Si no consigues encontrar nada en estos resultados de búsqueda puedes probar con uno de estos enlaces."
+msgstr "Has buscado en el archivo del blog %1$s por <strong>&#171;%2$s&#187;</strong>. Si no consigues encontrar nada en estos resultados de búsqueda puedes probar con uno de estos enlaces."
 
 #. translators: 1: blog name, 2: WordPress
 #: wp-includes/theme-compat/footer.php:26

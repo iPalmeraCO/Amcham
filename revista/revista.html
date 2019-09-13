@@ -1,0 +1,152 @@
+
+  <link href="css/dflip.css" rel="stylesheet" type="text/css">
+  <script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
+  <link href="css/themify-icons.css" rel="stylesheet" type="text/css">
+
+<style type="text/css">
+.videosre {
+	display:none;
+}
+.fl {
+	/*margin-left: 15%;*/
+}
+.btndes{
+	background-color: #7FC241;
+    color: #FFF;
+    border-radius: 8px;
+    padding: 10px;
+}
+.flipbook .page-wrapper div{
+	/*width: 400px !important;
+	height: 600px !important;*/
+background-size: 500px 700px !important;
+}
+
+.flipbook{
+	/*width: 100% !important;*/
+}
+.modalimagenes {
+    z-index: 9999999999;
+}
+.carousel-inner > .item > img, .carousel-inner > .item > a > img{
+	margin: 0px auto;
+}
+</style>
+
+
+
+
+<div class="container">
+<div id="flipbookContainer">
+
+</div>
+
+
+<script src="js/dflip.js" type="text/javascript"></script>
+
+
+<script>
+
+    //  if dflip assets location are not in current folder, relative or absolute link to the folder is required
+    //  for current example not required
+    //  var dFlipLocation = "examples/";
+
+    var flipBook;
+
+    
+    
+    window.onload = function() {
+
+      var div = jQuery(".container").width();      
+
+      var mode= DFLIP.PAGE_MODE.DOUBLE;
+      if (div < 768){
+      mode= DFLIP.PAGE_MODE.SINGLE;
+      
+      //jQuery(".rowtitrevista").insertBefore(".todosarticulos");  
+      } 
+      jQuery(".todosarticulos").insertBefore(".colomio_news_div");  
+      
+        //make sure this file is hosted in localhost or any other server
+        var pdf = "pdf/cuento_gigante_granja_amigos.pdf";
+       /* pdf = ["pages/01.png",   
+              "pages/02.png",   
+              "pages/03.png",   
+              "pages/04.png",   
+              "pages/05.png",   
+              "pages/06.png",   
+              "pages/07.png",   
+              "pages/08.png",   
+              "pages/09.png",   
+              "pages/10.png",   
+              "pages/11.png",   
+              "pages/12.png",   
+              "pages/13.png",   
+              "pages/14.png",   
+              "pages/15.png",   
+              "pages/16.png",   
+              "pages/17.png",   
+              "pages/18.png",   
+              "pages/19.png",   
+              "pages/20.png"]  ; */
+
+        var options = {
+            webgl:false,
+            height: 800,
+            duration: 800,
+            backgroundColor: "#777",
+            direction: DFLIP.DIRECTION.LTR,
+             pageMode: mode,
+            autoEnableOutline:false,  
+             scrollWheel: false,
+          // callbacks
+
+    
+  
+    /*
+    onCreate: function () {
+    cargarlinks();
+    },
+    onCreateUI: function () {
+    cargarlinks();
+    },
+    onFlip: function () {
+    cargarlinks();
+    },
+    beforeFlip: function () {
+    cargarlinks();
+    },
+    onReady: function () {
+    cargarlinks();
+    }*/
+      
+        };
+
+        /**
+         * outline is basically a array of json object as:
+         * {title:"title to appear",dest:"url as string or page as number",items:[]}
+         * items is the same process again array of json objects
+         */
+        /*options.outline = [
+            {title: "Page 1", dest: 1},
+            {title: "Page 2", dest:2},
+            {title: "StackOverflow", dest: "https://stackoverflow.com/",items:[
+                {title:"My Profile",dest :"https://stackoverflow.com/users/6687403/deepak-ghimire"},
+                {title:"Page 3",dest:3}
+            ]}
+        ];*/
+
+
+        flipBook = jQuery("#flipbookContainer").flipBook(pdf, options);
+   
+
+    
+    }
+
+</script>
+
+
+
+
+
+</div>

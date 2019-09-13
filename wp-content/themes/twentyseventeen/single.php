@@ -2,6 +2,9 @@
 if (in_category(6)) {
 include(TEMPLATEPATH . '/single-usaoutlook.php');
 }
+elseif (in_category(43)) {
+    include(TEMPLATEPATH . '/single-all.php');
+}
 elseif (in_category(12)) {
     include(TEMPLATEPATH . '/single-revista-business-in-action.php');
     }
@@ -10,6 +13,9 @@ elseif (in_category(12)) {
     }
      elseif (in_category(14)) {
     include(TEMPLATEPATH . '/single-comunicados-de-prensa.php');
+    }
+    elseif (in_category(9)) {
+    include(TEMPLATEPATH . '/single-blog.php');
     }
 else {
 include(TEMPLATEPATH . '/single-default.php');

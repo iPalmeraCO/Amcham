@@ -59,7 +59,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 							?>
 						</td>
 
-						<td class="product-thumbnail">
+						<td class="product-thumbnail tamaño">
 						<?php
 						$thumbnail = apply_filters( 'woocommerce_cart_item_thumbnail', $_product->get_image(), $cart_item, $cart_item_key );
 

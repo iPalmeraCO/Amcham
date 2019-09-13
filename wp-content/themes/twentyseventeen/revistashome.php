@@ -132,9 +132,9 @@ $wc_query = new WP_Query($params);
     <!-- <a href=""> -->
     <div class="sliderrevista">
       <a href="<?php echo get_permalink();?>">
-      <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $loop->post->ID ), 'single-post-thumbnail' );?>
+      <?php $image = wp_get_attachment_image_src( get_post_thumbnail_id( $wc_query->post->ID ), 'single-post-thumbnail' );?>
       <div class="imgdetalle">
-        <img src="<?php  echo $image[0]; ?>" data-id="<?php echo $loop->post->ID; ?>" alt="">
+        <img src="<?php  echo $image[0]; ?>" data-id="<?php echo $wc_query->post->ID; ?>" alt="">
       </div>   
       </a>
    </div>

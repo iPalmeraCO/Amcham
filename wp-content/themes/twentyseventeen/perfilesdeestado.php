@@ -47,7 +47,7 @@ get_header(); ?>
 					      			<h3><?php the_title(); ?></h3>
 					      			<p><?php the_excerpt(); ?></p>
 					      			<div class="btnvermas">
-					      				<a class="btn-vermas"  target="_blank" href="<?php echo get_post_meta($post->ID, 'link_descarga', true); ?>"><span class="texto-btn">Descargar</span><span class="separador">|</span><span class="estilo-mas">+</span></a>
+					      				<a class="btn-vermas"  target="_blank" href="<?php echo get_post_meta($post->ID, 'link_descarga', true); ?>"><span class="texto-btn">Ver más</span><span class="separador">|</span><span class="estilo-mas">+</span></a>
 					      			</div>
 					      		</div>
 					      		<?php 
@@ -68,7 +68,7 @@ get_header(); ?>
 					      		<div class="contentcircu" style="text-align: center;">
 					      			<h3><?php the_title(); ?></h3>
 					      			<p><?php the_excerpt(); ?></p>
-					      			<div class="btnvermas"><a class="btn-vermas"  target="_blank" href="<?php echo get_post_meta($post->ID, 'link_descarga', true); ?>"><span class="texto-btn">Descargar</span><span class="separador">|</span><span class="estilo-mas">+</span></a></div>
+					      			<div class="btnvermas"><a class="btn-vermas"  target="_blank" href="<?php echo get_post_meta($post->ID, 'link_descarga', true); ?>"><span class="texto-btn">Ver más</span><span class="separador">|</span><span class="estilo-mas">+</span></a></div>
 					      		</div>
 					      		<?php 
 					      			if ($contador == 4 ) { ?>

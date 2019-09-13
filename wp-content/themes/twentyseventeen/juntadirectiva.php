@@ -1,6 +1,14 @@
 <?php /* Template Name: Juntadirectiva */ 
 
 get_header(); ?>
+<style type="text/css">
+@media screen and (min-width: 575px){
+	.fstaff {
+		position: absolute;
+		bottom: 25%;
+	}
+}
+</style>
 
 <!-- <div id="primary" class="content-area">
 	<div class="banner">
@@ -25,6 +33,7 @@ get_header(); ?>
 				<?php 
 					$args = array(
 					    'post_status' => 'publish',
+					    'posts_per_page' => '55',
 					    'tax_query'   => array(
 					        array(
 					            'taxonomy' => 'category',
@@ -82,12 +91,33 @@ get_header(); ?>
 						<?php } ?>
 					</div>
 				 	<div class="containerstaff">
-				 		<div class="titsstaff">
-					 		<h1 class="titulo-bold-dos">Amcham</h1>
-					 		<div class="linea-roja lineastaff"></div>
-							<h1 class="titulo-bold-dos tit2staff">Staff</h1>
-						</div>
-				 		
+				 		<div class="row">
+					 		<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+						 		<div class="titsstaff">
+							 		<h1 class="titulo-bold-dos">Amcham</h1>
+							 		<div class="linea-roja lineastaff"></div>
+									<h1 class="titulo-bold-dos tit2staff">Staff</h1>
+								</div>
+							</div>
+							<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+								<?php 
+								
+								define("CATEGORYSTAFF",4);
+				      			$args = array('child_of' => CATEGORYSTAFF);
+					  			$subcategories = get_categories( $args );
+					  			
+					  			?> 
+								<div class="filtrostaff fstaff"> 
+									<select name="categoria" id="categoria" onchange="filter_posts_staff()">
+										<option value="staff">Todas</option>
+										<?php foreach($subcategories as $category): ?>
+												<option value="<?= $category->slug ?>"><?= $category->name ?> </option>
+										<?php endforeach; ?>
+									</select>
+								</div>	    
+					 		</div>
+				 		</div>
+				 		<div class="contstaff">
 				 		<?php 
 						$args = array(
 					    'post_status' => 'publish',
@@ -105,45 +135,73 @@ get_header(); ?>
 						$columna = 1;
 						$query = new WP_Query( $args );
 
-
-					while ($query->have_posts()) :  $query->the_post();
 						
-						if ($columna == 1) {
-						?>
-						
-						<div class="row">
-						<?php } ?>
-							
-						<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 singlestaff">
-							<div class="csstaff alcenter">
-								<?php $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full'); ?>
-								<img src="<?php echo $featured_img_url; ?>" class="imgjunta">
-								<div class="datossinglestaff">
-									<h3> <?php the_title(); ?> </h3>
-									<p>  <?php echo get_post_meta($post->ID, 'cargo', true); ?> </p>
+							while ($query->have_posts()) :  $query->the_post();
+								
+								if ($columna == 1) {
+								?>
+								
+								<div class="row">
+								<?php } ?>
 									
+								<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 singlestaff">
+									<div class="csstaff alcenter">
+										<?php $featured_img_url = get_the_post_thumbnail_url(get_the_ID(),'full'); ?>
+										<img src="<?php echo $featured_img_url; ?>" onmouseover="this.src='<?php echo get_post_meta($post->ID, 'imagendos', true); ?>'" onmouseout="this.src='<?php echo $featured_img_url; ?>'" class="imgjunta">
+										<div class="datossinglestaff">
+											<h3> <?php the_title(); ?> </h3>
+											<p>  <?php echo get_post_meta($post->ID, 'cargo', true); ?> </p>
+											
+										</div>
+									</div>
 								</div>
-							</div>
-						</div>
 
-						<?php if ($columna == 4) { ?>
-						</div>
-						<?php $columna = 0;
-						} ?>
+								<?php if ($columna == 4) { ?>
+								</div>
+								<?php $columna = 0;
+								} ?>
 
-						<?php 
-						$columna = $columna + 1;
-						endwhile;
+								<?php 
+								$columna = $columna + 1;
+								endwhile;
 
-						if ($columna != 1){ ?>
-						</div>
-						<?php } ?>
-
+								if ($columna != 1){ ?>
+								</div>
+								<?php } ?>
+					 	</div>
 				 	</div>
 				 </div>
 			</div>
 		
 </div><!-- #primary -->
+<script type="text/javascript">
+   
+    var filter_posts_staff = function(){    	
+    	
+        var ajax_url = '<?= site_url(); ?>'+'/wp-admin/admin-ajax.php';       	        
+       
+        var data = {
+            'action'    : 'filter_posts_staff',
+            'cat_slug'    : $("#categoria").val(),          
+        };
+       
+        jQuery.ajax({
+            method:"POST",
+            url: ajax_url,
+            data: data,
+            beforeSend : function(){
+           
+            },
+            success: function(result){
+                jQuery('.contstaff').html(result);
+            },
+            error: function(xhr,status,error){
+                // console.log(error);
+            }
+        });
+    }
+   
+    </script>
 
 <?php
 get_footer();
