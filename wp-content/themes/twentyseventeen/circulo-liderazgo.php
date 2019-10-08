@@ -1,6 +1,13 @@
 <?php /* Template Name: Circulo de liderazgo */ 
 get_header(); ?>
 <div id="primary" class="content-area">
+	<div class="container bread">
+		<div class="cont-bread sobre-amcham">
+			<a class="home" href="<?php echo get_home_url(); ?>"><?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>Home<?php else: ?>Inicio<?php endif; ?></a>
+			<span class="slash">/</span>
+			<div class="home"><?php the_title(); ?></div>
+		</div>
+	</div>
 	<div class="banner">
 		<?php echo get_the_post_thumbnail( get_the_ID() , 'full' );	?>
 		<div class="containertits">
@@ -14,7 +21,7 @@ get_header(); ?>
 	<div class="container linea-roja linerojacirculo"></div>
 	<div class="container patrocinadores-general">
 		<div class="center mtop7">
-			<h3 class="tit-patrocinadores">Patrocinadores</h3>	
+			<h3 class="tit-patrocinadores"><?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>Sponsors<?php else: ?>Patrocinadores<?php endif; ?></h3>	
 		</div>
 		<div>
 			<?php 
@@ -24,7 +31,8 @@ get_header(); ?>
 			       'post_type' => 'post',
 			       'posts_per_page' =>6,
 			       'orderby'=>'date', 
-			       'order' => 'DESC', 
+			       'order' => 'DESC',
+			       'lang' => 'en,es', 
 			       'paged' => $paged
 				);
 				$r = new WP_Query($args); ?>
@@ -53,10 +61,10 @@ get_header(); ?>
 												</div>
 												
 												<div class="contactomodal">
-													<p><span>Contacto | </span><?php echo get_post_meta($post->ID, 'contacto', true); ?></p>
-													<p><span>Teléfono | </span><?php echo get_post_meta($post->ID, 'telefono', true); ?></p>
-													<p><span>Correo | </span><?php echo get_post_meta($post->ID, 'correo', true); ?></p>
-													<p><span>Dirección | </span><?php echo get_post_meta($post->ID, 'direccion', true); ?></p>
+													<p><span><?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>Contact<?php else: ?>Contacto<?php endif; ?> | </span><?php echo get_post_meta($post->ID, 'contacto', true); ?></p>
+													<p><span><?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>Phone<?php else: ?>Teléfono<?php endif; ?> | </span><?php echo get_post_meta($post->ID, 'telefono', true); ?></p>
+													<p><span><?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>Email<?php else: ?>Correo<?php endif; ?> | </span><?php echo get_post_meta($post->ID, 'correo', true); ?></p>
+													<p><span><?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>Address<?php else: ?>Dirección<?php endif; ?> | </span><?php echo get_post_meta($post->ID, 'direccion', true); ?></p>
 												</div>
 											</div>
 										</div>
@@ -72,7 +80,7 @@ get_header(); ?>
 					      		<div class="contentcircu">
 					      			<h3><?php the_title(); ?></h3>
 					      			<p><?php the_excerpt(); ?></p>
-					      			<div class="btnvermas"><a class="btn-vermas" data-toggle="modal" href="#modal-<?php echo get_the_ID(); ?>"><span class="texto-btn">Ver más</span><span class="separador">|</span><span class="estilo-mas">+</span></a></div>
+					      			<div class="btnvermas"><a class="btn-vermas" data-toggle="modal" href="#modal-<?php echo get_the_ID(); ?>"><span class="texto-btn"><?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>View more<?php else: ?>Ver más<?php endif; ?></span><span class="separador">|</span><span class="estilo-mas">+</span></a></div>
 					      		</div>
 					      	</div>
 					    <?php }
@@ -82,7 +90,7 @@ get_header(); ?>
 					      		<div class="contentcircu">
 					      			<h3><?php the_title(); ?></h3>
 					      			<p><?php the_excerpt(); ?></p>
-					      			<div class="btnvermas"><a class="btn-vermas" data-toggle="modal" href="#modal-<?php echo get_the_ID(); ?>"><span class="texto-btn">Ver más</span><span class="separador">|</span><span class="estilo-mas">+</span></a></div>
+					      			<div class="btnvermas"><a class="btn-vermas" data-toggle="modal" href="#modal-<?php echo get_the_ID(); ?>"><span class="texto-btn"><?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>View more<?php else: ?>Ver más<?php endif; ?></span><span class="separador">|</span><span class="estilo-mas">+</span></a></div>
 					      		</div>
 					      	</div>
 					      </div>
@@ -116,8 +124,14 @@ get_header(); ?>
             				echo '<div class="boxpag"><ul class="container contaipaginat">';
 			            if ($paged != 1){        
 			              $n = $paged - 1;      
-			              
-			                echo '<li><a class="prevconta" href="'.get_site_url()."/circulo-de-liderazgo/page/".$n.'"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>';
+			              	$currentlang = get_bloginfo('language');
+			              	if($currentlang=="en-US"){
+			                	echo '<li><a class="prevconta" href="'.get_site_url()."/en/leadership-circle/page/".$n.'"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>';
+
+			              	}else{
+
+			                	echo '<li><a class="prevconta" href="'.get_site_url()."/circulo-de-liderazgo/page/".$n.'"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>';
+			              	} 
 			                          
 			            } else {
 			              // echo '<li><a class="prev page-numbers" href="#"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>';              
@@ -131,14 +145,24 @@ get_header(); ?>
 			                $class = "";
 			              }
 			              
-			                 echo "<li class='".$class." element'><a href='".get_site_url()."/circulo-de-liderazgo/page/".$cont."'>".$cont."</a></li>";
+			            $currentlang = get_bloginfo('language');
+		              	if($currentlang=="en-US"){
+			            	echo "<li class='".$class." element'><a href='".get_site_url()."/en/leadership-circle/page/".$cont."'>".$cont."</a></li>";
+		              	}else{
+			            	echo "<li class='".$class." element'><a href='".get_site_url()."/circulo-de-liderazgo/page/".$cont."'>".$cont."</a></li>";
+		              	}
 			             
 			              $cont ++;
 			            }
 			            if ($paged != $total_pages){
 			              $n = $paged + 1;
 			              
-			                echo '<li><a class="nextconta" href="'.get_site_url()."/circulo-de-liderazgo/page/".$n.'"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>';
+			                $currentlang = get_bloginfo('language');
+			              	if($currentlang=="en-US"){
+				            	echo '<li><a class="nextconta" href="'.get_site_url()."/en/leadership-circle/page/".$n.'"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>';
+			              	}else{
+				            	echo '<li><a class="nextconta" href="'.get_site_url()."/circulo-de-liderazgo/page/".$n.'"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>';
+			              	}
 			              
 			              
 			            } else {
@@ -155,6 +179,8 @@ get_header(); ?>
    				// endif;
 			 ?>
 		</div>
+		<br>
+		<br>
 	</div>
 <!-- <a class="btn btn-primary" data-toggle="modal" href='#modal-id'>Trigger modal</a> -->
 </div> 

@@ -65,11 +65,11 @@
 </script>
 <body <?php body_class(); ?>>
 
-<div class="loader">
+<!-- <div class="loader">
 	<img src="http://142.93.201.64/Amcham/wp-content/uploads/2019/09/logo-part-1.png" alt="Loading..." class="loader-1" />
 	<img src="http://142.93.201.64/Amcham/wp-content/uploads/2019/09/logo-part-2.png" alt="Loading..." />
 	<div class="load_line"></div>
-</div>
+</div> -->
 
 
 
@@ -117,7 +117,35 @@
 
 <header id="header" class="site-header" role="banner">
 
-	
+	<script>
+	jQuery(document).ready(function($){
+		if ($(window).width() <= 767) {
+		    $(".menu-item-has-children").append("<div class='open-menu-link open'>+</div>");
+		    $('.menu-item-has-children').append("<div class='open-menu-link close'>-</div>");
+		
+		    $('.open').addClass('visible');
+		
+		    $('.open-menu-link').click(function(e){
+		        var childMenu =  e.currentTarget.parentNode.children[1];
+		        if($(childMenu).hasClass('visible')){
+		            $(childMenu).removeClass("visible");
+					$(childMenu).addClass('invisible');
+
+		            $(e.currentTarget.parentNode.children[3]).removeClass("visible");
+		            $(e.currentTarget.parentNode.children[2]).addClass("visible");
+		            $(e.currentTarget.parentNode.children[3]).removeClass("invivisible");
+		        } else {
+		            $(childMenu).addClass("visible");
+		            $(childMenu).removeClass("invisible");
+		
+		            $(e.currentTarget.parentNode.children[2]).addClass("visible");
+		            $(e.currentTarget.parentNode.children[3]).removeClass("visible");
+		            $(e.currentTarget.parentNode.children[2]).removeClass("invivisible");
+		        }
+		    });
+	    }
+	});
+</script>
 
 <?php if ( has_nav_menu( 'top' ) ) : ?>
 	<div class="navigation-top">
@@ -125,11 +153,44 @@
 		<!-- IDIOMAS -->
 		<div class="items">
 			<span class="selector-idioma">	
-				<a href="" class="active">ES</a>
+				<a href="http://142.93.201.64/Amcham/" class="active">ES</a>
 				<span>/</span>
-				<a href="">EN</a>
+				<a href="http://142.93.201.64/Amcham/en/home">EN</a>
 			</span>	
-			<a href="#" class="login">Login</a>
+			<?php  if (is_user_logged_in()): 
+					global $current_user;
+      				 wp_get_current_user();	?>
+      				<span class="name-user" onclick="openDropdown()"><?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>Welcome<?php else: ?>Bienvenido<?php endif; ?> <?= $current_user->display_name; ?></span>
+					<div id="myDropdown" class="dropdown-content">
+						<a href="#home">Home</a>
+						<a href="#about">About</a>
+						<a href="#contact">Contact</a>
+						</div>
+      				 <script>
+					/* When the user clicks on the button, 
+					toggle between hiding and showing the dropdown content */
+					function openDropdown() {
+					  document.getElementById("myDropdown").classList.toggle("show");
+					}
+
+					// Close the dropdown if the user clicks outside of it
+					window.onclick = function(event) {
+					  if (!event.target.matches('.name-user')) {
+					    var dropdowns = document.getElementsByClassName("dropdown-content");
+					    var i;
+					    for (i = 0; i < dropdowns.length; i++) {
+					      var openDropdown = dropdowns[i];
+					      if (openDropdown.classList.contains('show')) {
+					        openDropdown.classList.remove('show');
+					      }
+					    }
+					  }
+					}
+					</script>
+					<a href="<?= site_url() ?>/my-account/customer-logout" class="login"><?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>Logout<?php else: ?>Cerrar sesión<?php endif; ?></a>
+			<?php  else : ?>
+				<a href="<?= site_url() ?>/my-account" class="login">Login</a>
+			<?php endif; ?>
 		</div>	 
 		<!-- FIN IDIOMAS -->
 
@@ -146,12 +207,12 @@
 			<!-- FIN BARRA SUPERIOR  -->
 			<div class="cont_menu_redes_srch">
 
-					<div class="logo">
+					<div class="logo logo-mobile">
 						<?php the_custom_logo(); ?>
 					</div>
 					
 					<input name="ActivaMenu" id="ActivaMenu" type="checkbox" />
-					<label class="botones azul" id="AbreMenu" for="ActivaMenu"><div class="menu_text">MENU</div></label>
+					<label class="botones azul" id="AbreMenu" for="ActivaMenu"><div class="menu_text mobile-menu"><i class="fas fa-bars"></i><span class="mobile-menu-text">Menú </span></div></label>
 					
 					<div class="cont_menu_resposive">
 					<label id="AbreMenu" for="ActivaMenu"><div class="menu_text"><img src="http://142.93.201.64/Amcham/wp-content/uploads/2019/08/cerrar.png"></div></label>
@@ -181,30 +242,43 @@
 						<a href="https://twitter.com/AmchamGT"><img src="<?= site_url(); ?>/wp-content/uploads/2019/07/twitter.png" alt=""></a>
 						<a href="https://www.youtube.com/user/AmChamguate"><img src="<?= site_url(); ?>/wp-content/uploads/2019/07/youtube.png" alt=""></a>
 						<a href="https://gt.linkedin.com/company/amcham-guatemala"><img src="<?= site_url(); ?>/wp-content/uploads/2019/07/linked.png" alt=""></a>
-						<a href="#"><img src="<?= site_url(); ?>/wp-content/uploads/2019/07/instagram.png" alt=""></a>
+						<a href="https://www.instagram.com/amchamgt/"><img src="<?= site_url(); ?>/wp-content/uploads/2019/07/instagram.png" alt=""></a>
 					</div>
 					</div>
 					</div>
 
 				   <div class="cont_all_search_contac">
 					   <div class="cont_contact_redes">
-							<?php wp_nav_menu( array(
-							'theme_location' => 'contacto',
-							'menu_id'        => 'top-contacto',
-							'container' => 'nav',
-							'container_class' => 'cont_nav_top_cont',
-							) ); ?>
+							<?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>
+							<a href="http://142.93.201.64/Amcham/en/contact-us/" class="btn-vermas"> Contact</a>
+							<?php else: ?>
+							<a href="http://142.93.201.64/Amcham/contacto/" class="btn-vermas"> Contacto</a>
+							<?php endif; ?>
 						<!-- REDES -->
 						<div class="h_cont_redes">
-							<a href="#"><img src="http://142.93.201.64/Amcham/wp-content/uploads/2019/07/face.png" alt=""></a>
-							<a href="#"><img src="http://142.93.201.64/Amcham/wp-content/uploads/2019/07/twitter.png" alt=""></a>
-							<a href="#"><img src="http://142.93.201.64/Amcham/wp-content/uploads/2019/07/youtube.png" alt=""></a>
-							<a href="#"><img src="http://142.93.201.64/Amcham/wp-content/uploads/2019/07/linked.png" alt=""></a>
-							<a href="#"><img src="http://142.93.201.64/Amcham/wp-content/uploads/2019/07/instagram.png" alt=""></a>
+							<a href="https://www.facebook.com/amchamguate/"><img src="http://142.93.201.64/Amcham/wp-content/uploads/2019/07/face.png" alt=""></a>
+							<a href="https://twitter.com/AmchamGT"><img src="http://142.93.201.64/Amcham/wp-content/uploads/2019/07/twitter.png" alt=""></a>
+							<a href="https://www.youtube.com/user/AmChamguate"><img src="http://142.93.201.64/Amcham/wp-content/uploads/2019/07/youtube.png" alt=""></a>
+							<a href="https://gt.linkedin.com/company/amcham-guatemala"><img src="http://142.93.201.64/Amcham/wp-content/uploads/2019/07/linked.png" alt=""></a>
+							<a href="https://www.instagram.com/amchamgt/"><img src="http://142.93.201.64/Amcham/wp-content/uploads/2019/07/instagram.png" alt=""></a>
 						</div>
 					   </div>
 					   <!-- FIN REDES -->
-					  <div class="buscador"><?php get_search_form(); ?></div>
+					  <div class="buscador search-web">
+						<div id="mainNavmob" class="navbar search-input collapsed">
+							<form role="search" method="get" id="searchform" class="searchBox" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+								<label class="screen-reader-text" for="s"><?php _x( 'Search for:', 'label' ); ?></label>
+								<div class="inputbuscar" style="display: inline;">
+									<?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>
+									<input style="display: block;" type="text" value="<?php echo get_search_query(); ?>" name="s" id="s" placeholder="Search..." class="buscador" />
+									<?php else: ?>
+									<input style="display: block;" type="text" value="<?php echo get_search_query(); ?>" name="s" id="s" placeholder="Buscar..." class="buscador" />
+									<?php endif; ?>
+									<button style="display: block;" type="submit" id="searchsubmit" value="x" class="banner-text-btn"/><i class="fa fa-search" aria-hidden="true"></i></button>
+								</div>
+							</form>
+						</div>
+					</div>
 				   </div>
 
 			</div>

@@ -1,13 +1,13 @@
 <?php /* Template Name: USA Outlook */ 
 get_header(); ?>
 <div id="primary" class="content-area">
-	<div class="banner">
+	<!-- <div class="banner">
 		<?php echo get_the_post_thumbnail( get_the_ID() , 'full' );	?>
 		<div class="containertits">
 		 	<h1 class="tit1 titulo-light "><?php echo get_post_meta($post->ID, 'titulobanner1', true); ?></h1>
 		 	<h1 class="titulo-bold-dos"><?php echo get_post_meta($post->ID, 'titulobanner2', true); ?></h1>
 		</div>	
-	</div>
+	</div> -->
 	<div class="container">
 		<div>
 			<?php 
@@ -36,7 +36,7 @@ get_header(); ?>
 					      			<p><?php the_excerpt(); ?></p>
 					      			<div class="fecha-usa"><p><?php the_time('d M, Y') ?></p></div>
 					      			<div class="btnvermas btnvermasdos">
-					      				<a class="btn-vermas"  href="<?php echo get_permalink(); ?>"><span class="texto-btn">Leer más</span><span class="separador">|</span><span class="estilo-mas">+</span></a>
+					      				<a class="btn-vermas"  href="<?php echo get_permalink(); ?>"><span class="texto-btn">Ver ahora</span><span class="separador">|</span><span class="estilo-mas">+</span></a>
 					      			</div>
 					      		</div>
 					      	</div>
@@ -48,7 +48,7 @@ get_header(); ?>
 					      			<h3><?php the_title(); ?></h3>
 					      			<p><?php the_excerpt(); ?></p>
 					      			<div class="fecha-usa"><p><?php the_time('d M, Y') ?></p></div>
-					      			<div class="btnvermas btnvermasdos"><a class="btn-vermas"  href="<?php echo get_permalink(); ?>"><span class="texto-btn">Leer más</span><span class="separador">|</span><span class="estilo-mas">+</span></a></div>
+					      			<div class="btnvermas btnvermasdos"><a class="btn-vermas"  href="<?php echo get_permalink(); ?>"><span class="texto-btn">Ver ahora</span><span class="separador">|</span><span class="estilo-mas">+</span></a></div>
 					      		</div>
 					      	</div>
 					      	</div>

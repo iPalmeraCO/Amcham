@@ -37,17 +37,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<?php else : ?>
 
-			<p class="woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received"><?php echo apply_filters( 'woocommerce_thankyou_order_received_text', __( 'Thank you. Your order has been received.', 'woocommerce' ), $order ); ?></p>
+			<?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>
+				<p class="woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received">Thank you. Your order has been received.</p>
+				<p style="text-align: center; margin-top: -30px;">You will receive an email with your order, please check your inbox and/or spam folder.</p>
+			<?php else: ?>
+				<p class="woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received">Gracias. Su pedido ha sido recibido.</p>
+				<p style="text-align: center; margin-top: -30px;">Recibirá un email con su pedido, por favor revise su bandeja de entrada y/o carpeta de spam.</p>
+			<?php endif; ?>
 
 			<ul class="woocommerce-order-overview woocommerce-thankyou-order-details order_details">
 
 				<li class="woocommerce-order-overview__order order">
-					<?php _e( 'Order number:', 'woocommerce' ); ?>
+					<?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>Order number:<?php else: ?>Número de orden:<?php endif; ?>
 					<strong><?php echo $order->get_order_number(); ?></strong>
 				</li>
 
 				<li class="woocommerce-order-overview__date date">
-					<?php _e( 'Date:', 'woocommerce' ); ?>
+					<?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>Date:<?php else: ?>Fecha:<?php endif; ?>
 					<strong><?php echo wc_format_datetime( $order->get_date_created() ); ?></strong>
 				</li>
 
@@ -65,12 +71,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 				<?php if ( $order->get_payment_method_title() ) : ?>
 					<li class="woocommerce-order-overview__payment-method method">
-						<?php _e( 'Payment method:', 'woocommerce' ); ?>
+						<?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>Payment method:<?php else: ?>Método de pago:<?php endif; ?>
 						<strong><?php echo wp_kses_post( $order->get_payment_method_title() ); ?></strong>
 					</li>
 				<?php endif; ?>
 
 			</ul>
+			<br>
+			<div class="alinear-centro check">
+				<?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>
+					<a style="box-shadow: none !important;margin-bottom: -30px;margin-top: 20px;" class="directorios-btn" href="<?php echo get_site_url(); ?>/en/events/">Back</a>
+				<?php else: ?>
+					<a style="box-shadow: none !important;margin-bottom: -30px;margin-top: 20px;" class="directorios-btn" href="<?php echo get_site_url(); ?>/eventos/">Regresar</a>
+				<?php endif; ?>
+			</div>
 
 		<?php endif; ?>
 		

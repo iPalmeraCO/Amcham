@@ -4,6 +4,7 @@
     'post_status' => 'publish',
     'posts_per_page'  => -1,
 	'orderby'          => 'date',
+	'lang' => 'en,es',
 	'order'            => 'ASC',
     'tax_query'   => array(
         array(
@@ -31,7 +32,7 @@
 					<img src="<?php echo $featured_img_url; ?>" onmouseover="this.src='<?php echo get_post_meta($post->ID, 'imagendos', true); ?>'" onmouseout="this.src='<?php echo $featured_img_url; ?>'" class="imgjunta">
 					<div class="datossinglestaff">
 						<h3> <?php the_title(); ?> </h3>
-						<p>  <?php echo get_post_meta($post->ID, 'cargo', true); ?> </p>
+						<p>  <?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?><?php echo get_post_meta($post->ID, 'cargo2', true); ?><?php else: ?><?php echo get_post_meta($post->ID, 'cargo', true); ?><?php endif; ?> </p>
 						
 					</div>
 				</div>

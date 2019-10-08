@@ -18,13 +18,13 @@ if ( ! current_user_can('administrator') ) {
 
     .sliderproyectos .slick-next {
       width: 20%;
-      right: 13% !important;
+      right: 11% !important;
       height: auto !important;
       top: 110% !important;
     }
     .sliderproyectos .slick-prev {
       width: 20%;
-      left: 50% !important;
+      left: 55% !important;
       height: auto;
       top: 110% !important;
     }
@@ -288,7 +288,7 @@ a.directorios-btn {
   }
   </style>
   <?php
-  $params = array('posts_per_page' => -1, 'category_name' => 'patrocinadores');
+  $params = array('posts_per_page' => -1, 'category_name' => 'patrocinadores', 'lang' => 'en,es');
   $wc_query = new WP_Query($params);
   ?>
   <div class="contenedorslider">
@@ -305,9 +305,11 @@ a.directorios-btn {
               <div class="oscurotrans"></div>
               <div class="titulopro"><?php echo the_title(); ?></div>
           </div> -->
-          <div class="proyectimg" style='background: url("<?php echo esc_url( $featured_img_url); ?>");'>
-              <!-- <div class="direccionpro"><img class="icondirec" src="<?php echo get_site_url(); ?>/wp-content/themes/twentyseventeen/images/icons/i-addres.png"><?php echo get_post_meta($post->ID, 'direccionProyecto', true); ?></div> -->
-          </div>
+          <a href="<?php echo get_site_url(); ?>/circulo-de-liderazgo/#c<?php echo get_the_ID(); ?>">
+	          <div class="proyectimg" style='background: url("<?php echo esc_url( $featured_img_url); ?>");'>
+	              <!-- <div class="direccionpro"><img class="icondirec" src="<?php echo get_site_url(); ?>/wp-content/themes/twentyseventeen/images/icons/i-addres.png"><?php echo get_post_meta($post->ID, 'direccionProyecto', true); ?></div> -->
+	          </div>
+          </a>
         </div>
         <div class="imgsig" style='background: url("<?php echo esc_url( $featured_img_url); ?>");'>
           <div class="verdetrans"></div>
@@ -325,14 +327,14 @@ a.directorios-btn {
   </div>
 
 <script type="text/javascript">
-    html = '<div class="flecsigue">Siguiente</div>';
-    html += '<img class="iconflecha" src="<?php echo get_site_url(); ?>/wp-content/uploads/2019/08/r-flecha-1.png">';
-    html += '<div style="position:relative"><img style="display:none;" id="sigimg" src=""><div style="display:none;" class="verdetrans verdetrmovil"></div><div>';
+    html = '<div class="flecsigue"></div>';
+    //html += '<img class="iconflecha" src="<?php echo get_site_url(); ?>/wp-content/uploads/2019/08/r-flecha-1.png">';
+    //html += '<div style="position:relative"><img style="display:none;" id="sigimg" src=""><div style="display:none;" class="verdetrans verdetrmovil"></div><div>';
 
 
-    htmltwo = '<div class="flecante">Anterior</div>';
-    htmltwo += '<img class="iconflecharev" src="<?php echo get_site_url(); ?>/wp-content/uploads/2019/08/l-flecha-1.png">';
-    htmltwo += '<div style="position:relative"><img style="display:none;" id="previmg" src=""><div style="display:none;" class="verdetrans verdetrmovil"></div><div>';
+    htmltwo = '<div class="flecante"></div>';
+    //htmltwo += '<img class="iconflecharev" src="<?php echo get_site_url(); ?>/wp-content/uploads/2019/08/l-flecha-1.png">';
+    //htmltwo += '<div style="position:relative"><img style="display:none;" id="previmg" src=""><div style="display:none;" class="verdetrans verdetrmovil"></div><div>';
 
     jq162 = jQuery.noConflict( true );
     jq162(document).on('ready', function() {

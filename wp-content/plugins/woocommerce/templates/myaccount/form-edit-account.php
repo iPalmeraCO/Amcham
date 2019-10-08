@@ -25,7 +25,7 @@ do_action( 'woocommerce_before_edit_account_form' ); ?>
 	<?php do_action( 'woocommerce_edit_account_form_start' ); ?>
 
 	<p class="woocommerce-form-row woocommerce-form-row--first form-row form-row-first">
-		<label for="account_first_name"><?php esc_html_e( 'First name', 'woocommerce' ); ?>&nbsp;<span class="required">*</span></label>
+		<label for="account_first_name"><?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>First name<?php else: ?>Nombre<?php endif; ?>&nbsp;<span class="required">*</span></label>
 		<input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="account_first_name" id="account_first_name" autocomplete="given-name" value="<?php echo esc_attr( $user->first_name ); ?>" />
 	</p>
 	<p class="woocommerce-form-row woocommerce-form-row--last form-row form-row-last">
@@ -34,7 +34,7 @@ do_action( 'woocommerce_before_edit_account_form' ); ?>
 	</p>
 
 	<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-		<label for="account_display_name"><?php esc_html_e( 'Display name', 'woocommerce' ); ?>&nbsp;<span class="required">*</span></label>
+		<label for="account_display_name"> Usuario <span class="required">*</span></label>
 		<input type="text" class="woocommerce-Input woocommerce-Input--text input-text" name="account_display_name" id="account_display_name" value="<?php echo esc_attr( $user->display_name ); ?>" /> 
 		<!-- <span><em><?php esc_html_e( 'This will be how your name will be displayed in the account section and in reviews', 'woocommerce' ); ?></em></span> -->
 	</p>
@@ -48,17 +48,17 @@ do_action( 'woocommerce_before_edit_account_form' ); ?>
 
 	<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
 		<label for="password_current">Contraseña actual</label>
-		<span>(déjalo en blanco para no cambiarla)</span>
+		<span>(Omitir si no desea cambiar contraseña)</span>
 		<input type="password" class="woocommerce-Input woocommerce-Input--password input-text" name="password_current" id="password_current" autocomplete="off" />
 	</p>
 	<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
 		<label for="password_1">Nueva contraseña</label>
-		<span>(déjalo en blanco para no cambiarla)</span>
+		<span>(Omitir si no desea cambiar contraseña)</span>
 		<input type="password" class="woocommerce-Input woocommerce-Input--password input-text" name="password_1" id="password_1" autocomplete="off" />
 	</p>
 	<p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
 		<label for="password_2">Confirmar nueva contraseña</label>
-		<span>(déjalo en blanco para no cambiarla)</span>
+		<span>(Omitir si no desea cambiar contraseña)</span>
 		<input type="password" class="woocommerce-Input woocommerce-Input--password input-text" name="password_2" id="password_2" autocomplete="off" />
 	</p>
 	<div class="clear"></div>

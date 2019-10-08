@@ -22,14 +22,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 <div class="dashboard-home">
-	<p><?php
-		printf(
-		__( 'From your account dashboard you can view your <a href="%1$s">recent orders</a>, manage your <a href="%2$s">shipping and billing addresses</a>, and <a href="%3$s">edit your password and account details</a>.', 'woocommerce' ),
-		esc_url( wc_get_endpoint_url( 'orders' ) ),
-		esc_url( wc_get_endpoint_url( 'edit-address' ) ),
-		esc_url( wc_get_endpoint_url( 'edit-account' ) )
-		);
-	?></p>
+	<p><?php printf( __( 'Desde el panel de control de tu cuenta puedes ver tus:', 'woocommerce' ) ); ?>
+		<ul>
+			<li><?php printf( __('<a href="%1$s">Pedidos recientes</a>', 'woocommerce'), esc_url( wc_get_endpoint_url( 'orders' )  )); ?></li>
+			<li><?php printf( __('<a href="%1$s">Direcciones de envío y facturación</a>', 'woocommerce'), esc_url( wc_get_endpoint_url( 'edit-address' )  )); ?></li>
+			<li><?php printf( __('<a href="%1$s">Editar tu contraseña y los detalles de tu cuenta</a>', 'woocommerce'), esc_url( wc_get_endpoint_url( 'edit-account' )  )); ?></li>
+		</ul>
+	</p>
 </div>
 
 <?php

@@ -1,5 +1,15 @@
 <?php /* Template Name: Eventos */ 
 get_header(); ?>
+<div class="loadercontainer">
+	<img src="<?php echo get_site_url(); ?>/wp-content/uploads/2019/09/loader-gif-3.gif" alt="">
+</div>
+<div class="container bread">
+  <div class="cont-bread sobre-amcham">
+    <a class="home" href="<?php echo get_home_url(); ?>">Inicio</a>
+    <span class="slash">/</span>
+    <div class="home"><?php the_title(); ?></div>
+  </div>
+</div>
 <div id="primary" class="content-area">
 	<div class="banner">
 		<?php echo get_the_post_thumbnail( get_the_ID() , 'full' );	?>
@@ -87,7 +97,7 @@ define ("CATEVENTOID", 29);
 			      				<span class="fechadeevento"><?php echo $product->get_attribute( 'fecha' ); ?></span>
 			      				<span class="horadeevento"><?php echo $product->get_attribute( 'hora' ); ?></span>
 			      			</div>
-			      			<div class="btnvermas btnvermaseventos"><a class="btn-vermas" href="<?php echo get_permalink(); ?>"><span class="texto-btn">Ver más</span><span class="separador">|</span><span class="estilo-mas">+</span></a></div>
+			      			<div class="btnvermas btnvermaseventos"><a class="btn-vermas" href="<?php echo get_permalink(); ?>"><span class="texto-btn">Ver más</span><span class="separador">|</span><span class="estilo-mas">></span></a></div>
 			      		</div>
 			      		<?php 
 			      			if ($contador == 1 ) { ?>
@@ -167,10 +177,11 @@ define ("CATEVENTOID", 29);
             url: ajax_url,
             data: data,
             beforeSend : function(){
-           
+            	jQuery('.loadercontainer').show();
             },
             success: function(result){
                 jQuery('.contenteventos').html(result);
+            	jQuery('.loadercontainer').hide();
             },
             error: function(xhr,status,error){
                 // console.log(error);
@@ -180,5 +191,8 @@ define ("CATEVENTOID", 29);
    
     </script>
 
+</div>
+<br>
+	<br>
 </div>
 <?php get_footer();

@@ -1,7 +1,15 @@
 <?php /* Template Name: Nuestroscomites */ 
 
 get_header(); ?>
-
+<div class="container bread">
+	<div class="cont-bread sobre-amcham">
+		<a class="home" href="<?php echo get_home_url(); ?>"><?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>Home<?php else: ?>Inicio<?php endif; ?></a>
+		<span class="slash">/</span>
+		<div class="home"><?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>Services<?php else: ?>Servicios<?php endif; ?></div>
+		<span class="slash">/</span>
+		<div class="home"><?php the_title(); ?></div>
+	</div>
+</div>
 <div id="primary" class="content-area">
 	<div class="banner">
 		<?php echo get_the_post_thumbnail( get_the_ID() , 'full' );	?>

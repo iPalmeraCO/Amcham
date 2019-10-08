@@ -22,7 +22,7 @@ get_header(); ?>
 		      endwhile; // End of the loop.
 
 		      define("DIRECTORIODESOSCIOS",10);
-		      $args = array('child_of' => DIRECTORIODESOSCIOS);
+		      $args = array('child_of' => DIRECTORIODESOSCIOS, 'lang' => 'en,es');
 			  $subcategories = get_categories( $args );
 		    ?>
 		</div>
@@ -42,7 +42,7 @@ get_header(); ?>
 					<input type="text" name="nombre" id="nombre">
 				</div>	
 				<div class="row center w100 contbuscar">					
-						<a class="btn-vermas" onclick="filter_posts_by_category(99,1)" style="margin: 0px auto">BUSCAR</a>	
+						<a class="btn-vermas" onclick="filter_posts_by_category(99,1,1)" style="margin: 0px auto">BUSCAR</a>	
 				</div>
 			</div>
 
@@ -52,6 +52,7 @@ get_header(); ?>
 			       'cat' => DIRECTORIODESOSCIOS,
 			       'post_type' => 'post',
 			       'posts_per_page' =>6,
+			       'lang' => 'en,es',
 			       'orderby'=>'destacada', 
 			       'order' => 'desc', 
 			       'paged' => $paged,
@@ -90,17 +91,16 @@ get_header(); ?>
 												
 												<div class="contactomodal">
 													<div class="datsocios">
-									      				<p><span></span><?php echo get_post_meta($post->ID, 'direccion', true); ?></p>
-														<p><span></span><?php echo get_post_meta($post->ID, 'telefono', true); ?></p>
-														<!--<p><span></span><?php echo get_post_meta($post->ID, 'actividad', true); ?></p>-->
+									      				<p><span class="texto-azul-claro">Dirección:  </span><?php echo get_post_meta($post->ID, 'direccion', true); ?></p>
+														<p><span class="texto-azul-claro">Teléfono:  </span><?php echo get_post_meta($post->ID, 'telefono', true); ?></p>														
 									      			</div>
 												</div>
 											</div>
 										</div>
 									</div>
-								</div><!-- /.modal-content -->
-							</div><!-- /.modal-dialog -->
-						</div><!-- /.modal -->
+								</div>
+							</div>
+						</div>
         				<?php if(($contador % 2)!= 0) { ?>
 					      <div class="row">
 					      	<?php $boxrow = 'abierto'; ?>
@@ -115,6 +115,9 @@ get_header(); ?>
 					      			<div class="datsocios"><?php //the_excerpt(); ?>
 					      				<p><i class="fas fa-map-marker-alt"></i><span class="texto-azul-claro">Dirección: </span><?php echo get_post_meta($post->ID, 'direccion', true); ?></p>
 										<p><i class="fas fa-phone"></i><span class="texto-azul-claro">Teléfono:   </span><?php echo get_post_meta($post->ID, 'telefono', true); ?></p>
+										<p><i class="fas fa-envelope"></i><span class="texto-azul-claro">Email:   </span><?php echo get_post_meta($post->ID, 'email', true); ?></p>
+										<p><i class="fas fa-globe"></i><span class="texto-azul-claro">Web:   </span><a target="_blank" href="<?php echo get_post_meta($post->ID, 'web', true); ?>"><?php echo get_post_meta($post->ID, 'web', true); ?></a></p>
+										<p><i class="fas fa-bookmark"></i><span class="texto-azul-claro">Marcas:   </span><?php echo get_post_meta($post->ID, 'marcas', true); ?></p>
 										<!--<p><i class="fas fa-cog"></i><?php echo get_post_meta($post->ID, 'actividad', true); ?></p>-->
 					      			</div>					      			
 					      			<?php if (get_post_meta($post->ID, 'destacada', true) != 0): ?>
@@ -135,6 +138,9 @@ get_header(); ?>
 					      			<div class="datsocios"><?php //the_excerpt(); ?>
 					      				<p><i class="fas fa-map-marker-alt"></i><span class="texto-azul-claro">Dirección: </span><?php echo get_post_meta($post->ID, 'direccion', true); ?></p>
 										<p><i class="fas fa-phone"></i><span class="texto-azul-claro">Teléfono:   </span><?php echo get_post_meta($post->ID, 'telefono', true); ?></p>
+										<p><i class="fas fa-envelope"></i><span class="texto-azul-claro">Email:   </span><?php echo get_post_meta($post->ID, 'email', true); ?></p>
+										<p><i class="fas fa-globe"></i><span class="texto-azul-claro">Web:   </span><a target="_blank" href="<?php echo get_post_meta($post->ID, 'web', true); ?>"><?php echo get_post_meta($post->ID, 'web', true); ?></a></p>
+										<p><i class="fas fa-bookmark"></i><span class="texto-azul-claro">Marcas:   </span><?php echo get_post_meta($post->ID, 'marcas', true); ?></p>
 										<!--<p><i class="fas fa-cog"></i><?php echo get_post_meta($post->ID, 'actividad', true); ?></p>-->
 					      			</div>					      			
 					      			<?php if (get_post_meta($post->ID, 'destacada', true) != 0): ?>
@@ -221,10 +227,16 @@ get_header(); ?>
        
     });
 
+  
    
    
-    var filter_posts_by_category = function(cat, npag){
+    var filter_posts_by_category = function(cat, npag,tip){
     	//Filtrar todos
+    	if (tip  === undefined ){    		
+    		$(window).scrollTop($('.sliderempresa').offset().top);    		
+    	} 
+    	
+
     	var cat_slug = "directoriosocios";  
     	var nombre = "";
     	if (cat != -1){

@@ -798,6 +798,14 @@ function ajax_filter_posts_by_category(){
     die();
 }
 
+add_action('wp_ajax_filter_posts_by_category_blog', 'filter_posts_by_category_blog');
+add_action('wp_ajax_nopriv_filter_posts_by_category_blog', 'filter_posts_by_category_blog');   
+   
+function filter_posts_by_category_blog(){
+    get_template_part('blog-filtro');
+    die();
+}
+
 function list_years_bycategory($category){
 	global $wpdb;
 	return $wpdb->get_col("SELECT DISTINCT(DATE_FORMAT(post_date_gmt, '%Y'))
@@ -829,10 +837,10 @@ function get_month_spanish($number){
 }
 
 
-add_action('wp_ajax_filter_posts_by_date', 'ajax_filter_posts_by_date');
-add_action('wp_ajax_nopriv_filter_posts_by_date', 'ajax_filter_posts_by_date');   
+add_action('wp_ajax_filter_posts_by_date', 'filter_posts_by_date');
+add_action('wp_ajax_nopriv_filter_posts_by_date', 'filter_posts_by_date');   
    
-function ajax_filter_posts_by_date(){
+function filter_posts_by_date(){
 
 	 $date_query = array();
 	 if ($_POST["mes"] != -1 ){
@@ -847,8 +855,17 @@ function ajax_filter_posts_by_date(){
 		case 'revista-business-in-action':
 			get_template_part('revista-business-in-action-filtros');
 			break;
+		case 'doing-business':
+			get_template_part('doing-business-filtros');
+			break;
 		case 'comunicados-de-prensa':
 			get_template_part('comunicados-de-prensa-filtros');
+			break;
+		case 'usa-outlook':
+			get_template_part('usa-outlook-filtros');
+			break;
+		case 'socios-en-accion':
+			get_template_part('socios-en-accion-filtros');
 			break;
 
 		default:
@@ -879,3 +896,42 @@ function ajax_filter_posts_staff(){
 	get_template_part('staff-filtros');
     die();
 }
+
+// start global session for saving the referer url
+function start_session() {
+    if(!session_id()) {
+        session_start();
+    }
+}
+add_action('init', 'start_session', 1);
+
+// get  referer url and save it 
+function redirect_url() {
+    if (! is_user_logged_in()) {
+        $_SESSION['referer_url'] = wp_get_referer();
+    } else {
+        session_destroy();
+    }
+}
+add_action( 'template_redirect', 'redirect_url' );
+
+//login redirect 
+function login_redirect() {
+    if (isset($_SESSION['referer_url'])) {
+        wp_redirect($_SESSION['referer_url']);
+    } else {
+        wp_redirect(home_url());
+    }
+}
+add_filter('woocommerce_login_redirect', 'login_redirect', 1100, 2);
+
+/**
+ * Halt the main query in the case of an empty search 
+ */
+add_filter( 'posts_search', function( $search, \WP_Query $q )
+{
+    if( ! is_admin() && empty( $search ) && $q->is_search() && $q->is_main_query() && $q->is_search('&nbsp;') && $q->is_main_query('&nbsp;'))
+        $search .=" AND 0=1 ";
+
+    return $search;
+}, 10, 2 );

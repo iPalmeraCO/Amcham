@@ -42,7 +42,7 @@ get_header(); ?>
 				// endif;
 
 				the_post_navigation( array(
-					'next_text' => '<span class="screen-reader-text">' . __( 'Next Post', 'twentyseventeen' ) . '</span><span aria-hidden="true" class="nav-subtitle">' . __( 'next', 'twentyseventeen' ) . '</span> ',
+					'next_text' => '<span class="screen-reader-text">' . __( 'Next Post', 'twentyseventeen' ) . '</span><span aria-hidden="true" class="nav-subtitle">' . __( 'Siguiente', 'twentyseventeen' ) . '</span> ',
 					'prev_text' => '<span class="screen-reader-text">' . __( 'Previous Post', 'twentyseventeen' ) . '</span><span aria-hidden="true" class="nav-subtitle">' . __( 'Previous', 'twentyseventeen' ) . '</span> ',
 					'in_same_term' => true,
 				) );

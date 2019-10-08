@@ -4,6 +4,7 @@
 				$args  = array(
 			       'cat' => $_POST["cat_slug"],
 			       'post_type' => 'post',
+			       'lang' => 'es',
 			       'posts_per_page' =>6,
 			       'orderby'=>'destacada', 
 			       'order' => 'DESC', 
@@ -67,12 +68,15 @@
 					      		<div class="contentcircu">
 					      			<h3><?php the_title(); ?></h3>
 					      			<div class="datsocios"><?php //the_excerpt(); ?>
-					      				<p><i class="fas fa-map-marker-alt"></i><span class="texto-azul-claro">Dirección: </span><?php echo get_post_meta($post->ID, 'direccion', true); ?></p>
-										<p><i class="fas fa-phone"></i><span class="texto-azul-claro">Teléfono:   </span><?php echo get_post_meta($post->ID, 'telefono', true); ?></p>
+					      				<p><i class="fas fa-map-marker-alt"></i><span class="texto-azul-claro"><?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>Address<?php else: ?>Dirección<?php endif; ?>: </span><?php echo get_post_meta($post->ID, 'direccion', true); ?></p>
+										<p><i class="fas fa-phone"></i><span class="texto-azul-claro"><?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>Phone<?php else: ?>Teléfono<?php endif; ?>:   </span><?php echo get_post_meta($post->ID, 'telefono', true); ?></p>
+										<p><i class="fas fa-envelope"></i><span class="texto-azul-claro">Email:   </span><?php echo get_post_meta($post->ID, 'email', true); ?></p>
+										<p><i class="fas fa-globe"></i><span class="texto-azul-claro">Web:   </span><a target="_blank" href="<?php echo get_post_meta($post->ID, 'web', true); ?>"><?php echo get_post_meta($post->ID, 'web', true); ?></a></p>
+										<p><i class="fas fa-bookmark"></i><span class="texto-azul-claro"><?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>Brands<?php else: ?>Marcas<?php endif; ?>:   </span><?php echo get_post_meta($post->ID, 'marcas', true); ?></p>
 										<!--<p><i class="fas fa-cog"></i><?php echo get_post_meta($post->ID, 'actividad', true); ?></p>-->
 					      			</div>
 					      			<?php if (get_post_meta($post->ID, 'destacada', true) != 0): ?>
-					      				<div class="btnvermas"><a class="btn-vermas" data-toggle="modal" href="#modal-<?php echo get_the_ID(); ?>"><span class="texto-btn">Ver más</span><span class="separador">|</span><span class="estilo-mas">+</span></a></div>
+					      				<div class="btnvermas"><a class="btn-vermas" data-toggle="modal" href="#modal-<?php echo get_the_ID(); ?>"><span class="texto-btn"><?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>View more<?php else: ?>Ver más<?php endif; ?></span><span class="separador">|</span><span class="estilo-mas">+</span></a></div>
 					      			<?php endif; ?>
 					      		</div>
 					      	</div>
@@ -87,12 +91,14 @@
 					      		<div class="contentcircu">
 					      			<h3><?php the_title(); ?></h3>
 					      			<div class="datsocios"><?php //the_excerpt(); ?>
-					      				<p><i class="fas fa-map-marker-alt"></i><span class="texto-azul-claro">Dirección: </span><?php echo get_post_meta($post->ID, 'direccion', true); ?></p>
-										<p><i class="fas fa-phone"></i><span class="texto-azul-claro">Teléfono:   </span><?php echo get_post_meta($post->ID, 'telefono', true); ?></p>
+					      				<p><i class="fas fa-map-marker-alt"></i><span class="texto-azul-claro"><?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>Address<?php else: ?>Dirección<?php endif; ?>: </span><?php echo get_post_meta($post->ID, 'direccion', true); ?></p>
+										<p><i class="fas fa-phone"></i><span class="texto-azul-claro"><?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>Phone<?php else: ?>Teléfono<?php endif; ?>:   </span><?php echo get_post_meta($post->ID, 'telefono', true); ?></p><p><i class="fas fa-envelope"></i><span class="texto-azul-claro">Email:   </span><?php echo get_post_meta($post->ID, 'email', true); ?></p>
+										<p><i class="fas fa-globe"></i><span class="texto-azul-claro">Web:   </span><a target="_blank" href="<?php echo get_post_meta($post->ID, 'web', true); ?>"><?php echo get_post_meta($post->ID, 'web', true); ?></a></p>
+										<p><i class="fas fa-bookmark"></i><span class="texto-azul-claro"><?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>Brands<?php else: ?>Marcas<?php endif; ?>:   </span><?php echo get_post_meta($post->ID, 'marcas', true); ?></p>
 										<!--<p><i class="fas fa-cog"></i><?php echo get_post_meta($post->ID, 'actividad', true); ?></p>-->
 					      			</div>
 					      			<?php if (get_post_meta($post->ID, 'destacada', true) != 0): ?>
-					      				<div class="btnvermas"><a class="btn-vermas" data-toggle="modal" href="#modal-<?php echo get_the_ID(); ?>"><span class="texto-btn">Ver más</span><span class="separador">|</span><span class="estilo-mas">+</span></a></div>
+					      				<div class="btnvermas"><a class="btn-vermas" data-toggle="modal" href="#modal-<?php echo get_the_ID(); ?>"><span class="texto-btn"><?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>View more<?php else: ?>Ver más<?php endif; ?></span><span class="separador">|</span><span class="estilo-mas">+</span></a></div>
 					      			<?php endif; ?>
 					      		</div>
 					      	</div>

@@ -133,12 +133,16 @@ function init_credomatic_gateway_class(){
             }
             $plugin_dir_url = plugin_dir_url( __FILE__ );
             ?>
-
+            <style type="text/css">
+                #credomatic_input {
+                    display: none;
+                }
+            </style>
             <script type="text/javascript" src="<?php echo $plugin_dir_url; ?>js/credomatic.js"></script>
             <div id="credomatic_input" class="cformev">                
                 <div class="margleeven">
                     <div class="rowefirst rowe">
-                        <span>Número de tarjeta de crédito *</span>
+                        <span><?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>Credit card number<?php else: ?>Número de tarjeta de crédito<?php endif; ?> *</span>
                         <span id="tarjetaerror" class="errorsfront"></span> 
                         <div class="row">
                             <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">                                         
@@ -148,35 +152,35 @@ function init_credomatic_gateway_class(){
                         </div>                       
                     </div>
                     <div class="rowe">
-                        <span>Fecha de expiración*</span>
+                        <span><?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>Expiration date<?php else: ?>Fecha de expiración<?php endif; ?>*</span>
                         <span id="mesanoerror" class="errorsfront"></span> 
                     </div>
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">                            
                             <select id="mes" name="mes">
-                                <option value="" selected="selected" disabled>Mes</option>
-                                <option value="01">Enero</option>
-                                <option value="02">Febrero</option>
-                                <option value="03">Marzo</option>
-                                <option value="04">Abril</option>
-                                <option value="05">Mayo</option>
-                                <option value="06">Junio</option>
-                                <option value="07">Julio</option>
-                                <option value="08">Agosto</option>
-                                <option value="09">Septiembre</option>
-                                <option value="10">Octubre</option>
-                                <option value="11">Noviembre</option>
-                                <option value="12">Diciembre</option>
+                                <option value="" selected="selected" disabled><?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>Month<?php else: ?>Mes<?php endif; ?></option>
+                                <option value="01"><?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>January<?php else: ?>Enero<?php endif; ?></option>
+                                <option value="02"><?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>February<?php else: ?>Febrero<?php endif; ?></option>
+                                <option value="03"><?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>March<?php else: ?>Marzo<?php endif; ?></option>
+                                <option value="04"><?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>April<?php else: ?>Abril<?php endif; ?></option>
+                                <option value="05"><?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>May<?php else: ?>mayo<?php endif; ?></option>
+                                <option value="06"><?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>June<?php else: ?>Junio<?php endif; ?></option>
+                                <option value="07"><?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>July<?php else: ?>Julio<?php endif; ?></option>
+                                <option value="08"><?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>August<?php else: ?>Agosto<?php endif; ?></option>
+                                <option value="09"><?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>September<?php else: ?>Septiembre<?php endif; ?></option>
+                                <option value="10"><?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>October<?php else: ?>Octubre<?php endif; ?></option>
+                                <option value="11"><?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>November<?php else: ?>Noviembre<?php endif; ?></option>
+                                <option value="12"><?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>December<?php else: ?>Diciembre<?php endif; ?></option>
                             </select>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">                            
                             <select id="ano" name="ano">
-                                <option value="" selected="selected" disabled>Año</option>
+                                <option value="" selected="selected" disabled><?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>Year<?php else: ?>Año<?php endif; ?></option>
                             </select>
                         </div>
                     </div>
                     <div class="rowe">
-                        <span>Código de seguridad de la tarjeta *</span>  
+                        <span><?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>Card Security Code<?php else: ?>Código de seguridad de la tarjeta<?php endif; ?> *</span>  
                         <span id="cvverror" class="errorsfront"></span>                                          
                     </div>
                     <div class="rowe">
@@ -184,7 +188,7 @@ function init_credomatic_gateway_class(){
                             <input type="number" name="cvv" id="cvv" class="cvv" maxlength="4">
                         </div>
                         <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12 nopadleft">
-                            <span class="textcvv">3 o 4 dígitos usualmente encontrados debajo del campo de la firma</span>
+                            <span class="textcvv"><?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>3 or 4 digits usually found below the signature field<?php else: ?>3 o 4 dígitos usualmente encontrados debajo del campo de la firma<?php endif; ?></span>
                         </div>
                     </div>
                 </div>

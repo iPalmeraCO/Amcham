@@ -118,7 +118,7 @@ foreach ($product_categories as $p) {
 
 
 <?php
-$params = array('posts_per_page' => -1, 'category_name' => 'revista-business-in-action');
+$params = array('posts_per_page' => -1, 'category_name' => 'revista-business-in-action', 'lang' => 'en,es');
 $wc_query = new WP_Query($params);
 ?>
 

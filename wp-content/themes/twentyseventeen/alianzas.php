@@ -16,7 +16,8 @@ get_header(); ?>
 			       'cat' => 37,
 			       'post_type' => 'post',
 			       'posts_per_page' =>8,
-			       'orderby'=>'date', 
+			       'orderby'=>'date',
+			       'lang' => 'en,es', 
 			       'order' => 'DESC', 
 			       'paged' => $paged
 				);
@@ -36,7 +37,7 @@ get_header(); ?>
 					      			<p><?php the_excerpt(); ?></p>
 					      			<div class="fecha-usa"><p><?php the_time('d M, Y') ?></p></div>
 					      			<div class="btnvermas btnvermasdos">
-					      				<a class="btn-vermas" target="_blank" href="<?php echo get_post_meta($post->ID, 'urlsitioweb', true); ?>"><span class="texto-btn">Visitar sitio Web</span><span class="separador">|</span><span class="estilo-mas">+</span></a>
+					      				<a class="btn-vermas" target="_blank" href="<?php echo get_post_meta($post->ID, 'urlsitioweb', true); ?>"><span class="texto-btn"><?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>Visit website<?php else: ?>Visitar sitio web<?php endif; ?></span><span class="separador">|</span><span class="estilo-mas">+</span></a>
 					      			</div>
 					      		</div>
 					      	</div>
@@ -48,7 +49,7 @@ get_header(); ?>
 					      			<h3><?php the_title(); ?></h3>
 					      			<p><?php the_excerpt(); ?></p>
 					      			<div class="fecha-usa"><p><?php the_time('d M, Y') ?></p></div>
-					      			<div class="btnvermas btnvermasdos"><a class="btn-vermas" target="_blank" href="<?php echo get_post_meta($post->ID, 'urlsitioweb', true); ?>"><span class="texto-btn">Visitar sitio Web</span><span class="separador">|</span><span class="estilo-mas">+</span></a></div>
+					      			<div class="btnvermas btnvermasdos"><a class="btn-vermas" target="_blank" href="<?php echo get_post_meta($post->ID, 'urlsitioweb', true); ?>"><span class="texto-btn"><?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>Visit website<?php else: ?>Visitar sitio web<?php endif; ?></span><span class="separador">|</span><span class="estilo-mas">+</span></a></div>
 					      		</div>
 					      	</div>
 					      	</div>

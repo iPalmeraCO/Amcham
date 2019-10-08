@@ -55,12 +55,12 @@ if ( post_password_required() ) {
 		$("#add-to-cart").click();
 	}
 </script>
-<div class="banner">
-		<img width="1280" height="418" src="http://142.93.201.64/Amcham/wp-content/uploads/2019/07/grupo-personas-2.jpg" class="attachment-full size-full wp-post-image" alt="" sizes="100vw">		<div class="containertits">
-		 	<h1 class="tit1 titulo-light tit-light-margindos">Nuestros</h1>
-		 	<h1 class="titulo-bold-dos">Eventos</h1>
-		</div>	
-	</div>x
+<!-- <div class="banner">
+	<img width="1280" height="418" src="http://142.93.201.64/Amcham/wp-content/uploads/2019/07/grupo-personas-2.jpg" class="attachment-full size-full wp-post-image" alt="" sizes="100vw">		<div class="containertits">
+	 	<h1 class="tit1 titulo-light tit-light-margindos">Nuestros</h1>
+	 	<h1 class="titulo-bold-dos">Eventos</h1>
+	</div>	
+</div> -->
 <div class="container">
 
 <div id="product-<?php the_ID(); ?>" <?php wc_product_class( '', $product ); ?>>
@@ -108,10 +108,10 @@ if ( post_password_required() ) {
 							  				</div>
 							  				<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 alright datosevento">
 							  					<div class="col-md-12">
-							  						<span class="spandatosevento"> <?php echo get_woocommerce_currency_symbol()." "; ?> <?= the_field('preciomembresia'); ?>  Afiliados </span>
+							  						<span class="spandatosevento"> <?php echo get_woocommerce_currency_symbol()." "; ?> <?= the_field('preciomembresia'); ?>  <?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>Membership<?php else: ?>Socio<?php endif; ?> </span>
 							  					</div>
 							  					<div class="col-md-12">
-							  						<span class="spandatosevento"> <?php echo get_woocommerce_currency_symbol()." "; ?> <?= $product->get_regular_price(); ?> No Afiliados </span>
+							  						<span class="spandatosevento"> <?php echo get_woocommerce_currency_symbol()." "; ?> <?= $product->get_regular_price(); ?> <?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>No membership<?php else: ?>No socio<?php endif; ?> </span>
 							  					</div>
 							  					
 							  				</div>
@@ -121,29 +121,33 @@ if ( post_password_required() ) {
 							  				<div class="row">
 							  					<div class="col-lg-8 col-md-8 col-sm-6 col-xs-12 datosevento">
 							  						<?php if (!is_customer()) : ?>
-							  							<div class="alleft topdiez"><a class="btn-vermas" href="#"><span class="texto-btn">Cuentas con membresía</span><span class="separador">|</span><span class="estilo-mas">+</span></a></div>
+							  							<div class="alleft topdiez"><a class="btn-vermas" href="<?php echo get_site_url(); ?>/my-account"><span class="texto-btn"><?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>Membership Accounts<?php else: ?>Cuentas con membresía<?php endif; ?></span><span class="separador">|</span><span class="estilo-mas">></span></a></div>
 							  						<?php endif; ?>
 							  					</div>
 							  					<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 alright datosevento">
-							  						<div class="alright topdiez"><a class="btn-vermas" onclick="siguiente(2)"><span class="texto-btn">Siguiente</span><span class="separador">|</span><span class="estilo-mas">+</span></a></div>
+							  						<div class="alright topdiez"><a class="btn-vermas" onclick="siguiente(2)"><span class="texto-btn"><?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>Next<?php else: ?>Siguiente<?php endif; ?></span><span class="separador">|</span><span class="estilo-mas">></span></a></div>
 							  					</div>
 							  				</div>
 
 					  				</div>
 					  				<div class="steps step2">
-					  					<form class="cart" action="http://142.93.201.64/Amcham/product/xiv-convencion-regional-de-seguridad-4/" method="post" enctype="multipart/form-data">
+					  					<form class="cart" action="" method="post" enctype="multipart/form-data">
 						  					<div class="row"> 
 						  						<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 datosevento">
 								  					<div class="col-md-12">
-								  						<span class="titrojo">Precio</span>	
+								  						<span class="titrojo"><?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>Price<?php else: ?>Precio<?php endif; ?></span>	
 								  					</div>
 								  					<div class="col-md-12">
-								  						<span class="spandatosevento"> <?= the_field('preciomembresia');  ?> Afiliados </span>
+								  						<?php if (is_customer()) : ?>
+								  							<span class="spandatosevento precio"><?php echo get_woocommerce_currency_symbol()." "; ?> <?= the_field('preciomembresia');  ?> <?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>Membership<?php else: ?>socio<?php endif; ?> </span>
+								  						<?php else: ?>
+								  							<span class="spandatosevento precio"><?php echo get_woocommerce_currency_symbol()." "; ?> <?= $product->get_price(); ?> <?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>No membership<?php else: ?>No socio<?php endif; ?> </span>
+								  						<?php endif; ?>
 								  					</div>							  					
 								  				</div>
 							  					<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 alcenter datosevento">
 								  					<div class="col-md-12">
-								  						<span class="titrojo">Cantidad</span>
+								  						<span class="titrojo"><?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>Quantity<?php else: ?>Cantidad<?php endif; ?></span>
 								  					</div>
 								  					<div class="col-md-12 ">
 								  						<span class="spandatosevento">
@@ -165,13 +169,13 @@ if ( post_password_required() ) {
 								  			<div class="row">
 							  					<div class="col-lg-8 col-md-8 col-sm-6 col-xs-12 datosevento">
 							  						<?php if (!is_customer()) : ?>
-							  							<div class="alleft topdiez"><a class="btn-vermas" href="#"><span class="texto-btn">Cuentas con membresía</span><span class="separador">|</span><span class="estilo-mas">+</span></a></div>
+							  							<div class="alleft topdiez"><a class="btn-vermas" href="<?php echo get_site_url(); ?>/my-account"><span class="texto-btn"><?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>Membership Accounts<?php else: ?>Cuentas con membresía<?php endif; ?></span><span class="separador">|</span><span class="estilo-mas">+</span></a></div>
 							  						<?php endif; ?>
 							  					</div>
 							  					<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 alright datosevento">
 							  						<button id="add-to-cart" type="submit" name="add-to-cart" value="<?php echo $product->get_id(); ?>" class="single_add_to_cart_button button alt">Add to cart</button>
 							  						<input type="hidden" name="is_buy_now" id="is_buy_now" value="1" />
-							  						<div class="alright topdiez"><a class="btn-vermas" onclick="add_to_cart()"><span class="texto-btn">Siguiente</span><span class="separador">|</span><span class="estilo-mas">></span></a></div>
+							  						<div class="alright topdiez"><a class="btn-vermas" onclick="add_to_cart()"><span class="texto-btn"><?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>Next<?php else: ?>Siguiente<?php endif; ?></span><span class="separador">|</span><span class="estilo-mas">></span></a></div>
 							  					</div>
 						  					</div>
 					  					</form>
@@ -183,7 +187,7 @@ if ( post_password_required() ) {
 
 			<div class="containerdett2 mtop7">
 			<div class="ctit alcenter">
-				<h3>Le puede Interesar</h3>
+				<h3><?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>It may interest you<?php else: ?>Le puede interesar<?php endif; ?></h3>
 				<div class="linea-roja centd"></div>
 			</div>
 
@@ -220,7 +224,7 @@ if ( post_password_required() ) {
 			            <span class="fechadeevento"><?php echo $product->get_attribute( 'fecha' ); ?></span>
 			      		<span class="horadeevento"><?php echo $product->get_attribute( 'hora' ); ?></span>
 			        </div>
-			        <div class="btnvermas btnvermaseventos"><a class="btn-vermas" href="<?php echo get_permalink(); ?>"><span class="texto-btn">Ver más</span><span class="separador">|</span><span class="estilo-mas">+</span></a></div>
+			        <div class="btnvermas btnvermaseventos"><a class="btn-vermas" href="<?php echo get_permalink(); ?>"><span class="texto-btn"><?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>View more<?php else: ?>Ver más<?php endif; ?></span><span class="separador">|</span><span class="estilo-mas">+</span></a></div>
 			    </div>
 			    
 			</div>
@@ -237,7 +241,7 @@ if ( post_password_required() ) {
 			            <span class="fechadeevento"><?php echo $product->get_attribute( 'fecha' ); ?></span>
 			      		<span class="horadeevento"><?php echo $product->get_attribute( 'hora' ); ?></span>
 			        </div>
-			        <div class="btnvermas btnvermaseventos"><a class="btn-vermas" href="<?php echo get_permalink(); ?>"><span class="texto-btn">Ver más</span><span class="separador">|</span><span class="estilo-mas">+</span></a></div>
+			        <div class="btnvermas btnvermaseventos"><a class="btn-vermas" href="<?php echo get_permalink(); ?>"><span class="texto-btn"><?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>View more<?php else: ?>Ver más<?php endif; ?></span><span class="separador">|</span><span class="estilo-mas">+</span></a></div>
 			    </div>
 			    
 			</div>

@@ -4,7 +4,15 @@
 */
  
 get_header(); ?> 
- 
+<div class="container bread">
+  <div class="cont-bread sobre-amcham">
+    <a class="home" href="<?php echo get_home_url(); ?>">Inicio</a>
+    <span class="slash">/</span>
+    <div class="home">Comunicación</div>
+    <span class="slash">/</span>
+    <div class="home"><?php $cat = get_the_category(); echo $cat[0]->cat_name; ?></div>
+  </div>
+</div> 
 <div class="container">
  
 <?php 
@@ -29,7 +37,7 @@ if ( have_posts() ) : ?>
    $months = list_months_bycategory($category_id,"post");	
 ?>
 
-<div class="filtros row">
+<div class="filtros row" style="margin-top: 40px;">
 		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 			<h3>Mes</h3>					
 			<select name="mes" id="mes">
@@ -54,6 +62,7 @@ if ( have_posts() ) : ?>
 	</div>
 
    <div class="contentrevistasinaction"> 
+	<div class="row contentrevistasinactionrow" style="margin-top: 40px;">
 <?php
  
 	 $cont = 1;
@@ -61,18 +70,15 @@ if ( have_posts() ) : ?>
 	   $args = array( 
 	        'posts_per_page' => -1, 
 	        'orderby'        => 'date', 
-	        'order'          => 'ASC' ,
+	        'order'          => 'DESC' ,
 	        'cat' => $category_id
 	    );
 
 	   $fil = query_posts($args);
 	while ( have_posts() ) : the_post(); ?>
-	<?php if ($cont == 1) : ?>
-	<div class="row">
-	<?php endif; ?>	
-	  <div class="col-lg-4 col-md-4 col-sm-12">
-	    <h6><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h6>
-	<small><?php the_time('F jS, Y') ?> by <?php the_author_posts_link() ?></small>
+	  <div class="col-lg-4 col-md-4 col-sm-12" style="margin-bottom: 60px; margin-top: 0px;">
+	    <h6 style="margin: 10px 0; padding: 0px;"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h6>
+	<small></small>
 	 <a href="<?php the_permalink() ?>">
 	 	<?php the_post_thumbnail( 'full' );  ?>
 	 </a>
@@ -84,23 +90,13 @@ if ( have_posts() ) : ?>
 	 */ ?></p>
 	</div>-->
 	 </div>
-	<?php 
-	$cont++;
-	if ($cont == 3) :  $cont = 1;?>
+	<?php endwhile; ?>
 	</div>
-	<?php endif; 
-	endwhile; 
-	 echo "<h1>".$cont."</h1>";
-	 if ($cont != 3) : ?>
-	<!--</div>-->
-	<?php endif; 
-
-	else: ?>
-	<p>Sorry, no posts matched your criteria.</p>
-	 
-	 
+	<!--</div>-->	 
 	<?php endif; ?>
 	</div> <!-- END CONTENT REVISTAS --> 
+	<br>
+	<br>
 </div>
     
     
@@ -142,7 +138,7 @@ if ( have_posts() ) : ?>
            
             },
             success: function(result){
-                jQuery('.contentrevistasinaction').html(result);
+                jQuery('.contentrevistasinactionrow').html(result);
             },
             error: function(xhr,status,error){
                 // console.log(error);

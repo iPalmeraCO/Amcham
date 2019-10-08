@@ -4,7 +4,15 @@
 */
  
 get_header(); ?> 
- 
+<div class="container bread">
+  <div class="cont-bread sobre-amcham">
+    <a class="home" href="<?php echo get_home_url(); ?>">Inicio</a>
+    <span class="slash">/</span>
+    <div class="home">Comunicación</div>
+    <span class="slash">/</span>
+    <div class="home"><?php $cat = get_the_category(); echo $cat[0]->cat_name; ?></div>
+  </div>
+</div>
 <div class="container">
  
 <?php 
@@ -26,111 +34,89 @@ if ( have_posts() ) : ?>
    $categories = get_the_category();
    $category_id = $categories[0]->cat_ID;
    $years = list_years_bycategory($category_id);
-   $months = list_months_bycategory($category_id,"post");	   
+   $months = list_months_bycategory($category_id,"post"); 
 ?>
 
-<div class="filtros row">
-		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-			<h3>Mes</h3>					
-			<select name="mes" id="mes">
-						<option value="-1">Todos</option>
-				<?php foreach($months as $month): ?>
-						<option value="<?= $month ?>"><?= get_month_spanish($month); ?> </option>
-				<?php endforeach; ?>
-			</select>
-		</div>	
-		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-			<h3>Año</h3>
-			<select id="ano" value="ano">
-				<option value="-1">Todos</option>
-				<?php foreach($years as $year): ?>
-						<option value="<?= $year ?>"><?= $year; ?> </option>
-				<?php endforeach; ?>
-			</select>
-		</div>	
-		<div class="row center w100 contbuscar">					
-				<a class="btn-vermas" onclick="filter_posts_by_date()" style="margin: 0px auto">BUSCAR</a>	
-		</div>
-	</div>
+<div class="filtros row" style="margin-top: 40px;">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+      <h3>Mes</h3>          
+      <select name="mes" id="mes">
+            <option value="-1">Todos</option>
+        <?php foreach($months as $month): ?>
+            <option value="<?= $month ?>"><?= get_month_spanish($month); ?> </option>
+        <?php endforeach; ?>
+      </select>
+    </div>  
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+      <h3>Año</h3>
+      <select id="ano" value="ano">
+        <option value="-1">Todos</option>
+        <?php foreach($years as $year): ?>
+            <option value="<?= $year ?>"><?= $year; ?> </option>
+        <?php endforeach; ?>
+      </select>
+    </div>  
+    <div class="row center w100 contbuscar">          
+        <a class="btn-vermas" onclick="filter_posts_by_date()" style="margin: 0px auto">BUSCAR</a>  
+    </div>
+  </div>
 
-<div class="contentcomunicadosdeprensa">
+   <div class="contentrevistasinaction"> 
+  <div class="row" style="margin-top: 40px; margin-bottom: 40px;">
 <?php
- $years = array();
-
-  if( have_posts() ) {
-    while( have_posts() ) {
-      the_post();
-      $year = get_the_date( 'Y' );
-      if ( ! isset( $years[ $year ] ) ) $years[ $year ] = array();
-      $years[ $year ][] = array( 'title' => get_the_title(), 'permalink' => get_the_permalink(), 'fecha'=>get_the_date() , 'thumbnail' => get_the_post_thumbnail_url());
-    }
-  }
-
-	function sortFunction( $a, $b ) {
-	    return strtotime($a["fecha"]) - strtotime($b["fecha"]);
-	}
-
-
-  
-
-  foreach ($years as $year => $d):
-  	usort($d, "sortFunction"); ?>
-  	
-
-  	<div class="row">
-  	<h3> Comunicados <?= $year ?></h3>
-  		<div class="containersposts">
-  	<?php foreach ($d as $postf):?>
-		
-		<div class="col-lg-6 col-md-6 col-sm-12">
-		    <h6><a href="<?= $postf["permalink"] ?>" rel="bookmark" title="Permanent Link to <?= $postf["title"]; ?>"><?= $postf["title"] ?></a></h6>
-		
-		 <a href="<?= $postf["permalink"] ?>">
-		 	<img src="<?= $postf["thumbnail"]; ?>">
-		 </a>
-		 </p>
-		</div>
-  		
-  	<?php endforeach; ?>
-  		</div>
-  	</div>
-
-  	<?php endforeach; 
-
-  	
-  
-
-// The Loop
-/*while ( have_posts() ) : the_post(); ?>
-  <div class="col-lg-6 col-md-6 col-sm-12">
-    <h6><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h6>
-<small><?php the_time('F jS, Y') ?> by <?php the_author_posts_link() ?></small>
- <a href="<?php the_permalink() ?>">
- 	<?php the_post_thumbnail( 'full' );  ?>
- </a>
- ?></p>
-</div>-->
- </div>
-<?php endwhile */; 
-?>
-</div>
-<?php else: ?>
-<p>Sorry, no posts matched your criteria.</p>
  
- 
-<?php endif; ?>
+   $cont = 1;
+  // The Loop
+     $args = array( 
+          'posts_per_page' => -1, 
+          'orderby'        => 'date', 
+          'order'          => 'DESC' ,
+          'cat' => $category_id
+      );
+
+     $fil = query_posts($args);
+  while ( have_posts() ) : the_post(); ?>
+    <div class="col-lg-4 col-md-4 col-sm-12" style="margin-bottom: 60px; margin-top: 0px;">
+      <h6 style="margin: 10px 0; padding: 0px;"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h6>
+  <small></small>
+   <a href="<?php the_permalink() ?>">
+    <?php the_post_thumbnail( 'full' );  ?>
+   </a>
+  <!--<div class="entry">
+  <?php /* the_content(); ?>
+   
+   <p class="postmetadata"><?php
+    comments_popup_link( 'No comments yet', '1 comment', '% comments', 'comments-link', 'Comments closed');
+   */ ?></p>
+  </div>-->
+   </div>
+  <?php endwhile; ?>
+  </div>
+  <!--</div>-->  
+  <?php endif; ?>
+  </div> <!-- END CONTENT REVISTAS --> 
 </div>
+    
     
   
 <script type="text/javascript">
-	    var filter_posts_by_date = function(){
-    	
-		var mes   = $("#mes").val();
-		var ano   = $("#ano").val(); 
-		var cat   = "<?= $category_id; ?>";
-    	
+    jQuery(document).ready(function(){
+       
+       
+        //filter_posts_by_category('all', 1);
+       
+    });
+
+   
+   
+    var filter_posts_by_date = function(){
+      
+    var mes   = $("#mes").val();
+    var ano   = $("#ano").val(); 
+    var cat   = "<?= $category_id; ?>";
+      
         var ajax_url = '<?= site_url(); ?>'+'/wp-admin/admin-ajax.php';
-       	
+        
         var total_posts = -1; // -1 for show all posts
        
         var data = {
@@ -150,7 +136,7 @@ if ( have_posts() ) : ?>
            
             },
             success: function(result){
-                jQuery('.contentcomunicadosdeprensa').html(result);
+                jQuery('.contentrevistasinaction').html(result);
             },
             error: function(xhr,status,error){
                 // console.log(error);
@@ -159,8 +145,6 @@ if ( have_posts() ) : ?>
     }
    
     </script>
-
-</script>
 
  
  

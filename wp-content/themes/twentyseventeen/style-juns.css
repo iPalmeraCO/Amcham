@@ -939,6 +939,9 @@
 .btnenviar span, .tipboton span{
 	color : #5AAAF3;
 }
+a.btn-vermas > span.ds {
+color: #5AAAF3 !important;
+}
 .contbuttonfrm{
     width: 100%;
     text-align: center;

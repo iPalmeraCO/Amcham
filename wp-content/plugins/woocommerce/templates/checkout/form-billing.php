@@ -27,7 +27,7 @@ defined( 'ABSPATH' ) || exit;
 
 		<!--<h3><?php esc_html_e( 'Detalles de facturación', 'woocommerce' ); ?></h3>-->
 		<div class="ctit alcenter margineventop">
-				<h3>Detalles de facturación</h3>
+				<h3><?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>Billing Details<?php else: ?>Detalles de facturación<?php endif; ?></h3>
 				<div class="linea-roja centd"></div>
 			</div>
 

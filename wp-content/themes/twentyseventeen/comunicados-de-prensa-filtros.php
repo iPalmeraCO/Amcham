@@ -17,7 +17,7 @@
 	   $fil = query_posts($args);
 	while ( have_posts() ) : the_post(); ?>
 	<?php if ($cont == 1) : ?>
-	<div class="row">
+	<div class="row" style="margin-top: 40px; margin-bottom: 40px;">
 	<?php endif; ?>	
 	  <div class="col-lg-4 col-md-4 col-sm-12">
 	    <h6><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h6>

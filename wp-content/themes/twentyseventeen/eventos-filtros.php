@@ -42,7 +42,7 @@
 			      				<span class="fechadeevento"><?php echo $product->get_attribute( 'fecha' ); ?></span>
 			      				<span class="horadeevento"><?php echo $product->get_attribute( 'hora' ); ?></span>
 			      			</div>
-			      			<div class="btnvermas btnvermaseventos"><a class="btn-vermas" href="<?php echo get_permalink(); ?>"><span class="texto-btn">Ver más</span><span class="separador">|</span><span class="estilo-mas">+</span></a></div>
+			      			<div class="btnvermas btnvermaseventos"><a class="btn-vermas" href="<?php echo get_permalink(); ?>"><span class="texto-btn"><?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>View more<?php else: ?>Ver más<?php endif; ?></span><span class="separador">|</span><span class="estilo-mas">+</span></a></div>
 			      		</div>
 			      		<?php 
 			      			if ($contador == 1 ) { ?>
@@ -68,7 +68,7 @@
 			      				<span class="fechadeevento"><?php echo $product->get_attribute( 'fecha' ); ?></span>
 			      				<span class="horadeevento"><?php echo $product->get_attribute( 'hora' ); ?></span>
 			      			</div>
-			      			<div class="btnvermas btnvermaseventos"><a class="btn-vermas" href="<?php echo get_permalink(); ?>"><span class="texto-btn">Ver más</span><span class="separador">|</span><span class="estilo-mas">+</span></a></div>
+			      			<div class="btnvermas btnvermaseventos"><a class="btn-vermas" href="<?php echo get_permalink(); ?>"><span class="texto-btn"><?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>View more<?php else: ?>Ver más<?php endif; ?></span><span class="separador">|</span><span class="estilo-mas">+</span></a></div>
 			      		</div>
 			      		<?php 
 			      			if ($contador == 2) { ?>
@@ -79,6 +79,7 @@
 				</div>
 			<?php
 			}
-		$contador++;
+		$contador++;?>
+		<?php
 		endwhile;
 	?>

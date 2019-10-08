@@ -22,7 +22,7 @@ if ( ! is_ajax() ) {
 }
 ?>
 <?php date('l jS \of F Y h:i:s A'); ?>
-<div id="payment" class="woocommerce-checkout-payment>
+<div id="payment" class="woocommerce-checkout-payment">
  <div class="imgdetevento">
 			 	<img class="bimgdetevent" src="<?php echo get_site_url(); ?>/wp-content/uploads/2019/07/evento-detalle.png">			      			
 			  </div>
@@ -54,7 +54,12 @@ if ( ! is_ajax() ) {
 
 		<?php do_action( 'woocommerce_review_order_before_submit' ); ?>
 
-		<?php echo apply_filters( 'woocommerce_order_button_html', '<button type="submit" class="button alt" name="woocommerce_checkout_place_order" id="place_order" value="' . esc_attr( $order_button_text ) . '" data-value="' . esc_attr( $order_button_text ) . '">' . esc_html( $order_button_text ) . '</button>' ); // @codingStandardsIgnoreLine ?>
+		
+		<?php $currentlang = get_bloginfo('language'); if($currentlang=="en-US"):?>
+		<?php echo apply_filters( 'woocommerce_order_button_html', '<button type="submit" style="margin-top: 20px;" class="button alt" name="woocommerce_checkout_place_order" id="place_order" value="' . esc_attr( $order_button_text ) . '" data-value="' . esc_attr( $order_button_text ) . '">' . esc_html( $order_button_text ) . '</button>' ); // @codingStandardsIgnoreLine ?>
+		<?php else: ?>
+		<?php echo apply_filters( 'woocommerce_order_button_html', '<button type="submit" style="margin-top: 20px;" class="button alt" name="woocommerce_checkout_place_order" id="place_order" value="' . esc_attr( 'Confirmar orden' ) . '" data-value="' . esc_attr( 'Confirmar orden' ) . '">' . esc_html( 'Confirmar orden' ) . '</button>' ); // @codingStandardsIgnoreLine ?>
+		<?php endif; ?>
 
 		<?php do_action( 'woocommerce_review_order_after_submit' ); ?>
 
@@ -62,6 +67,9 @@ if ( ! is_ajax() ) {
 	</div>
 </div>
 </div>
+<br>
+<br>
+<br>
 <?php
 if ( ! is_ajax() ) {
 	do_action( 'woocommerce_review_order_after_payment' );

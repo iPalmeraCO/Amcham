@@ -26,11 +26,12 @@ get_header();?>
 		<div>
 			<?php the_content(); ?>
 		</div>
-		<div class="btnvermas"><a class="btn-vermas" href="<?php echo get_site_url(); ?>/category/revista-business-in-action/"><span class="texto-btn">Volver</span><span class="separador">|</span><span class="estilo-mas">+</span></a></div>
+		<br>
+		<div class="btnvermas"><a class="btn-vermas" onclick="window.history.back();"><span class="texto-btn">Volver</span><span class="separador">|</span><span class="estilo-mas">+</span></a></div>
 		<?php
 		    endwhile; // End of the loop.
 		?>
-
+		<br><br>
 	</div>
 </div>
 <?php get_footer();

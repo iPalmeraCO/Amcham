@@ -1,5 +1,4 @@
-$( document ).ready(function() {
-    console.log( "ready!" );
+$( document ).ready(function() {    
     function listyears(){
 	var min = new Date().getFullYear();
     max = min + 5;
@@ -158,8 +157,22 @@ $( document ).ready(function() {
     }
 
     $('form[name="checkout"]').submit(function(e) {
-    	validarform();
-    	e.preventDefault();	  
-	  	return false;
+    	/* Check credomatic option */
+    	if ($("input[name='payment_method']:checked").val() == "credomatic"){
+	    	validarform();
+	    	e.preventDefault();	  
+		  	return false;
+	  } 
 	});
+
+	 $("input[name='payment_method']").change(function(e) {
+    	/* Check credomatic option */
+    	if (this.value == 'credomatic') { 
+    		 $("#credomatic_input").show(); 
+    	}else{
+    		$("#credomatic_input").hide();
+    	}
+	});
+
+
 });

@@ -4635,9 +4635,7 @@ ul#top-menu ul.sub-menu ul.sub-menu {
     border-right: 1px outset #efefef40;
     border-bottom: 1px outset #efefef40;
 }
-ul#top-menu li:hover > ul {
-    display: inline !important;
-}
+
 
 span.selector-idioma {
 	margin-left: auto;
@@ -4968,6 +4966,15 @@ input[type="text"], input[type="email"], input[type="url"], input[type="password
 	margin-top: -20px;
 	
 }
+.cifras-home{
+	font-size: 60px;
+	color:#9DD0FF;
+	font-weight: 800;
+	font-family: 'Source Sans Pro', sans-serif;
+	padding: 0;
+	margin: 0;
+	margin-top: -20px;
+}
 .texto-blanco{
 	color:#FFF;
 	border-bottom: 1px solid #FFF;
@@ -5223,10 +5230,11 @@ input[type="text"], input[type="email"], input[type="url"], input[type="password
 	position: absolute;
 	top: 93px;
 	z-index: -1;
+	width: 100%;
 }
 
 .membresia-fondo-img img{
-	width: 1250px;
+	width: 100%;
 }
 
 .membresia-posicion-1{
@@ -6296,9 +6304,10 @@ h2 {
 	display: none;
 }
 
-.plataforma-empleo-2{
-	grid-template-columns: 1fr;
-	row-gap: 30px;
+.plataforma-empleo-2 {
+    grid-template-columns: 1fr;
+    row-gap: 0px;
+    margin-bottom: 10px;
 }
 
 .plataforma-empleo-3 h3, .plataforma-empleo-4 h3{
@@ -6502,7 +6511,7 @@ h2 {
 	}
 
 	.home-sobreAmcham .titulo-light{
-		font-size: 50px
+		font-size: 35px
 	}
 
 	.margen-titulo-uno {
@@ -6575,11 +6584,12 @@ h2 {
 
 	.home-membresia-org {
 		grid-template-columns: 1fr;
-		margin-bottom: 50px;
+		margin-bottom: -30px;
 	}
 
 	.home-membresia-cuadros {
-		height: 100%;
+	    height: auto !important;
+	    margin-top: 50px;
 	}
 
 
@@ -6611,7 +6621,7 @@ h2 {
 	}
 
 	.queofrecemos {
-		margin-top: 462px;
+		margin-top: 570px;
 	}
 
 	.tit-anton-peque{
@@ -6856,17 +6866,18 @@ h2 {
 /* promuevase con nostros */
 
 .promuevase-cont-img {
-    width: 300px;
-	height: 300px
+    width: 260px;
+    height: 260px;
+    margin-right: 40px;
 }
 
 .promuevase-cuadro-azul {
-    width: 300px;
-	height: 300px;
+    width: 260px;
+	height: 0px;
 }
 
 .promuevase-textos {
-	width: 309px;
+	width: 290px;
 }
 
 /* contacto */

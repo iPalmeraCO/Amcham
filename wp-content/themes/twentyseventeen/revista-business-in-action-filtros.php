@@ -17,10 +17,9 @@
 	   $fil = query_posts($args);
 	while ( have_posts() ) : the_post(); ?>
 	<?php if ($cont == 1) : ?>
-	<div class="row">
 	<?php endif; ?>	
 	  <div class="col-lg-4 col-md-4 col-sm-12">
-	    <h6><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h6>
+	    <h6 style="margin: 10px 0; padding: 0px;"><a href="<?php the_permalink() ?>" rel="bookmark" title="Permanent Link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a></h6>
 	<small><?php the_time('F jS, Y') ?> by <?php the_author_posts_link() ?></small>
 	 <a href="<?php the_permalink() ?>">
 	 	<?php the_post_thumbnail( 'full' );  ?>
@@ -36,7 +35,6 @@
 	<?php 
 	$cont++;
 	if ($cont == 3) :  $cont = 1;?>
-	</div>
 	<?php endif; 
 	endwhile; 
 	 
